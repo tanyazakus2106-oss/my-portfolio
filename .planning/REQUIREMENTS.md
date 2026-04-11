@@ -10,7 +10,7 @@
 - [ ] **FOUND-01**: Site scaffolded with Astro 6 + Tailwind CSS v4 + MDX Content Collections
 - [ ] **FOUND-02**: Project content schema defined (`content.config.ts`) with typed frontmatter (title, slug, role, accent color, thumbnail, skills, summary)
 - [ ] **FOUND-03**: Root layout shell with sticky header and footer wrapping all pages
-- [ ] **FOUND-04**: Site deploys successfully to Cloudflare Pages
+- [ ] **FOUND-04**: Site deploys successfully to Cloudflare Pages (preview deploy on push to main branch)
 
 ### Header & Navigation
 
@@ -18,7 +18,7 @@
 - [ ] **NAV-02**: Dark/light mode toggle icon in header, persisted to localStorage
 - [ ] **NAV-03**: Hamburger icon triggers full-screen overlay navigation on all viewports
 - [ ] **NAV-04**: Active page indicated in nav
-- [ ] **NAV-05**: Header is fully responsive across mobile and desktop
+- [ ] **NAV-05**: Header and overlay navigation are fully responsive and usable on mobile (touch targets, legible text, no layout shift)
 
 ### Hero
 
@@ -42,7 +42,7 @@
 - [ ] **CASE-03**: Case study uses project accent color for headings, dividers, and highlights
 - [ ] **CASE-04**: Full-bleed image sections supported between text blocks
 - [ ] **CASE-05**: Images are WebP format, max 200KB, using Astro's built-in `<Image>` component
-- [ ] **CASE-06**: Case study page is fully responsive on mobile
+- [ ] **CASE-06**: Case study page is fully readable and correctly laid out on a mobile device
 
 ### About
 
@@ -72,10 +72,22 @@
 
 ### Polish & Interactions
 
-- [ ] **POL-01**: Scroll-triggered entrance animations on page sections (subtle, not distracting)
-- [ ] **POL-02**: Consistent dark/light mode styles across all pages and components
+- [ ] **POL-01**: Scroll-triggered entrance animations on page sections (subtle, not distracting); `prefers-reduced-motion` respected
+- [ ] **POL-02**: Consistent dark/light mode styles across all pages and components — no flash of wrong theme, no unstyled elements
 - [ ] **POL-03**: Typography scale defined and applied consistently (size, weight, line-height)
 - [ ] **POL-04**: Spacing and layout rhythm consistent across all pages
+
+### Responsive Design
+
+- [ ] **RESP-01**: Responsive grid system applied across all pages — layouts reflow correctly from 375px mobile to 1440px desktop with no horizontal overflow
+- [ ] **RESP-02**: Responsive images load appropriately sized assets per viewport using Astro's Image component (no oversized images on mobile)
+- [ ] **RESP-03**: Mobile navigation (overlay nav) verified for touch usability — tap targets meet minimum 44px, no content clipped
+
+### Deployment
+
+- [ ] **DEPLOY-01**: Site deployed to Cloudflare Pages (free tier, unlimited bandwidth, no commercial use restrictions)
+- [ ] **DEPLOY-02**: Performance optimization pass — assets minified, unused CSS purged, image formats and sizes verified before launch
+- [ ] **DEPLOY-03**: Custom domain configured on Cloudflare Pages with HTTPS — site resolves correctly at production URL
 
 ## v2 Requirements
 
@@ -105,26 +117,62 @@
 
 ## Traceability
 
-Populated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01–04 | — | Pending |
-| NAV-01–05 | — | Pending |
-| HERO-01–03 | — | Pending |
-| WORK-01–06 | — | Pending |
-| CASE-01–06 | — | Pending |
-| ABOUT-01–03 | — | Pending |
-| CONT-01–02 | — | Pending |
-| FOOT-01–03 | — | Pending |
-| SEO-01–05 | — | Pending |
-| POL-01–04 | — | Pending |
+| FOUND-01 | Phase 1 — Foundation | Pending |
+| FOUND-02 | Phase 1 — Foundation | Pending |
+| FOUND-03 | Phase 1 — Foundation | Pending |
+| FOUND-04 | Phase 1 — Foundation | Pending |
+| NAV-01 | Phase 2 — Navigation & Design System | Pending |
+| NAV-02 | Phase 2 — Navigation & Design System | Pending |
+| NAV-03 | Phase 2 — Navigation & Design System | Pending |
+| NAV-04 | Phase 2 — Navigation & Design System | Pending |
+| FOOT-01 | Phase 2 — Navigation & Design System | Pending |
+| FOOT-02 | Phase 2 — Navigation & Design System | Pending |
+| FOOT-03 | Phase 2 — Navigation & Design System | Pending |
+| POL-02 | Phase 2 — Navigation & Design System | Pending |
+| POL-03 | Phase 2 — Navigation & Design System | Pending |
+| POL-04 | Phase 2 — Navigation & Design System | Pending |
+| HERO-01 | Phase 3 — Work Index & Case Studies | Pending |
+| HERO-02 | Phase 3 — Work Index & Case Studies | Pending |
+| HERO-03 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-01 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-02 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-03 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-04 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-05 | Phase 3 — Work Index & Case Studies | Pending |
+| WORK-06 | Phase 3 — Work Index & Case Studies | Pending |
+| CASE-01 | Phase 3 — Work Index & Case Studies | Pending |
+| CASE-02 | Phase 3 — Work Index & Case Studies | Pending |
+| CASE-03 | Phase 3 — Work Index & Case Studies | Pending |
+| CASE-04 | Phase 3 — Work Index & Case Studies | Pending |
+| CASE-05 | Phase 3 — Work Index & Case Studies | Pending |
+| POL-01 | Phase 3 — Work Index & Case Studies | Pending |
+| ABOUT-01 | Phase 4 — About, Contact & SEO | Pending |
+| ABOUT-02 | Phase 4 — About, Contact & SEO | Pending |
+| ABOUT-03 | Phase 4 — About, Contact & SEO | Pending |
+| CONT-01 | Phase 4 — About, Contact & SEO | Pending |
+| CONT-02 | Phase 4 — About, Contact & SEO | Pending |
+| CONT-03 | Phase 4 — About, Contact & SEO | Pending |
+| SEO-01 | Phase 4 — About, Contact & SEO | Pending |
+| SEO-02 | Phase 4 — About, Contact & SEO | Pending |
+| SEO-03 | Phase 4 — About, Contact & SEO | Pending |
+| SEO-04 | Phase 4 — About, Contact & SEO | Pending |
+| NAV-05 | Phase 5 — Responsive Design | Pending |
+| CASE-06 | Phase 5 — Responsive Design | Pending |
+| RESP-01 | Phase 5 — Responsive Design | Pending |
+| RESP-02 | Phase 5 — Responsive Design | Pending |
+| RESP-03 | Phase 5 — Responsive Design | Pending |
+| SEO-05 | Phase 6 — Deployment | Pending |
+| DEPLOY-01 | Phase 6 — Deployment | Pending |
+| DEPLOY-02 | Phase 6 — Deployment | Pending |
+| DEPLOY-03 | Phase 6 — Deployment | Pending |
 
 **Coverage:**
-- v1 requirements: 38 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 38 ⚠️
+- v1 requirements: 48 total
+- Mapped to phases: 48 ✓
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-11*
-*Last updated: 2026-04-11 after initial definition*
+*Last updated: 2026-04-11 — Roadmap revised: Responsive Design phase added (Phase 5), Deployment phase added (Phase 6), Polish phase removed, POL-01/POL-02 absorbed into Phases 3 and 2 respectively, FOUND-04 updated from Cloudflare Pages to Vercel, NAV-05/CASE-06 moved to Phase 5, SEO-05 moved to Phase 6, new requirements RESP-01/RESP-02/RESP-03/DEPLOY-01/DEPLOY-02/DEPLOY-03 added*
