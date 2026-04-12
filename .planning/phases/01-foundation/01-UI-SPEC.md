@@ -47,7 +47,7 @@ Declared values (all multiples of 4):
 | xl | 32px | Layout gaps between components |
 | 2xl | 48px | Major section breaks, vertical rhythm between page sections |
 | 3xl | 64px | Page-level vertical padding (top/bottom of full-width sections) |
-| 4xl | 96px | Hero section breathing room, above-fold whitespace |
+| 4xl | 96px | Hero section breathing room, above-fold whitespace. Justification: 64px (3xl) is already reserved for page-level vertical padding on full-width sections; the hero above-fold area requires meaningfully more air than a standard section break to create the visual hierarchy that separates the identity statement from the page body. 96px = 1.5× 64px — a proportional step rather than an arbitrary value. Collapsing hero breathing room to 64px would make it visually indistinguishable from ordinary section spacing. |
 
 Exceptions: Touch targets (nav links, CTA buttons) must be minimum 44px height regardless of visual size — achieved via `min-h-[44px]` padding, not by changing token values. This exception is required for Phase 5 mobile verification (RESP-03) and should be baked into the layout shell's header from Phase 1.
 
@@ -55,16 +55,15 @@ Exceptions: Touch targets (nav links, CTA buttons) must be minimum 44px height r
 
 ## Typography
 
+Phase 1 implements 2 weights only: 400 (Regular) and 600 (Semibold). Weights 500 and 700 will be declared when their phases introduce them (500 in Phase 2 for nav labels; 700 in Phase 3 for the hero display heading).
+
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
 | Body | 16px | 400 (Regular) | 1.6 | All paragraph text, descriptions, case study prose |
-| Label | 13px | 500 (Medium) | 1.4 | Tags, skill badges, captions, nav links, metadata |
 | Heading | 24px | 600 (Semibold) | 1.25 | Section headings (h2), card titles, case study section titles |
-| Display | 48px | 700 (Bold) | 1.1 | Hero name, page titles (h1 only) |
 
 **Notes:**
-- Only two weights used in Phase 1: 400 (Regular) and 600 (Semibold). The 500 and 700 entries above are for future phases (Phase 3 hero, Phase 2 nav labels) — declare in `@theme` now, use in those phases.
-- Maximum 4 type scales total across the entire project. Do not introduce additional sizes in later phases without revising this spec.
+- Maximum 4 type scales total across the entire project. Label (13px / 500) and Display (48px / 700) will be added in their respective phases — do not introduce them before then.
 - Body line-height is 1.6 (not the 1.5 default) to aid readability for long case study prose.
 - Heading line-height is 1.25 to keep multi-line headings visually tight.
 
