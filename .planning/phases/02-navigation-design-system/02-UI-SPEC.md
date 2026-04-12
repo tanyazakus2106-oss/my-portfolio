@@ -30,7 +30,7 @@ Phase 2 delivers the persistent UI shell that every page shares: a sticky header
 | Icon library | Inline SVG (Claude's discretion) | CONTEXT.md D-04 specifies sun/moon icons; no library mandated — inline SVG keeps zero runtime |
 | Font — Heading | DM Sans 600 | Inherited from Phase 1 UI-SPEC; loaded via Google Fonts in BaseLayout |
 | Font — Body | DM Sans 400 | Inherited from Phase 1 UI-SPEC |
-| Font — Nav Labels | DM Sans 500 | Phase 1 UI-SPEC noted weight 500 introduced in Phase 2 for nav labels |
+| Font — Nav Labels | DM Sans 400 | CONTEXT.md D-18: "No new font weights introduced" — nav labels use existing Regular weight |
 
 ---
 
@@ -55,12 +55,12 @@ Exceptions: Nav links and toggle button must have `min-h-[44px]` to satisfy touc
 
 ## Typography
 
-Phase 2 adds weight 500 for nav labels. Full type scale at end of Phase 2:
+Two weights in use across Phase 2 (400 Regular + 600 Semibold). No new weights introduced per CONTEXT.md D-18.
 
 | Role | Size | Weight | Line Height | Phase 2 Usage |
 |------|------|--------|-------------|---------------|
 | Body | 16px | 400 (Regular) | 1.6 | Footer body text, overlay sub-copy if any |
-| Nav Label | 16px | 500 (Medium) | 1.0 | Header inline nav links, overlay nav links |
+| Nav Label | 16px | 400 (Regular) | 1.0 | Header inline nav links, overlay nav links |
 | Heading | 24px | 600 (Semibold) | 1.25 | Footer "Let's work together." heading |
 | Overlay Nav | 32px | 600 (Semibold) | 1.2 | Full-screen overlay nav links (large, centered) |
 
@@ -68,7 +68,7 @@ Phase 2 adds weight 500 for nav labels. Full type scale at end of Phase 2:
 - Overlay nav links are 32px / 600 — large enough to be the clear focus of a full-screen takeover without needing a display-size scale.
 - The footer heading ("Let's work together.") uses the existing 24px / 600 Heading role.
 - Display (48px / 700) is reserved for Phase 3 hero — do not introduce it here.
-- Nav label weight 500 requires adding `wght@400;500;600` to the Google Fonts URL in BaseLayout (currently `wght@400;600`).
+- Google Fonts URL in BaseLayout loads `wght@400;600` — no change required for Phase 2.
 
 ---
 
@@ -128,6 +128,7 @@ All values inherited from Phase 1 `global.css`. Phase 2 specifies which tokens e
 | Bottom border | 1px `var(--color-border)` | Phase 1 UI-SPEC |
 | Desktop layout (≥768px) | Logo left — inline nav links — dark toggle rightmost | D-05, D-03 |
 | Mobile layout (<768px) | Logo left — hamburger + dark toggle right | D-06, D-03 |
+| Focal point | Primary visual anchor: logo/wordmark (`Tanya Zakus`) left-aligned in header — establishes brand identity before nav links are read. | Visual hierarchy baseline |
 
 ### Dark/Light Toggle
 
@@ -146,7 +147,7 @@ All values inherited from Phase 1 `global.css`. Phase 2 specifies which tokens e
 | Property | Value | Source |
 |----------|-------|--------|
 | Links | Work, About, Resume, LinkedIn | NAV-01, Phase 1 copy contract |
-| Font | 16px / weight 500 / line-height 1.0 | Phase 2 typography |
+| Font | 16px / weight 400 / line-height 1.0 | Phase 2 typography; D-18 — no new weights |
 | Inactive state | `var(--color-text-primary)`, no decoration | Default |
 | Hover state | 2px accent underline appears, 150ms ease transition | D-08 |
 | Active state | 2px accent underline, permanent | D-08 |
@@ -281,7 +282,7 @@ No component registries used. All components are hand-authored `.astro` files wi
 
 ## Implementation Notes for Executor
 
-1. **Google Fonts URL update required:** BaseLayout currently loads `wght@400;600`. Phase 2 adds weight 500 for nav labels — update to `wght@400;500;600`.
+1. **Google Fonts URL:** BaseLayout loads `wght@400;600`. No change required — Phase 2 uses only weight 400 (Regular) and weight 600 (Semibold) per D-18.
 
 2. **FOUC prevention script placement:** The inline `<script>` must be the first child of `<head>`, before the Google Fonts `<link>` tags. Any async loading or deferral will cause a visible flash.
 
