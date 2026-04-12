@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+@theme {
+  /* Typography */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Spacing scale (4px base, all multiples of 4) — per D-07 */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+
+  /* Light mode colors (default) — per D-08 */
+  --color-dominant: #FFFFFF;
+  --color-secondary: #F5F5F4;
+  --color-text-primary: #1C1C1C;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --color-accent: #2563EB;
+  --color-destructive: #DC2626;
+}
+
+/* Dark mode — system preference (base layer) — per D-08 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-dominant: #0F0F0F;
+    --color-secondary: #1A1A1A;
+    --color-text-primary: #F5F5F4;
+    --color-text-secondary: #9CA3AF;
+    --color-border: #2D2D2D;
+    --color-accent: #3B82F6;
+    --color-destructive: #EF4444;
+  }
+}
+
+/* Dark mode — manual toggle override (Phase 2 toggle writes .dark to <html>) — per D-08 */
+:root.dark {
+  --color-dominant: #0F0F0F;
+  --color-secondary: #1A1A1A;
+  --color-text-primary: #F5F5F4;
+  --color-text-secondary: #9CA3AF;
+  --color-border: #2D2D2D;
+  --color-accent: #3B82F6;
+  --color-destructive: #EF4444;
+}
