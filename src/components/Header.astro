@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import MobileNav from './MobileNav.astro';
 
 const pathname = Astro.url.pathname;
 const links = [
@@ -42,8 +43,10 @@ function isActive(href: string): boolean {
         </ul>
       </nav>
 
-      <!-- Hamburger button slot — filled in Plan 02 (Wave 2). Reserve with empty md:hidden placeholder so Plan 02 can target it. -->
-      <div id="header-mobile-slot" class="md:hidden"></div>
+      <!-- Hamburger button slot — filled in Plan 02 (Wave 2). -->
+      <div id="header-mobile-slot" class="md:hidden">
+        <MobileNav />
+      </div>
 
       <ThemeToggle />
     </div>
