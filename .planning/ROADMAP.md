@@ -44,7 +44,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Clicking the hamburger icon opens a full-screen overlay navigation
   5. The footer displays nav links, social links (LinkedIn and email), and a "get in touch" CTA
   6. Typography size, weight, and line-height are consistent across headings and body text; spacing rhythm is uniform between sections
-**Plans**: TBD
+**Plans**: 3 plans
+  - [x] 02-01-PLAN.md — Header + ThemeToggle + FOUC script + BaseLayout component extraction (NAV-01, NAV-02, NAV-04, POL-02, POL-03, POL-04)
+  - [x] 02-02-PLAN.md — Mobile hamburger + full-screen overlay navigation with focus trap (NAV-03)
+  - [x] 02-03-PLAN.md — Footer two-column grid with CTA, social icons, mirrored nav (FOOT-01, FOOT-02, FOOT-03)
 **UI hint**: yes
 
 ### Phase 3: Work Index & Case Studies
