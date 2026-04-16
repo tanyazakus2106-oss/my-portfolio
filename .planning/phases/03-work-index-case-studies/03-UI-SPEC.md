@@ -1,10 +1,11 @@
 ---
 phase: 3
 slug: work-index-case-studies
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-04-16
+reviewed_at: 2026-04-16
 ---
 
 # Phase 3 — UI Design Contract
@@ -30,7 +31,7 @@ Phase 3 delivers the portfolio's three core content surfaces: the homepage (hero
 | Icon library | Inline SVG | Inherited from Phase 2 — no external icon library introduced |
 | Font — Heading | DM Sans 600 (Semibold) | Phase 1 UI-SPEC D-06; `--font-sans` token |
 | Font — Body | DM Sans 400 (Regular) | Phase 1 UI-SPEC D-06; `--font-sans` token |
-| Font — Display | DM Sans 700 (Bold) | New in Phase 3 — hero display heading only. Google Fonts URL updated to `wght@400;600;700` |
+| Font — Display | DM Sans 600 (Semibold) | Phase 3 hero display heading only. Google Fonts URL remains `wght@400;600` — no Bold variant needed |
 
 ---
 
@@ -58,19 +59,19 @@ Exceptions:
 
 ## Typography
 
-Four scales in use across Phase 3. No weights beyond 400, 600, 700 introduced.
+Four sizes, two weights. No exceptions beyond what is declared here.
 
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
+| Display | 48px | 600 (Semibold) | 1.1 | Homepage hero headline only |
+| Heading | 24px | 600 (Semibold) | 1.25 | Card title, case study page H1 (project title), case study section headings (Problem / My Role / Process / Outcome), featured project card title |
 | Body | 16px | 400 (Regular) | 1.6 | Case study prose, card summary text, metadata values |
 | Label | 13px | 400 (Regular) | 1.0 | Skills tags, role tags, metadata keys (TIMELINE, TEAM, MY ROLE), category labels on case study header — rendered in `uppercase letter-spacing: 0.08em` (small-caps style via CSS) |
-| Heading | 24px | 600 (Semibold) | 1.25 | Card title, case study section headings (Problem / My Role / Process / Outcome), featured project card title |
-| Display | 48px | 700 (Bold) | 1.1 | Homepage hero headline only |
 
 **Notes:**
-- Display (48px / 700) is introduced for the hero headline only. It must not be used on any other element.
-- Section headings on the case study page (Problem / My Role / Process / Outcome) use the Heading role at 24px / 600 but rendered as muted Label style: `uppercase`, `letter-spacing: 0.08em`, `color: var(--color-text-secondary)` — matching the metadata key style. This satisfies D-14.
-- Case study page H1 (project title) uses Heading role at 24px / 600 is insufficient — the project title needs visual weight. Use 36px / 600 for the H1 project title on the case study page only. This is a single-use exception documented here to prevent ambiguity.
+- Display (48px / 600) is used for the hero headline only. It must not appear on any other element.
+- The case study page H1 (project title) uses the Heading role at 24px / 600. The 48px size above plus surrounding whitespace provides sufficient page hierarchy — no additional size exception is needed.
+- Section headings on the case study page (Problem / My Role / Process / Outcome) use the Heading role at 24px / 600 but rendered in muted Label style: `uppercase`, `letter-spacing: 0.08em`, `color: var(--color-text-secondary)` — matching the metadata key style. This satisfies D-14.
 - Hero sub-line (role description below headline): Body role, 16px / 400.
 - Availability badge / inline text: Label role, 13px / 400 uppercase.
 
@@ -129,7 +130,7 @@ Each project card on /work uses the project's `accentColor` frontmatter value. S
 |----------|-------|--------|
 | Layout | Single centered column, max-width 760px, centered in 1200px shell | D-12 pattern applied to homepage |
 | Top padding | 96px (4xl token) — hero breathing room above fold | Phase 1 UI-SPEC `4xl` token intent |
-| Name display | `Tanya Zakus` at Display scale (48px / 700), `color: var(--color-text-primary)` | D-02, D-04 |
+| Name display | `Tanya Zakus` at Display scale (48px / 600), `color: var(--color-text-primary)` | D-02, D-04 |
 | Sub-line | Role description at Body scale (16px / 400), `color: var(--color-text-secondary)` | D-02, D-03 |
 | Availability | "Open to full-time & freelance" — inline text or pill badge; Label scale (13px / 400 uppercase) — Claude's discretion on badge vs inline | D-01, D-04 |
 | Hero copy (draft) | Headline: "Product designer who shapes ideas into usable experiences." Sub-line: "UX research, wireframes, prototyping, and handoff — end to end." Tanya refines by editing the component. | D-04 |
@@ -184,7 +185,7 @@ Each project card on /work uses the project's `accentColor` frontmatter value. S
 | Back link copy | `← Back to work` | D-11 |
 | Back link color | `color: var(--color-text-secondary)` default; `color: var(--color-accent)` on hover | CONTEXT Specifics — predictable navigation |
 | Category labels | `role` + `skills[]` from frontmatter — displayed as comma-separated or centered-dot-separated Label text; `uppercase`, `letter-spacing: 0.08em`, `color: var(--color-text-secondary)` | D-11, D-14 |
-| Project title | 36px / 600 / line-height 1.25, `color: var(--color-text-primary)` | Typography note above |
+| Project title | Heading role: 24px / 600 / line-height 1.25, `color: var(--color-text-primary)` | Typography table — Heading role |
 | Summary tagline | Body (16px / 400), `color: var(--color-text-secondary)`, from `summary` frontmatter | D-11 |
 | Metadata block | Three fields: Timeline (from `publishDate`), Team/Company, My Role. Label-style keys (uppercase 13px), Body-style values (16px regular). Block has `background: var(--color-secondary)`, `padding: 24px` (lg token), `border-radius: 8px` | D-11 |
 | First project image | Constrained to 760px column width — not full-bleed. Astro `<Image>` component. WebP, max 200KB. | D-13, CASE-05 |
@@ -263,7 +264,7 @@ Each project card on /work uses the project's `accentColor` frontmatter value. S
 
 ## Implementation Notes for Executor
 
-1. **Google Fonts update:** Extend the `wght@400;600` URL in `BaseLayout.astro` to `wght@400;600;700` to load the Bold weight needed for the Display hero headline. No other change to BaseLayout required.
+1. **Google Fonts:** The existing `wght@400;600` URL in `BaseLayout.astro` is sufficient — no Bold variant is needed. Do not change the Google Fonts URL.
 
 2. **Token-only styling (D-17 from Phase 2):** All new components use `var(--color-*)` and `var(--spacing-*)` tokens. No hardcoded hex values or pixel values except where a specific non-token value is prescribed in this spec (e.g. `opacity: 0.4` on project number, `letter-spacing: 0.08em` for labels).
 
