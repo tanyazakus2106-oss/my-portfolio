@@ -5,31 +5,42 @@ import { getCollection } from 'astro:content';
 
 const featured = (await getCollection('projects'))
   .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Tanya Zakus — UX/UI Designer">
-  <div class="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
 
-    {/* Hero section */}
-    <section class="pt-[var(--spacing-4xl)] pb-[var(--spacing-2xl)]">
+  {/* Hero section — full screen height, vertically centered */}
+  <section class="min-h-[800px] min-h-svh flex items-center px-6 md:px-12 lg:px-16">
+    <div class="max-w-[1200px] mx-auto w-full">
       <div class="max-w-[760px]">
-        {/* TODO: Tanya — refine hero copy here */}
         <p class="text-[13px] uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">Open to full-time &amp; freelance</p>
-        <h1 class="mt-[var(--spacing-md)] text-5xl font-semibold leading-[1.1] text-[var(--color-text-primary)]">Tanya Zakus</h1>
+        <h1 class="mt-[var(--spacing-md)] text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] text-[var(--color-text-primary)]">Tanya Zakus</h1>
         <p class="mt-[var(--spacing-lg)] text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">Product designer who shapes ideas into usable experiences.</p>
         <p class="mt-[var(--spacing-md)] text-base leading-[1.6] text-[var(--color-text-secondary)]">UX research, wireframes, prototyping, and handoff — end to end.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {/* Featured projects section */}
-    <section class="pb-[var(--spacing-3xl)]">
-      <h2 class="mt-[var(--spacing-2xl)] text-2xl font-semibold text-[var(--color-text-primary)]">Selected Work</h2>
-      <div class="mt-[var(--spacing-xl)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-xl)]">
-        {featured.map((entry) => <FeaturedCard entry={entry} />)}
+  {/* Selected Work section */}
+  <section class="pb-[var(--spacing-3xl)] px-6 md:px-12 lg:px-16">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-2xl font-semibold text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Selected Work</h2>
+      <div class="flex flex-col gap-[var(--spacing-3xl)]">
+        {featured.map((entry, i) => <FeaturedCard entry={entry} index={i} />)}
       </div>
-      <a href="/work" class="mt-[var(--spacing-xl)] inline-flex items-center text-[var(--color-accent)] hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]">View all work →</a>
-    </section>
+      <a
+        href="/work"
+        class="mt-[var(--spacing-2xl)] inline-flex items-center text-[var(--color-accent)] hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+      >
+        View all work →
+      </a>
+    </div>
+  </section>
 
-  </div>
 </BaseLayout>
+
+<script>
+  import '../scripts/scroll-animation.ts';
+</script>

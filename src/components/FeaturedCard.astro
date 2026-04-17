@@ -1,35 +1,69 @@
 ---
+/**
+ * FeaturedCard.astro — Homepage "Selected Work" card
+ *
+ * Matches the alternating image+text layout of ProjectCard on /work.
+ * Text column is center-aligned. Image zooms in on hover.
+ */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   entry: CollectionEntry<'projects'>;
+  index: number; // 0-based; drives alternating layout
 }
 
-const { entry } = Astro.props;
+const { entry, index } = Astro.props;
+const isReversed = index % 2 === 1;
 ---
 
-<a
-  href={`/projects/${entry.id}`}
-  class="group block rounded-lg overflow-hidden bg-[var(--color-secondary)] transition-shadow duration-[250ms] ease-out hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-  aria-label={`${entry.data.title} — View case study`}
+<article
+  class:list={[
+    'group animate-on-scroll',
+    'rounded-lg overflow-hidden',
+    'transition-shadow duration-[250ms] ease-out',
+    'hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)]',
+    'dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.24)]',
+  ]}
 >
-  <div class="aspect-[4/3] overflow-hidden">
-    <Image
-      src={entry.data.thumbnail}
-      alt={`Project thumbnail for ${entry.data.title}`}
-      format="webp"
-      widths={[400, 800]}
-      sizes="(min-width: 768px) 33vw, 100vw"
-      class="w-full h-full object-cover transition-transform duration-[250ms] ease-out group-hover:scale-105"
-    />
-  </div>
-  <div class="p-[var(--spacing-md)]">
-    <h3 class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
-      {entry.data.title}
-    </h3>
-    <p class="mt-[var(--spacing-xs)] text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
-      {entry.data.role}
-    </p>
-  </div>
-</a>
+  <a
+    href={`/projects/${entry.id}`}
+    aria-label={`${entry.data.title} — View case study`}
+    class:list={[
+      'flex flex-col md:flex-row gap-[var(--spacing-xl)] items-center',
+      isReversed ? 'md:flex-row-reverse' : '',
+      'no-underline',
+    ]}
+  >
+    {/* 60% image column */}
+    <div class="md:basis-[60%] w-full overflow-hidden rounded-lg">
+      <Image
+        src={entry.data.thumbnail}
+        alt={`Project thumbnail for ${entry.data.title}`}
+        format="webp"
+        widths={[600, 1200]}
+        sizes="(min-width: 768px) 60vw, 100vw"
+        class="w-full h-full object-cover aspect-[4/3] transition-transform duration-[400ms] ease-out group-hover:scale-[1.06]"
+      />
+    </div>
+
+    {/* 40% text column — center-aligned */}
+    <div class="md:basis-[40%] flex flex-col items-center text-center gap-[var(--spacing-md)] px-[var(--spacing-lg)] md:px-[var(--spacing-xl)] py-[var(--spacing-md)]">
+      <p class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
+        {entry.data.role}
+      </p>
+      <h3 class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
+        {entry.data.title}
+      </h3>
+      <p class="text-base leading-[1.6] text-[var(--color-text-secondary)]">
+        {entry.data.summary}
+      </p>
+      <span
+        class="text-base text-[var(--color-accent)] group-hover:underline underline-offset-4"
+        aria-hidden="true"
+      >
+        View case study →
+      </span>
+    </div>
+  </a>
+</article>
