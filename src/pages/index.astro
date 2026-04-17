@@ -27,7 +27,7 @@ const featured = (await getCollection('projects'))
   <section class="pb-[var(--spacing-3xl)] px-6 md:px-12 lg:px-16">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-2xl font-semibold text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Selected Work</h2>
-      <div class="flex flex-col gap-[var(--spacing-3xl)]">
+      <div class="flex flex-col gap-[150px]">
         {featured.map((entry, i) => <FeaturedCard entry={entry} index={i} />)}
       </div>
       <a
