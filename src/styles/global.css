@@ -49,3 +49,28 @@
   --color-accent: #3B82F6;
   --color-destructive: #EF4444;
 }
+
+/* ─── Scroll entrance animation — Phase 3 D-18..D-23, WORK-06, POL-01 ─── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 60ms);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
