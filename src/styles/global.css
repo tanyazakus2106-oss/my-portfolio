@@ -74,3 +74,27 @@
     transition: none;
   }
 }
+
+/* ─── Layout container — shared max-width + responsive padding ─── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-lg);   /* 1.5rem mobile */
+  padding-right: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--spacing-xl);  /* 2rem tablet */
+    padding-right: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding-left: var(--spacing-3xl); /* 4rem desktop */
+    padding-right: var(--spacing-3xl);
+  }
+}
