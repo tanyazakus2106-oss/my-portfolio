@@ -2,15 +2,15 @@
 /**
  * FeaturedCard.astro — Homepage "Selected Work" card
  *
- * Matches ProjectCard layout: alternating 60/40, center-aligned text.
- * No hover shadow. Image zooms in on hover. Underline on text only (not arrow).
+ * Identical layout to ProjectCard: alternating 60/40, text left-aligned,
+ * card row vertically centered. Includes skills list. No hover shadow.
  */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   entry: CollectionEntry<'projects'>;
-  index: number; // 0-based; drives alternating layout
+  index: number;
 }
 
 const { entry, index } = Astro.props;
@@ -20,7 +20,6 @@ const isReversed = index % 2 === 1;
 <article
   class:list={[
     'group animate-on-scroll',
-    'rounded-lg overflow-hidden',
     'focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[var(--color-accent)]',
   ]}
 >
@@ -45,14 +44,21 @@ const isReversed = index % 2 === 1;
       />
     </div>
 
-    {/* 40% text column — center-aligned */}
-    <div class="md:basis-[40%] flex flex-col items-center text-center gap-[var(--spacing-md)] px-[var(--spacing-lg)] md:px-[var(--spacing-xl)] py-[var(--spacing-md)]">
+    {/* 40% text column — left-aligned */}
+    <div class="md:basis-[40%] flex flex-col items-start text-left gap-[var(--spacing-md)] px-[var(--spacing-lg)] md:px-[var(--spacing-xl)] py-[var(--spacing-md)]">
       <p class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
         {entry.data.role}
       </p>
       <h3 class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
         {entry.data.title}
       </h3>
+      <ul class="flex flex-wrap gap-[var(--spacing-xs)]">
+        {entry.data.skills.map((skill) => (
+          <li class="text-[13px] leading-[1] px-[var(--spacing-sm)] py-[var(--spacing-xs)] rounded-full bg-[var(--color-secondary)] text-[var(--color-text-secondary)]">
+            {skill}
+          </li>
+        ))}
+      </ul>
       <p class="text-base leading-[1.6] text-[var(--color-text-secondary)]">
         {entry.data.summary}
       </p>

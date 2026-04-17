@@ -111,16 +111,16 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
       >
         <a
           href={`/projects/${prevEntry.id}`}
-          class="flex flex-col min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+          class="group flex flex-col min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
         >
-          <span class="text-[13px] uppercase tracking-[0.08em]">← Previous project</span>
+          <span class="text-[13px] uppercase tracking-[0.08em]">← <span class="group-hover:underline underline-offset-4">Previous project</span></span>
           <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{prevEntry.data.title}</span>
         </a>
         <a
           href={`/projects/${nextEntry.id}`}
-          class="flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+          class="group flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
         >
-          <span class="text-[13px] uppercase tracking-[0.08em]">Next project →</span>
+          <span class="text-[13px] uppercase tracking-[0.08em]"><span class="group-hover:underline underline-offset-4">Next project</span> →</span>
           <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{nextEntry.data.title}</span>
         </a>
       </nav>

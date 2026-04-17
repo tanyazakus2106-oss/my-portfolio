@@ -23,18 +23,23 @@ const featured = (await getCollection('projects'))
     </div>
   </section>
 
+  {/* Divider between hero and selected work */}
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <hr class="border-t border-[var(--color-border)]" />
+  </div>
+
   {/* Selected Work section */}
-  <section class="pb-[var(--spacing-3xl)] px-6 md:px-12 lg:px-16">
+  <section class="pt-[var(--spacing-3xl)] pb-[var(--spacing-3xl)] px-6 md:px-12 lg:px-16">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-2xl font-semibold text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Selected Work</h2>
-      <div class="flex flex-col gap-[150px]">
+      <div class="flex flex-col gap-[100px]">
         {featured.map((entry, i) => <FeaturedCard entry={entry} index={i} />)}
       </div>
       <a
         href="/work"
-        class="mt-[var(--spacing-2xl)] inline-flex items-center text-[var(--color-accent)] hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+        class="group mt-[var(--spacing-2xl)] inline-flex items-center text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
-        View all work →
+        <span class="group-hover:underline underline-offset-4">View all work</span>&nbsp;→
       </a>
     </div>
   </section>
