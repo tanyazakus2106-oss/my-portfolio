@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+---
+
+<a
+  href={`/projects/${entry.id}`}
+  class="group block rounded-lg overflow-hidden bg-[var(--color-secondary)] transition-shadow duration-[250ms] ease-out hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+  aria-label={`${entry.data.title} — View case study`}
+>
+  <div class="aspect-[4/3] overflow-hidden">
+    <Image
+      src={entry.data.thumbnail}
+      alt={`Project thumbnail for ${entry.data.title}`}
+      format="webp"
+      widths={[400, 800]}
+      sizes="(min-width: 768px) 33vw, 100vw"
+      class="w-full h-full object-cover transition-transform duration-[250ms] ease-out group-hover:scale-105"
+    />
+  </div>
+  <div class="p-[var(--spacing-md)]">
+    <h3 class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
+      {entry.data.title}
+    </h3>
+    <p class="mt-[var(--spacing-xs)] text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
+      {entry.data.role}
+    </p>
+  </div>
+</a>
