@@ -59,7 +59,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The /work page lists all projects as numbered cards (01, 02, 03…) with alternating image+text layout, accent colors, and a hover interaction
   3. Page sections and cards animate into view on scroll in a way that feels subtle and intentional; `prefers-reduced-motion` disables animations for users who have requested it
   4. Each project card links to a dedicated case study page at /projects/[slug] with Problem, My Role, Process, and Outcome sections
-  5. Case study pages use the project's accent color for headings and highlights, and support full-bleed image sections with WebP images under 200KB via Astro's Image component
+  5. Case study pages use global tokens only for headings and highlights (D-15: no per-project accent color on case study pages — muted label style only), and support full-bleed image sections with WebP images under 200KB via Astro's Image component
 **Plans**: TBD
 **UI hint**: yes
 
