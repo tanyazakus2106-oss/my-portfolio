@@ -12,7 +12,7 @@ const featured = (await getCollection('projects'))
 <BaseLayout title="Tanya Zakus — UX/UI Designer">
 
   {/* Hero section — full screen height, vertically centered */}
-  <section class="min-h-[800px] min-h-svh flex items-center px-6 md:px-12 lg:px-16">
+  <section class="min-h-[800px] min-h-svh flex items-center px-[var(--spacing-lg)] md:px-[var(--spacing-2xl)] lg:px-[var(--spacing-3xl)]">
     <div class="max-w-[1200px] mx-auto w-full">
       <div class="max-w-[760px]">
         <p class="text-[13px] uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">Open to full-time &amp; freelance</p>
@@ -24,12 +24,12 @@ const featured = (await getCollection('projects'))
   </section>
 
   {/* Divider between hero and selected work */}
-  <div class="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] md:px-[var(--spacing-2xl)] lg:px-[var(--spacing-3xl)]">
     <hr class="border-t border-[var(--color-border)]" />
   </div>
 
   {/* Selected Work section */}
-  <section class="pt-[var(--spacing-3xl)] pb-[var(--spacing-3xl)] px-6 md:px-12 lg:px-16">
+  <section class="pt-[var(--spacing-3xl)] pb-[var(--spacing-3xl)] px-[var(--spacing-lg)] md:px-[var(--spacing-2xl)] lg:px-[var(--spacing-3xl)]">
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-2xl font-semibold text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Selected Work</h2>
       <div class="flex flex-col gap-[100px]">
