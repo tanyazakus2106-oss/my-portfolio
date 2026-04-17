@@ -1,0 +1,35 @@
+---
+// FullBleedImage — MDX custom component that breaks out of the 760px column to span 100vw.
+// Usage in MDX: <FullBleedImage src="/images/process-map.png" alt="Process map" />
+// Technique: negative margin break-out (CSS Tricks / FrontendMasters pattern). 100vw
+// includes scrollbar width on Windows/Linux — <body> overflow-x:hidden from BaseLayout
+// prevents horizontal scroll. For portfolio served primarily to macOS (scrollbars hidden),
+// this is acceptable per RESEARCH Pitfall 4.
+// Files live in public/ and are referenced by absolute path.
+// CASE-04.
+// Note: Component-scoped <style> block used here as a layout-specific exception — the
+// negative margin break-out technique cannot be expressed cleanly in Tailwind utilities.
+// Per UI-SPEC Note 7, component-scoped styles are acceptable for structural layout concerns.
+interface Props {
+  src: string;
+  alt: string;
+}
+const { src, alt } = Astro.props;
+---
+
+<figure class="full-bleed my-[var(--spacing-2xl)]">
+  <img src={src} alt={alt} loading="lazy" decoding="async" />
+</figure>
+
+<style>
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+  .full-bleed img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
