@@ -1,0 +1,91 @@
+---
+/**
+ * ProjectCard.astro — Work index page card (Phase 03, WORK-01..WORK-06)
+ *
+ * Design decisions:
+ * - Per-project accent color is applied to the project number ONLY (one consistent
+ *   application per card, per UI-SPEC Color §Per-Project Accent Color).
+ *   Applied via style attribute — NOT a Tailwind class (Tailwind cannot parse runtime hex).
+ * - Hover scale is on the IMAGE ONLY, inside an overflow-hidden wrapper so scale(1.05)
+ *   clips cleanly. The card row gets a shadow; the project number is static on hover.
+ * - animate-on-scroll class hooks into CSS defined in global.css + stagger via
+ *   scroll-animation.ts (loaded by the consuming page, not this component).
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+  index: number; // 0-based position in the sorted list; used for number display and alternating layout
+}
+
+const { entry, index } = Astro.props;
+const displayNumber = String(index + 1).padStart(2, '0'); // "01", "02", …
+const isReversed = index % 2 === 1; // even rows (0-indexed) = image left; odd = image right
+---
+
+<article
+  class:list={[
+    'group animate-on-scroll',
+    'rounded-lg overflow-hidden',
+    'transition-shadow duration-[250ms] ease-out',
+    'hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)]',
+    'dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.24)]',
+    'focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[var(--color-accent)]',
+  ]}
+>
+  <a
+    href={`/projects/${entry.id}`}
+    aria-label={`${entry.data.title} — View case study`}
+    class:list={[
+      'flex flex-col md:flex-row gap-[var(--spacing-xl)] items-stretch',
+      isReversed ? 'md:flex-row-reverse' : '',
+      'no-underline',
+    ]}
+  >
+    {/* 60% image column */}
+    <div class="md:basis-[60%] overflow-hidden rounded-lg">
+      <Image
+        src={entry.data.thumbnail}
+        alt={`Project thumbnail for ${entry.data.title}`}
+        format="webp"
+        widths={[600, 1200]}
+        sizes="(min-width: 768px) 60vw, 100vw"
+        class="w-full h-full object-cover transition-transform duration-[250ms] ease-out group-hover:scale-105"
+      />
+    </div>
+
+    {/* 40% text column */}
+    <div class="md:basis-[40%] flex flex-col gap-[var(--spacing-md)] px-[var(--spacing-lg)] md:px-0 py-[var(--spacing-md)]">
+      <span
+        class="text-6xl font-semibold leading-none opacity-40"
+        style={`color: ${entry.data.accentColor}`}
+        aria-hidden="true"
+      >
+        {displayNumber}
+      </span>
+      <h2 class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
+        {entry.data.title}
+      </h2>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
+        {entry.data.role}
+      </p>
+      <ul class="flex flex-wrap gap-[var(--spacing-xs)]">
+        {entry.data.skills.map((skill) => (
+          <li class="text-[13px] leading-[1] px-[var(--spacing-sm)] py-[var(--spacing-xs)] rounded-full bg-[var(--color-secondary)] text-[var(--color-text-secondary)]">
+            {skill}
+          </li>
+        ))}
+      </ul>
+      <p class="text-base leading-[1.6] text-[var(--color-text-secondary)]">
+        {entry.data.summary}
+      </p>
+      <span
+        class="text-base text-[var(--color-accent)] group-hover:underline underline-offset-4"
+        aria-hidden="true"
+      >
+        View case study →
+      </span>
+    </div>
+  </a>
+</article>
