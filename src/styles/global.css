@@ -3,8 +3,10 @@
 /* ─── Design Tokens ─── */
 @theme {
   /* Typography */
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-geist: "Satoshi", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* Spacing scale (4px base, all multiples of 4) — per D-07 */
   --spacing-xs: 0.25rem;   /* 4px */
@@ -22,9 +24,10 @@
   --color-text-primary: #1C1C1C;
   --color-text-secondary: #6B7280;
   --color-border: #E5E7EB;
-  --color-accent: #2563EB;
+  --color-accent: #6F5FD5;
   --color-destructive: #DC2626;
 }
+
 
 /* Dark mode — system preference (base layer) — per D-08 */
 @media (prefers-color-scheme: dark) {
@@ -34,20 +37,72 @@
     --color-text-primary: #F5F5F4;
     --color-text-secondary: #9CA3AF;
     --color-border: #2D2D2D;
-    --color-accent: #3B82F6;
+    --color-accent: #8776F9;
     --color-destructive: #EF4444;
   }
 }
 
-/* Dark mode — manual toggle override (Phase 2 toggle writes .dark to <html>) — per D-08 */
+/* Dark mode — manual toggle override (toggle writes .dark to <html>) — per D-08 */
 :root.dark {
   --color-dominant: #0F0F0F;
   --color-secondary: #1A1A1A;
   --color-text-primary: #F5F5F4;
   --color-text-secondary: #9CA3AF;
   --color-border: #2D2D2D;
-  --color-accent: #3B82F6;
+  --color-accent: #8776F9;
   --color-destructive: #EF4444;
+}
+
+/* Light mode — manual override (overrides @media dark preference when .light is set) */
+:root.light {
+  --color-dominant: #FFFFFF;
+  --color-secondary: #F5F5F4;
+  --color-text-primary: #1C1C1C;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --color-accent: #6F5FD5;
+  --color-destructive: #DC2626;
+}
+
+/* ─── Base typography ─── */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+}
+
+/* ─── Global noise texture overlay ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.0525;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.2 0 0 0 0.4 0 0.2 0 0 0.4 0 0 0.2 0 0.4 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 338px 338px;
 }
 
 /* ─── Scroll entrance animation — Phase 3 D-18..D-23, WORK-06, POL-01 ─── */
@@ -75,10 +130,15 @@
   }
 }
 
+/* ─── Dividers ─── */
+hr {
+  opacity: 0.667;
+}
+
 /* ─── Layout container — shared max-width + responsive padding ─── */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--spacing-lg);   /* 1.5rem mobile */
@@ -87,14 +147,7 @@
 
 @media (min-width: 768px) {
   .container {
-    padding-left: var(--spacing-xl);  /* 2rem tablet */
+    padding-left: var(--spacing-xl);  /* 2rem tablet and above */
     padding-right: var(--spacing-xl);
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    padding-left: var(--spacing-3xl); /* 4rem desktop */
-    padding-right: var(--spacing-3xl);
   }
 }

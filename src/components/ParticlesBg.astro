@@ -1,0 +1,102 @@
+<!-- Muted purple particles background — adapts to light/dark mode -->
+<div
+  id="particles-js"
+  class="particles-hero"
+></div>
+
+<style>
+  .particles-hero {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent;
+    opacity: 0.667;
+  }
+
+  .particles-hero canvas {
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  function initParticles(isDark: boolean) {
+    // Remove old canvas if reinitialising
+    const oldCanvas = document.querySelector('#particles-js canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+    const w = window as any;
+    if (w.pJSDom?.length > 0) {
+      w.pJSDom.forEach((p: any) => p.pJS.fn.vendors.destroypJS());
+      w.pJSDom = [];
+    }
+
+    // Muted purple palette
+    const colors = isDark
+      ? { particles: '#c4b5fd', lines: '#a78bfa', accent: '#7c3aed' }
+      : { particles: '#7c3aed', lines: '#8b5cf6', accent: '#6d28d9' };
+
+    w.particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: colors.particles },
+        shape: { type: 'circle', stroke: { width: 0.5, color: colors.accent } },
+        opacity: {
+          value: 0.24,
+          random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.1 },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: true, speed: 2, size_min: 1 },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: colors.lines,
+          opacity: 0.14,
+          width: 1,
+        },
+        move: { enable: true, speed: 1.5, random: true, out_mode: 'bounce' },
+      },
+      interactivity: {
+        detect_on: 'window',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true,
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 0.29 } },
+          push: { particles_nb: 3 },
+        },
+      },
+      retina_detect: true,
+    });
+  }
+
+  function bootstrap() {
+    const html = document.documentElement;
+    const isDark = () =>
+      html.classList.contains('dark') ||
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    initParticles(isDark());
+
+    // Re-init when theme toggle fires
+    const observer = new MutationObserver(() => initParticles(isDark()));
+    observer.observe(html, {
+      attributes: true,
+      attributeFilter: ['class', 'data-theme'],
+    });
+  }
+
+  // Load particles.js from CDN then bootstrap
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+  script.async = true;
+  script.onload = bootstrap;
+  document.body.appendChild(script);
+</script>

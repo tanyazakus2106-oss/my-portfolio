@@ -9,9 +9,9 @@ const projects = (await getCollection('projects'))
 
 <BaseLayout title="Work — Tanya Zakus">
   <div class="container pt-[var(--spacing-4xl)] pb-[var(--spacing-3xl)]">
-    <h1 class="text-2xl font-semibold text-[var(--color-text-primary)]">Work</h1>
+    <h1 class="text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)]">Work</h1>
 
-    <div class="mt-[var(--spacing-2xl)] flex flex-col gap-[100px]">
+    <div class="mt-[var(--spacing-2xl)] flex flex-col gap-[132px]">
       {projects.map((entry, index) => (
         <ProjectCard entry={entry} index={index} />
       ))}

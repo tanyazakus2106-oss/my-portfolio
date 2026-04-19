@@ -41,8 +41,9 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 
 <BaseLayout title={`${entry.data.title} — Tanya Zakus`}>
   <div class="container pt-[var(--spacing-3xl)] pb-[var(--spacing-3xl)]">
-    {/* Centered column — per D-12 */}
-    <article class="max-w-[760px] mx-auto">
+
+    {/* Prose header — centered, max 760px */}
+    <div class="max-w-[760px] mx-auto">
 
       {/* 1. Back link (D-11, CONTEXT Specifics) */}
       <a
@@ -58,7 +59,7 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
       </p>
 
       {/* 3. H1 title (Heading role per UI-SPEC) */}
-      <h1 class="mt-[var(--spacing-md)] text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
+      <h1 class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)]">
         {entry.data.title}
       </h1>
 
@@ -85,21 +86,24 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 
       {/* Divider — D-11 + UI-SPEC */}
       <hr class="mt-[var(--spacing-xl)] border-t border-[var(--color-border)]" />
+    </div>
 
-      {/* 6. First project image — constrained to column, WebP via Astro <Image> (D-13, CASE-05) */}
-      <div class="mt-[var(--spacing-xl)] overflow-hidden rounded-lg">
-        <Image
-          src={entry.data.thumbnail}
-          alt={`Cover image for ${entry.data.title}`}
-          format="webp"
-          widths={[600, 1200]}
-          sizes="(min-width: 768px) 760px, 100vw"
-          class="w-full h-auto"
-        />
-      </div>
+    {/* 6. Cover image — full container width (D-13, CASE-05) */}
+    <div class="mt-[var(--spacing-xl)] overflow-hidden rounded-lg">
+      <Image
+        src={entry.data.thumbnail}
+        alt={`Cover image for ${entry.data.title}`}
+        format="webp"
+        widths={[900, 1800]}
+        sizes="(min-width: 768px) calc(100vw - 4rem), 100vw"
+        class="w-full h-auto"
+      />
+    </div>
+
+    {/* Prose body + navigation — centered, max 760px */}
+    <article class="max-w-[760px] mx-auto">
 
       {/* 7. MDX body — Problem / My Role / Process / Outcome. FullBleedImage injected. */}
-      {/* The case-prose wrapper gives consistent typography to the MDX body markdown. */}
       <div class="mt-[var(--spacing-2xl)] case-prose">
         <Content components={{ FullBleedImage }} />
       </div>
