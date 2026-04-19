@@ -17,7 +17,7 @@ const projects = (await getCollection('projects'))
       <div class="max-w-[760px]">
         <p class="text-[14px] leading-[20px] uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">Open to full-time &amp; freelance</p>
         <h1 class="mt-[var(--spacing-md)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)] max-w-[600px]">Designing humanist AI experiences</h1>
-<p class="mt-[var(--spacing-md)] text-[20px] leading-[28px] text-[var(--color-text-secondary)] max-w-[600px]">I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.</p>
+<p class="mt-[24px] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]">I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.</p>
       </div>
     </div>
   </section>
@@ -30,7 +30,7 @@ const projects = (await getCollection('projects'))
   {/* Projects section */}
   <section class="pt-[132px] pb-[132px]">
     <div class="container">
-      <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Projects</h2>
+      <h2 class="text-[48px] text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Projects</h2>
       <div class="flex flex-col gap-[132px]">
         {projects.map((entry, i) => <ProjectCard entry={entry} index={i} />)}
       </div>
