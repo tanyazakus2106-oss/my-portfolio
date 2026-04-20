@@ -19,7 +19,9 @@ function isActive(href: string): boolean {
 
 <header id="site-header" class="sticky top-0 z-50 h-20 bg-transparent border-b border-transparent transition-[border-color,background-color,backdrop-filter] duration-500 ease-out">
   <div class="container h-full flex items-center justify-between">
-    <a href="/" class="font-semibold text-[var(--color-text-primary)] min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 rounded-sm">Tanya Zakus</a>
+    <a href="/" class="min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-4 rounded-full" aria-label="Tanya Zakus — home">
+      <span class="tz-logo" aria-hidden="true">tz</span>
+    </a>
 
     <div class="flex items-center">
       <nav aria-label="Main navigation" class="hidden md:block">
@@ -60,6 +62,24 @@ function isActive(href: string): boolean {
 </header>
 
 <style>
+  .tz-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: -0.03em;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
   #site-header {
     backdrop-filter: blur(0px);
     will-change: backdrop-filter;
