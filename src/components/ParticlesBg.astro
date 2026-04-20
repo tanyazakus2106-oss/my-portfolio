@@ -97,6 +97,20 @@
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
   script.async = true;
-  script.onload = bootstrap;
+  script.onload = () => {
+    bootstrap();
+
+    // Reinit canvas on browser zoom (visualViewport fires; window.resize does not)
+    let zoomTimer: ReturnType<typeof setTimeout> | null = null;
+    const html = document.documentElement;
+    const isDark = () =>
+      html.classList.contains('dark') ||
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    window.visualViewport?.addEventListener('resize', () => {
+      if (zoomTimer) clearTimeout(zoomTimer);
+      zoomTimer = setTimeout(() => initParticles(isDark()), 200);
+    });
+  };
   document.body.appendChild(script);
 </script>

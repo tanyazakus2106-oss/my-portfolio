@@ -33,12 +33,23 @@ function initScrollAnimation(): void {
       });
     },
     {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05,
+      rootMargin: '0px 0px 0px 0px',
     }
   );
 
   targets.forEach((el) => observer.observe(el));
+
+  // Fallback: if any element is still hidden after 2.5s (e.g. at zoom levels
+  // where IntersectionObserver never fires), reveal it.
+  setTimeout(() => {
+    targets.forEach((el) => {
+      if (!el.classList.contains('is-visible')) {
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+      }
+    });
+  }, 2500);
 }
 
 if (document.readyState === 'loading') {
