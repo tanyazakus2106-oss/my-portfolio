@@ -5,7 +5,7 @@ milestone_name: milestone
 status: executing
 stopped_at: Phase 3 UI-SPEC approved
 last_updated: "2026-05-06T00:00:00.000Z"
-last_activity: 2026-05-06 -- Completed quick task 260506-zm8: Sentence case + secondary default state for all text+arrow buttons
+last_activity: 2026-05-06 -- Completed quick task 260506-zm9: Extract ArrowLink primitive and migrate all 5 text+arrow sites
 progress:
   total_phases: 6
   completed_phases: 2
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-06 -- Completed quick task 260506-zm8: Sentence case + secondary default state for all text+arrow buttons
+Last activity: 2026-05-06 -- Completed quick task 260506-zm9: Extract ArrowLink primitive and migrate all 5 text+arrow sites
 
 Progress: [██░░░░░░░░] 33%
 
@@ -89,6 +89,7 @@ None yet.
 | 260506-zm6 | Restore prev/next nav typography to pre-zm4 sizes | 2026-05-06 | 075c1d2 | [260506-zm6-restore-prev-next-typography](./quick/260506-zm6-restore-prev-next-typography/) |
 | 260506-zm7 | Unify back link with View project arrow pattern | 2026-05-06 | 3ae4bb9 | [260506-zm7-unify-back-link-pattern](./quick/260506-zm7-unify-back-link-pattern/) |
 | 260506-zm8 | Sentence case + secondary default state for all text+arrow buttons | 2026-05-06 | fee2234 | [260506-zm8-arrow-buttons-sentence-case-secondary](./quick/260506-zm8-arrow-buttons-sentence-case-secondary/) |
+| 260506-zm9 | Extract ArrowLink primitive and migrate all 5 text+arrow sites | 2026-05-06 | aa684ed | [260506-zm9-arrow-link-component](./quick/260506-zm9-arrow-link-component/) |
 
 ## Session Continuity
 
