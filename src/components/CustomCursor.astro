@@ -1,0 +1,75 @@
+---
+// CustomCursor — singleton overlay rendered once in BaseLayout.
+// Disabled on touch / reduced-motion via CSS. JS lives in src/scripts/cursor.ts.
+// Reverse path: delete this file, src/scripts/cursor.ts, and the import +
+// <CustomCursor /> line in src/layouts/BaseLayout.astro.
+---
+
+<div class="custom-cursor" aria-hidden="true">
+  <div class="cursor-blob"></div>
+  <div class="cursor-dot"></div>
+</div>
+
+<style is:global>
+  .custom-cursor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+
+  body[data-cursor-ready] .custom-cursor {
+    opacity: 1;
+  }
+
+  .custom-cursor .cursor-dot,
+  .custom-cursor .cursor-blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .custom-cursor .cursor-dot {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--color-accent);
+    background: transparent;
+    transition:
+      width 200ms ease-out,
+      height 200ms ease-out;
+  }
+
+  .custom-cursor .cursor-blob {
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent);
+    opacity: 0;
+    transition: opacity 250ms ease-out;
+  }
+
+  body[data-cursor-state="hover"] .cursor-blob {
+    opacity: 0.85;
+  }
+
+  body[data-cursor-state="hover"] .cursor-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Hard-disable on touch, coarse pointers, and reduced-motion. */
+  @media (prefers-reduced-motion: reduce),
+    (hover: none),
+    (pointer: coarse) {
+    .custom-cursor {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import "../scripts/cursor.ts";
+</script>

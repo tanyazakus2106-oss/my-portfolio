@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 3 UI-SPEC approved
-last_updated: "2026-04-17T07:59:46.179Z"
-last_activity: 2026-04-17 -- Phase 03 execution started
+last_updated: "2026-05-06T15:52:00.000Z"
+last_activity: 2026-05-06 -- Completed quick task 260506-cur: Add custom cursor effect
 progress:
   total_phases: 6
   completed_phases: 2
@@ -76,6 +76,12 @@ None yet.
 - Project content readiness: 3-5 real case studies with outcomes and imagery are assumed to exist. If not ready, Phase 1 planning must include a content production step before templates are built.
 - Testimonial content (v2): Tanya needs to source quotes from past clients before v2 if testimonials are to be included. Early outreach recommended.
 - Vercel Pro cost: Verify Pro plan billing before Phase 6 planning begins.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Directory |
+|---|-------------|------|-----------|
+| 260506-cur | Add custom cursor (dot + hover blob) | 2026-05-06 | [260506-cur-cursor-effect](./quick/260506-cur-cursor-effect/) |
 
 ## Session Continuity
 
