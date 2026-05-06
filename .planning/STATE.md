@@ -5,7 +5,7 @@ milestone_name: milestone
 status: executing
 stopped_at: Phase 3 UI-SPEC approved
 last_updated: "2026-05-06T00:00:00.000Z"
-last_activity: 2026-05-07 -- Completed quick task 260507-zmb: Cascading entrance animation matching tushar.work
+last_activity: 2026-05-07 -- Completed quick task 260507-zmc: Remove h2 scroll-trigger animation from case study body
 progress:
   total_phases: 6
   completed_phases: 2
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-07 -- Completed quick task 260507-zmb: Cascading entrance animation matching tushar.work
+Last activity: 2026-05-07 -- Completed quick task 260507-zmc: Remove h2 scroll-trigger animation from case study body
 
 Progress: [██░░░░░░░░] 33%
 
@@ -92,6 +92,7 @@ None yet.
 | 260506-zm9 | Extract ArrowLink primitive and migrate all 5 text+arrow sites | 2026-05-06 | aa684ed | [260506-zm9-arrow-link-component](./quick/260506-zm9-arrow-link-component/) |
 | 260507-zma | Replace 3-col metadata grid with stacked TIMELINE block | 2026-05-07 | d5bc166 | [260507-zma-timeline-team-stacked](./quick/260507-zma-timeline-team-stacked/) |
 | 260507-zmb | Cascading entrance animation matching tushar.work | 2026-05-07 | 8b0b067 | [260507-zmb-case-study-entrance-animation](./quick/260507-zmb-case-study-entrance-animation/) |
+| 260507-zmc | Remove h2 scroll-trigger animation from case study body | 2026-05-07 | 688a51e | [260507-zmc-remove-h2-scroll-animation](./quick/260507-zmc-remove-h2-scroll-animation/) |
 
 ## Session Continuity
 
