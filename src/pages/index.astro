@@ -6,6 +6,14 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const eyebrowText = 'Open to full-time & freelance';
+const headlineText = 'Designing humanist AI experiences';
+const descriptionText = "I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.";
+
+const eyebrowWordsList = eyebrowText.split(' ');
+const headlineWords = headlineText.split(' ').map((w, i) => ({ w, i }));
+const descriptionWordsList = descriptionText.split(' ');
 ---
 
 <BaseLayout title="Tanya Zakus — UX/UI Designer">
@@ -15,9 +23,30 @@ const projects = (await getCollection('projects'))
 <ParticlesBg />
     <div class="container w-full relative z-10">
       <div class="max-w-[760px]">
-        <p class="text-[14px] leading-[20px] uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">Open to full-time &amp; freelance</p>
-        <h1 class="mt-[var(--spacing-md)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)] max-w-[600px]">Designing humanist AI experiences</h1>
-<p class="mt-[24px] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]">I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.</p>
+        <p class="text-[14px] leading-[20px] uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]" data-line-group>
+          {eyebrowWordsList.map((word, idx) => (
+            <>
+              {idx > 0 && ' '}
+              <span class="animate-line-word">{word}</span>
+            </>
+          ))}
+        </p>
+        <h1 class="mt-[var(--spacing-md)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)] max-w-[600px]" style="--block-offset: 600ms">
+          {headlineWords.map(({ w, i }, idx) => (
+            <>
+              {idx > 0 && ' '}
+              <span class="animate-word" style={`--word-index: ${i}`}>{w}</span>
+            </>
+          ))}
+        </h1>
+        <p class="mt-[24px] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]" style="--block-offset: 1410ms" data-line-group>
+          {descriptionWordsList.map((word, idx) => (
+            <>
+              {idx > 0 && ' '}
+              <span class="animate-line-word">{word}</span>
+            </>
+          ))}
+        </p>
       </div>
     </div>
   </section>
@@ -41,4 +70,5 @@ const projects = (await getCollection('projects'))
 
 <script>
   import '../scripts/scroll-animation.ts';
+  import '../scripts/hero-line-animation.ts';
 </script>

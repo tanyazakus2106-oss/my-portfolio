@@ -105,6 +105,60 @@ body::after {
   background-size: 338px 338px;
 }
 
+/* ─── Hero per-word entrance — fade + translate up ─── */
+.animate-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: word-fade-in 600ms ease-out both;
+  animation-delay: calc(var(--block-offset, 0ms) + var(--word-index, 0) * 70ms);
+  will-change: opacity, transform;
+}
+
+@keyframes word-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-word {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ─── Hero per-line entrance — fade + translate up. --line-index assigned at runtime by hero-line-animation.ts ─── */
+.animate-line-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  will-change: opacity, transform;
+}
+
+.animate-line-word.is-ready {
+  animation: line-fade-in 600ms ease-out both;
+  animation-delay: calc(var(--block-offset, 0ms) + var(--line-index, 0) * 70ms);
+}
+
+@keyframes line-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-line-word,
+  .animate-line-word.is-ready {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 /* ─── Scroll entrance animation — Phase 3 D-18..D-23, WORK-06, POL-01 ─── */
 .animate-on-scroll {
   opacity: 0;
@@ -112,7 +166,7 @@ body::after {
   transition:
     opacity 500ms ease-out,
     transform 500ms ease-out;
-  transition-delay: calc(var(--stagger-index, 0) * 60ms);
+  transition-delay: calc(var(--stagger-index, 0) * 70ms);
   will-change: opacity, transform;
 }
 
