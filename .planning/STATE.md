@@ -5,7 +5,7 @@ milestone_name: milestone
 status: executing
 stopped_at: Phase 3 UI-SPEC approved
 last_updated: "2026-05-06T00:00:00.000Z"
-last_activity: 2026-05-06 -- Completed quick task 260506-zm1: Fix dark rectangular regions appearing on zoom+scroll
+last_activity: 2026-05-06 -- Completed quick task 260506-zm2: Update dominant bg colors and remove noise overlay
 progress:
   total_phases: 6
   completed_phases: 2
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-06 -- Completed quick task 260506-zm1: Fix dark rectangular regions appearing on zoom+scroll
+Last activity: 2026-05-06 -- Completed quick task 260506-zm2: Update dominant bg colors and remove noise overlay
 
 Progress: [██░░░░░░░░] 33%
 
@@ -82,6 +82,7 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260506-zm1 | Fix dark rectangular regions appearing on zoom+scroll | 2026-05-06 | 8a9aa88 | [260506-zm1-fix-noise-overlay-zoom-darkening](./quick/260506-zm1-fix-noise-overlay-zoom-darkening/) |
+| 260506-zm2 | Update dominant bg colors and remove noise overlay | 2026-05-06 | 48c7a3c | [260506-zm2-update-bg-colors-and-remove-noise](./quick/260506-zm2-update-bg-colors-and-remove-noise/) |
 
 ## Session Continuity
 
