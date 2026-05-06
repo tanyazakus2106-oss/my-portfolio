@@ -76,6 +76,7 @@ html {
 }
 
 body {
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
@@ -93,9 +94,10 @@ body {
 }
 
 /* ─── Global noise texture overlay ─── */
+/* `position: absolute` (not fixed) so the overlay tiles the full document at any zoom level. */
 body::after {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
