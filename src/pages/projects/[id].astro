@@ -42,12 +42,9 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)]">
     <a
       href="/work"
-      class="group inline-flex items-center gap-[var(--spacing-sm)] text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+      class="group inline-block text-base text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
     >
-      <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-      </svg>
-      Back to work
+      ← <span class="relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Back to work</span>
     </a>
   </div>
 
