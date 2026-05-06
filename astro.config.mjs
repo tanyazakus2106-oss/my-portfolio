@@ -10,6 +10,6 @@ export default defineConfig({
   output: 'static',
   integrations: [mdx(), sitemap()],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: /** @type {any} */ ([tailwindcss()]),
   },
 });

@@ -1,6 +1,6 @@
 ---
 const navLinks = [
-  { href: '/work', label: 'Work', external: false },
+  { href: '/', label: 'Work', external: false },
   { href: '/about', label: 'About', external: false },
   { href: '/resume.pdf', label: 'Resume', external: false },
   { href: 'https://linkedin.com', label: 'LinkedIn', external: true },
@@ -8,63 +8,67 @@ const navLinks = [
 
 const EMAIL = 'tanyazakus2106@gmail.com';
 const LINKEDIN_URL = 'https://linkedin.com';
+const INSTAGRAM_URL = 'https://instagram.com';
 ---
 
-<footer class="bg-[var(--color-secondary)] border-t border-[color-mix(in_srgb,var(--color-border)_67%,transparent)] py-[var(--spacing-2xl)]">
+<footer class="pb-6 pt-16 lg:pb-8 lg:pt-24">
   <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-xl)]">
+    <div class="md:flex md:items-center md:justify-between">
+      <h2 class="text-[32px] text-[var(--color-text-primary)]">Let's work<span class="font-bold italic ml-2">together</span></h2>
 
-      <!-- Left column: CTA + social icons -->
-      <div class="flex flex-col gap-[var(--spacing-md)]">
-        <p class="text-2xl font-semibold leading-[1.25] text-[var(--color-text-primary)]">
-          Let's work together.
-        </p>
-        <a
-          href={`mailto:${EMAIL}`}
-          class="group inline-flex items-center min-h-[44px] text-base font-normal text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 w-fit"
-        >
-          <span class="group-hover:underline underline-offset-4">Get in touch</span>&nbsp;→
-        </a>
+      <ul class="flex list-none mt-6 md:mt-0 gap-3" aria-label="Social links">
+        <li>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            class="footer-icon-btn"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram profile"
+            class="footer-icon-btn"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            href={`mailto:${EMAIL}`}
+            aria-label="Email Tanya"
+            class="footer-icon-btn"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-10 6L2 7"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-        <!-- Social icon links — FOOT-02: LinkedIn + email -->
-        <ul class="flex items-center gap-[var(--spacing-md)] mt-[var(--spacing-sm)]" aria-label="Social links">
-          <li>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md text-[var(--color-text-primary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
-            >
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href={`mailto:${EMAIL}`}
-              aria-label="Email Tanya"
-              class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md text-[var(--color-text-primary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
-            >
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-10 6L2 7"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Right column: mirrored nav links (FOOT-01) -->
-      <nav aria-label="Footer navigation" class="md:justify-self-end">
-        <ul class="flex flex-col gap-[var(--spacing-sm)]">
+    <div class="border-t border-[color-mix(in_srgb,var(--color-border)_67%,transparent)] mt-6 pt-6 md:pt-8 lg:grid lg:grid-cols-10 lg:gap-x-8">
+      <nav aria-label="Footer navigation" class="lg:mt-0 lg:col-[4/11]">
+        <ul class="list-none flex flex-wrap -my-1 -mx-2 lg:justify-end">
           {navLinks.map((link) => (
-            <li>
+            <li class="my-1 mx-2 shrink-0">
               <a
                 href={link.href}
                 {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                class="inline-flex items-center min-h-[44px] text-base font-normal text-[var(--color-text-primary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
+                class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] active:text-[var(--color-text-primary)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
               >
                 {link.label}
               </a>
@@ -73,11 +77,32 @@ const LINKEDIN_URL = 'https://linkedin.com';
         </ul>
       </nav>
 
+      <div class="mt-6 text-sm leading-6 text-[var(--color-text-secondary)] whitespace-nowrap lg:mt-0 lg:row-[1] lg:col-[1/4]">
+        <div>&copy; 2026 Tanya Zakus</div>
+      </div>
     </div>
-
-    <!-- Copyright row -->
-    <p class="mt-[var(--spacing-2xl)] text-sm font-normal text-[var(--color-text-secondary)]">
-      &copy; 2026 Tanya Zakus
-    </p>
   </div>
 </footer>
+
+<style>
+  .footer-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    color: var(--color-text-primary);
+    background-color: color-mix(in srgb, var(--color-text-primary) 6%, transparent);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+  .footer-icon-btn:hover {
+    background-color: color-mix(in srgb, var(--color-text-primary) 12%, transparent);
+    color: var(--color-accent);
+  }
+  .footer-icon-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+</style>
