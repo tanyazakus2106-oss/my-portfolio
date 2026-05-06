@@ -19,7 +19,7 @@
   --spacing-4xl: 6rem;     /* 96px */
 
   /* Light mode colors (default) — per D-08 */
-  --color-dominant: #FFFFFF;
+  --color-dominant: #fcfcfc;
   --color-secondary: #F5F5F4;
   --color-text-primary: #1C1C1C;
   --color-text-secondary: #6B7280;
@@ -32,7 +32,7 @@
 /* Dark mode — system preference (base layer) — per D-08 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-dominant: #0F0F0F;
+    --color-dominant: #141414;
     --color-secondary: #1A1A1A;
     --color-text-primary: #F5F5F4;
     --color-text-secondary: #9CA3AF;
@@ -44,7 +44,7 @@
 
 /* Dark mode — manual toggle override (toggle writes .dark to <html>) — per D-08 */
 :root.dark {
-  --color-dominant: #0F0F0F;
+  --color-dominant: #141414;
   --color-secondary: #1A1A1A;
   --color-text-primary: #F5F5F4;
   --color-text-secondary: #9CA3AF;
@@ -55,7 +55,7 @@
 
 /* Light mode — manual override (overrides @media dark preference when .light is set) */
 :root.light {
-  --color-dominant: #FFFFFF;
+  --color-dominant: #fcfcfc;
   --color-secondary: #F5F5F4;
   --color-text-primary: #1C1C1C;
   --color-text-secondary: #6B7280;
@@ -76,7 +76,6 @@ html {
 }
 
 body {
-  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
@@ -91,20 +90,6 @@ body {
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
-}
-
-/* ─── Global noise texture overlay ─── */
-/* `position: absolute` (not fixed) so the overlay tiles the full document at any zoom level. */
-body::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.2 0 0 0 0.4 0 0.2 0 0 0.4 0 0 0.2 0 0.4 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 338px 338px;
 }
 
 /* ─── Hero per-word entrance — fade + translate up ─── */
