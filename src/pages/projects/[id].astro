@@ -30,9 +30,6 @@ type Props = {
 const { entry, nextEntry, prevEntry } = Astro.props as Props;
 const { Content } = await render(entry);
 
-// Timeline formatting — placeholder MDX has only publishDate, so we render the month+year
-// as a single-point timeline. Real case studies can override by adding explicit timeline
-// text in MDX body if needed.
 const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   month: 'long',
   year: 'numeric',
@@ -40,100 +37,92 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 ---
 
 <BaseLayout title={`${entry.data.title} — Tanya Zakus`}>
-  <div class="container pt-[var(--spacing-3xl)] pb-[var(--spacing-3xl)]">
 
-    {/* Prose header — centered, max 760px */}
-    <div class="max-w-[760px] mx-auto">
+  {/* Back link */}
+  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)]">
+    <a
+      href="/work"
+      class="group inline-flex items-center gap-[var(--spacing-sm)] text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+    >
+      <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+      </svg>
+      Back to work
+    </a>
+  </div>
 
-      {/* 1. Back link (D-11, CONTEXT Specifics) */}
-      <a
-        href="/work"
-        class="inline-block text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-      >
-        ← Back to work
-      </a>
+  {/* Header — eyebrow, title, summary, metadata */}
+  <header class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-xl)] pb-[var(--spacing-xl)]">
+    <p class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-md)]">
+      {[entry.data.role, ...entry.data.skills].join(', ')}
+    </p>
 
-      {/* 2. Category labels — role + skills (D-11, D-14) */}
-      <p class="mt-[var(--spacing-2xl)] text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
-        {[entry.data.role, ...entry.data.skills].join(' · ')}
-      </p>
+    <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] mb-[var(--spacing-lg)] max-w-[20ch] text-[var(--color-text-primary)]">
+      {entry.data.title}
+    </h1>
 
-      {/* 3. H1 title (Heading role per UI-SPEC) */}
-      <h1 class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)]">
-        {entry.data.title}
-      </h1>
+    <p class="text-xl md:text-2xl text-[var(--color-text-secondary)] max-w-[55ch] leading-relaxed mb-[var(--spacing-lg)]">
+      {entry.data.summary}
+    </p>
 
-      {/* 4. Summary tagline (Body role) */}
-      <p class="mt-[var(--spacing-md)] text-base leading-[1.6] text-[var(--color-text-secondary)]">
-        {entry.data.summary}
-      </p>
+    {/* Timeline / Team / My Role — 3-col grid on desktop, stacked on mobile, no card */}
+    <dl class="mt-[var(--spacing-lg)] grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-lg)] max-w-[55ch]">
+      <div>
+        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Timeline</dt>
+        <dd class="text-sm text-[var(--color-text-secondary)]">{timeline}</dd>
+      </div>
+      <div>
+        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Team</dt>
+        <dd class="text-sm text-[var(--color-text-secondary)]">Placeholder — update in MDX</dd>
+      </div>
+      <div>
+        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">My Role</dt>
+        <dd class="text-sm text-[var(--color-text-secondary)]">{entry.data.role}</dd>
+      </div>
+    </dl>
+  </header>
 
-      {/* 5. Metadata block (D-11) */}
-      <dl class="mt-[var(--spacing-xl)] grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-md)] p-[var(--spacing-lg)] rounded-lg bg-[var(--color-secondary)]">
-        <div>
-          <dt class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">Timeline</dt>
-          <dd class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{timeline}</dd>
-        </div>
-        <div>
-          <dt class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">Team</dt>
-          <dd class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">Placeholder — update in MDX</dd>
-        </div>
-        <div>
-          <dt class="text-[13px] uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">My Role</dt>
-          <dd class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{entry.data.role}</dd>
-        </div>
-      </dl>
-
-      {/* Divider — D-11 + UI-SPEC */}
-      <hr class="mt-[var(--spacing-xl)] border-t border-[var(--color-border)]" />
-    </div>
-
-    {/* 6. Cover image — full container width (D-13, CASE-05) */}
-    <div class="mt-[var(--spacing-xl)] overflow-hidden rounded-lg">
+  {/* Hero image */}
+  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] mb-[var(--spacing-2xl)]">
+    <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
       <Image
         src={entry.data.thumbnail}
         alt={`Cover image for ${entry.data.title}`}
         format="webp"
         widths={[900, 1800]}
-        sizes="(min-width: 768px) calc(100vw - 4rem), 100vw"
+        sizes="(min-width: 1200px) 1152px, calc(100vw - 3rem)"
         class="w-full h-auto"
       />
     </div>
-
-    {/* Prose body + navigation — centered, max 760px */}
-    <article class="max-w-[760px] mx-auto">
-
-      {/* 7. MDX body — Problem / My Role / Process / Outcome. FullBleedImage injected. */}
-      <div class="mt-[var(--spacing-2xl)] case-prose">
-        <Content components={{ FullBleedImage }} />
-      </div>
-
-      {/* 8. Next/prev navigation — D-16, wrap-around */}
-      <nav
-        class="mt-[var(--spacing-4xl)] pt-[var(--spacing-xl)] border-t border-[var(--color-border)] flex justify-between gap-[var(--spacing-md)]"
-        aria-label="Case study navigation"
-      >
-        <a
-          href={`/projects/${prevEntry.id}`}
-          class="group flex flex-col min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-        >
-          <span class="text-[13px] uppercase tracking-[0.08em]">← <span class="relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Previous project</span></span>
-          <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{prevEntry.data.title}</span>
-        </a>
-        <a
-          href={`/projects/${nextEntry.id}`}
-          class="group flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-        >
-          <span class="text-[13px] uppercase tracking-[0.08em]"><span class="relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Next project</span> →</span>
-          <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{nextEntry.data.title}</span>
-        </a>
-      </nav>
-    </article>
   </div>
 
+  {/* Body article — MDX prose + prev/next */}
+  <article class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose">
+
+    <Content components={{ FullBleedImage }} />
+
+    <nav
+      class="mt-[var(--spacing-3xl)] pt-[var(--spacing-xl)] border-t border-[var(--color-border)] flex justify-between gap-[var(--spacing-md)]"
+      aria-label="Case study navigation"
+    >
+      <a
+        href={`/projects/${prevEntry.id}`}
+        class="group flex flex-col min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+      >
+        <span class="text-xs tracking-widest uppercase">← Previous project</span>
+        <span class="mt-[var(--spacing-xs)] text-sm text-[var(--color-text-primary)]">{prevEntry.data.title}</span>
+      </a>
+      <a
+        href={`/projects/${nextEntry.id}`}
+        class="group flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+      >
+        <span class="text-xs tracking-widest uppercase">Next project →</span>
+        <span class="mt-[var(--spacing-xs)] text-sm text-[var(--color-text-primary)]">{nextEntry.data.title}</span>
+      </a>
+    </nav>
+  </article>
+
   <script>
-    // Observe MDX section headings on case study pages — extends the shared
-    // scroll-animation behavior. D-20, POL-01.
     import '../../scripts/scroll-animation.ts';
 
     const h2s = document.querySelectorAll<HTMLElement>('.case-prose h2');
@@ -164,19 +153,16 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 </BaseLayout>
 
 <style is:global>
-  /* Typography + animate-on-scroll hooks for MDX-rendered section headings.
-     MDX h2 elements (## Problem, ## My Role, etc.) land here. Apply muted uppercase
-     Label style per D-14 + UI-SPEC §Case Study Page. D-15 override — NO accent color.
-     We scope via .case-prose so global h2 usage (e.g. work.astro) is unaffected. */
+  /* MDX prose styling — adapted to reference layout (tushar.work).
+     Body H2/H3 are serif at larger sizes (replacing the prior small-uppercase
+     label style). Animate-on-scroll behavior preserved. */
   .case-prose h2 {
-    font-size: 13px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-text-secondary);
-    margin-top: var(--spacing-2xl);
-    margin-bottom: var(--spacing-md);
-    /* Animate-on-scroll participation — D-20. */
+    font-family: var(--font-serif);
+    font-size: 1.875rem; /* 30px */
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-3xl); /* 64px */
+    margin-bottom: var(--spacing-lg); /* 24px */
     opacity: 0;
     transform: translateY(24px);
     transition:
@@ -188,18 +174,26 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
     opacity: 1;
     transform: translateY(0);
   }
+  .case-prose h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  .case-prose p {
+    font-size: 1rem;
+    line-height: 1.625;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
   @media (prefers-reduced-motion: reduce) {
     .case-prose h2 {
       opacity: 1;
       transform: none;
       transition: none;
     }
-  }
-  .case-prose p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text-primary);
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
   }
 </style>
