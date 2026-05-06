@@ -40,12 +40,12 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 <BaseLayout title={`${entry.data.title} — Tanya Zakus`}>
 
   {/* Back link */}
-  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)]">
+  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)] animate-page-entry" style="--entry-index: 0">
     <ArrowLink href="/work" direction="left">Back to work</ArrowLink>
   </div>
 
   {/* Header — eyebrow, title, summary, metadata */}
-  <header class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-xl)] pb-[var(--spacing-xl)]">
+  <header class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-xl)] pb-[var(--spacing-xl)] animate-page-entry" style="--entry-index: 1">
     <p class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-md)]">
       {[entry.data.role, ...entry.data.skills].join(', ')}
     </p>
@@ -67,7 +67,7 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   </header>
 
   {/* Hero image */}
-  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] mb-[var(--spacing-2xl)]">
+  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] mb-[var(--spacing-2xl)] animate-page-entry" style="--entry-index: 2">
     <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
       <Image
         src={entry.data.thumbnail}
@@ -81,7 +81,7 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   </div>
 
   {/* Body article — MDX prose + prev/next */}
-  <article class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose">
+  <article class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose animate-page-entry" style="--entry-index: 3">
 
     <Content components={{ FullBleedImage }} />
 
