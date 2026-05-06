@@ -1,0 +1,47 @@
+---
+/**
+ * ArrowLink — text-with-arrow affordance with sweep-underline on hover.
+ *
+ * Standalone (default) — renders <a class="group">:
+ *   <ArrowLink href="/work" direction="left">Back to work</ArrowLink>
+ *
+ * Decorative — renders <span>; relies on a parent <a class="group"> or
+ * <article class="group"> for hover detection. Use when an ancestor
+ * element is the click target:
+ *   <ArrowLink decorative aria-hidden="true">View project</ArrowLink>
+ */
+interface Props {
+  href?: string;
+  direction?: 'left' | 'right';
+  decorative?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  direction = 'right',
+  decorative = false,
+  class: className = '',
+  ...rest
+} = Astro.props as Props;
+
+const arrow = direction === 'left' ? '←' : '→';
+const Tag = decorative ? 'span' : 'a';
+
+const baseClass =
+  'inline-block text-base text-[var(--color-text-secondary)] transition-colors';
+
+const interactionClass = decorative
+  ? 'group-hover:text-[var(--color-accent)]'
+  : 'group hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]';
+
+const underlineClass =
+  'relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300';
+
+const tagAttrs: Record<string, unknown> = decorative
+  ? rest
+  : { href: href ?? '#', ...rest };
+---
+
+<Tag class:list={[baseClass, interactionClass, className]} {...tagAttrs}>{direction === 'left' ? `${arrow} ` : ''}<span class={underlineClass}><slot /></span>{direction === 'right' ? ` ${arrow}` : ''}</Tag>
