@@ -5,7 +5,7 @@ milestone_name: milestone
 status: executing
 stopped_at: Phase 3 UI-SPEC approved
 last_updated: "2026-05-06T00:00:00.000Z"
-last_activity: 2026-05-06 -- Completed quick task 260506-zm6: Restore prev/next nav typography to pre-zm4 sizes
+last_activity: 2026-05-06 -- Completed quick task 260506-zm7: Unify back link with View project arrow pattern
 progress:
   total_phases: 6
   completed_phases: 2
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-06 -- Completed quick task 260506-zm6: Restore prev/next nav typography to pre-zm4 sizes
+Last activity: 2026-05-06 -- Completed quick task 260506-zm7: Unify back link with View project arrow pattern
 
 Progress: [██░░░░░░░░] 33%
 
@@ -87,6 +87,7 @@ None yet.
 | 260506-zm4 | Redesign project detail page to match tushar.work grid + typography | 2026-05-06 | b9d1a1d | [260506-zm4-redesign-project-page-grid](./quick/260506-zm4-redesign-project-page-grid/) |
 | 260506-zm5 | Restore prev/next nav sweep-underline hover states | 2026-05-06 | 5664d2f | [260506-zm5-restore-prev-next-hover-states](./quick/260506-zm5-restore-prev-next-hover-states/) |
 | 260506-zm6 | Restore prev/next nav typography to pre-zm4 sizes | 2026-05-06 | 075c1d2 | [260506-zm6-restore-prev-next-typography](./quick/260506-zm6-restore-prev-next-typography/) |
+| 260506-zm7 | Unify back link with View project arrow pattern | 2026-05-06 | 3ae4bb9 | [260506-zm7-unify-back-link-pattern](./quick/260506-zm7-unify-back-link-pattern/) |
 
 ## Session Continuity
 
