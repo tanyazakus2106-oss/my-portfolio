@@ -58,20 +58,11 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
       {entry.data.summary}
     </p>
 
-    {/* Timeline / Team / My Role — 3-col grid on desktop, stacked on mobile, no card */}
-    <dl class="mt-[var(--spacing-lg)] grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-lg)] max-w-[55ch]">
-      <div>
-        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Timeline</dt>
-        <dd class="text-sm text-[var(--color-text-secondary)]">{timeline}</dd>
-      </div>
-      <div>
-        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Team</dt>
-        <dd class="text-sm text-[var(--color-text-secondary)]">Placeholder — update in MDX</dd>
-      </div>
-      <div>
-        <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">My Role</dt>
-        <dd class="text-sm text-[var(--color-text-secondary)]">{entry.data.role}</dd>
-      </div>
+    {/* Timeline + team — single block, two stacked rows, no card */}
+    <dl class="mt-[var(--spacing-lg)]">
+      <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Timeline</dt>
+      <dd class="m-0 text-sm text-[var(--color-text-secondary)]">{entry.data.timelineRange ?? timeline}</dd>
+      <dd class="m-0 mt-[var(--spacing-xs)] text-sm text-[var(--color-text-secondary)]">{entry.data.team ?? 'Placeholder team — update in MDX'}</dd>
     </dl>
   </header>
 

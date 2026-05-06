@@ -13,6 +13,8 @@ const projects = defineCollection({
       skills: z.array(z.string()),
       summary: z.string(),
       publishDate: z.coerce.date(),
+      timelineRange: z.string().optional(),
+      team: z.string().optional(),
       featured: z.boolean().default(false),
     }),
 });
