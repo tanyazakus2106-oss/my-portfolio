@@ -19,7 +19,7 @@
   --spacing-4xl: 6rem;     /* 96px */
 
   /* Light mode colors (default) — per D-08 */
-  --color-dominant: #fcfcfc;
+  --color-background: #fcfcfc;
   --color-secondary: #F5F5F4;
   --color-text-primary: #1C1C1C;
   --color-text-secondary: #6B7280;
@@ -32,7 +32,7 @@
 /* Dark mode — system preference (base layer) — per D-08 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-dominant: #141414;
+    --color-background: #141414;
     --color-secondary: #1A1A1A;
     --color-text-primary: #F5F5F4;
     --color-text-secondary: #9CA3AF;
@@ -44,7 +44,7 @@
 
 /* Dark mode — manual toggle override (toggle writes .dark to <html>) — per D-08 */
 :root.dark {
-  --color-dominant: #141414;
+  --color-background: #141414;
   --color-secondary: #1A1A1A;
   --color-text-primary: #F5F5F4;
   --color-text-secondary: #9CA3AF;
@@ -55,7 +55,7 @@
 
 /* Light mode — manual override (overrides @media dark preference when .light is set) */
 :root.light {
-  --color-dominant: #fcfcfc;
+  --color-background: #fcfcfc;
   --color-secondary: #F5F5F4;
   --color-text-primary: #1C1C1C;
   --color-text-secondary: #6B7280;
