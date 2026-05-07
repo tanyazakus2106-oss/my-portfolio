@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-07 -- Completed quick task 260507-zmc: Remove h2 scroll-trigger animation from case study body
+Last activity: 2026-05-07 -- Completed quick task 260507-fcw: Remove standalone /work page; route case-study back-link to home #projects
 
 Progress: [██░░░░░░░░] 33%
 
@@ -93,6 +93,7 @@ None yet.
 | 260507-zma | Replace 3-col metadata grid with stacked TIMELINE block | 2026-05-07 | d5bc166 | [260507-zma-timeline-team-stacked](./quick/260507-zma-timeline-team-stacked/) |
 | 260507-zmb | Cascading entrance animation matching tushar.work | 2026-05-07 | 8b0b067 | [260507-zmb-case-study-entrance-animation](./quick/260507-zmb-case-study-entrance-animation/) |
 | 260507-zmc | Remove h2 scroll-trigger animation from case study body | 2026-05-07 | 688a51e | [260507-zmc-remove-h2-scroll-animation](./quick/260507-zmc-remove-h2-scroll-animation/) |
+| 260507-fcw | Remove standalone /work page; route case-study back-link to home #projects | 2026-05-07 | 5c2fae4 | [260507-fcw-remove-work-page](./quick/260507-fcw-remove-work-page/) |
 
 ## Session Continuity
 
