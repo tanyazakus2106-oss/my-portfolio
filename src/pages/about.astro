@@ -9,38 +9,43 @@ import heroPhoto from '../assets/about-hero-placeholder.svg';
   description="UX/UI designer with 6+ years building humanist AI experiences and complex SaaS platforms. Open to full-time roles and freelance projects."
 >
 
-  <article class="max-w-[760px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-2xl)] pb-[var(--spacing-4xl)]">
+  <article class="max-w-[1120px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-2xl)] pb-[var(--spacing-4xl)]">
 
-    {/* Block 1 — Hero photo (D-03). Full-width within the 760px content column.
-        PLACEHOLDER: replace `src/assets/about-hero-placeholder.svg` with a real photo (16:9 or 3:2, .webp/.jpg/.png).
-        Astro's <Image> component is used for WebP optimization + responsive srcset (D-03).
-        Pattern copied verbatim from src/pages/projects/[id].astro:70-81. */}
-    <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)] mb-[var(--spacing-2xl)]">
-      <Image
-        src={heroPhoto}
-        alt="Tanya Zakus, portrait"
-        format="webp"
-        widths={[760, 1520]}
-        sizes="(min-width: 760px) 760px, calc(100vw - 3rem)"
-        class="w-full h-auto block"
-      />
+    {/* Hero grid — image (40%) left / eyebrow + headline + intro (60%) right at md+; stacks image-above-text on mobile. */}
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] items-start gap-[var(--spacing-2xl)]">
+
+      {/* Block 1 — Hero photo (D-03). Sits in the left column at md+, on top on mobile.
+          PLACEHOLDER: replace `src/assets/about-hero-placeholder.svg` with a real photo (16:9 or 3:2, .webp/.jpg/.png).
+          Astro's <Image> component is used for WebP optimization + responsive srcset (D-03).
+          Pattern copied verbatim from src/pages/projects/[id].astro:70-81. */}
+      <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
+        <Image
+          src={heroPhoto}
+          alt="Tanya Zakus, portrait"
+          format="webp"
+          widths={[448, 896]}
+          sizes="(min-width: 768px) 448px, calc(100vw - 3rem)"
+          class="w-full h-auto block"
+        />
+      </div>
+
+      {/* Block 2 — "Now" availability eyebrow + hero headline + intro paragraphs (D-05 confident; D-06 eyebrow; D-04 1-2 sentences).
+          Eyebrow uses the homepage variant: text-sm uppercase tracking-[0.08em] (matches src/pages/index.astro:26). */}
+      <header>
+        <p class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">
+          Now — Open to full-time &amp; freelance
+        </p>
+
+        <h1 class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-text-primary)]">
+          Tanya Zakus, UX/UI designer for humanist AI products and complex SaaS.
+        </h1>
+
+        <p class="mt-[var(--spacing-lg)] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]">
+          I&apos;ve spent six years designing the kind of software people use every day at work — B2B platforms, CRMs, and AI tools where clarity is the whole product. I care about the small details that make a system feel calm to use.
+        </p>
+      </header>
+
     </div>
-
-    {/* Block 2 — "Now" availability eyebrow + hero headline + intro paragraphs (D-05 confident; D-06 eyebrow; D-04 1-2 sentences).
-        Eyebrow uses the homepage variant: text-sm uppercase tracking-[0.08em] (matches src/pages/index.astro:26). */}
-    <header>
-      <p class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">
-        Now — Open to full-time &amp; freelance
-      </p>
-
-      <h1 class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-text-primary)] max-w-[20ch]">
-        Tanya Zakus, UX/UI designer for humanist AI products and complex SaaS.
-      </h1>
-
-      <p class="mt-[var(--spacing-lg)] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]">
-        I&apos;ve spent six years designing the kind of software people use every day at work — B2B platforms, CRMs, and AI tools where clarity is the whole product. I care about the small details that make a system feel calm to use.
-      </p>
-    </header>
 
     {/* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body). */}
     <section class="mt-[var(--spacing-3xl)]">
