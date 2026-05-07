@@ -72,7 +72,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. An email mailto: link is accessible from the footer and/or About page without navigating to a separate Contact page
   3. The Resume nav link opens a downloadable PDF and the LinkedIn nav link opens Tanya's LinkedIn profile in a new tab
   4. Every page has a title tag including "Tanya Zakus — UX/UI Designer", a meta description, Open Graph tags, and a custom favicon visible in browser tabs
-**Plans**: TBD
+**Plans**: 4 plans
+  - [ ] 04-01-PLAN.md — BaseLayout SEO meta extension (OG, Twitter Card, canonical, favicon links) + og-image.png placeholder (SEO-01, SEO-02, SEO-03, SEO-04)
+  - [ ] 04-02-PLAN.md — About page creation (src/pages/about.astro: hero photo + Now eyebrow + 4-block content per tushar.work skeleton minus Speaking/Press) (ABOUT-01, ABOUT-02, ABOUT-03)
+  - [ ] 04-03-PLAN.md — Resume + LinkedIn + Instagram URL wiring across Header/Footer/MobileNav + resume PDF placeholder (CONT-01, CONT-02, CONT-03)
+  - [ ] 04-04-PLAN.md — Per-page SEO props pass-through (homepage + case study route) — Wave 2, depends on 01+02 (SEO-01, SEO-02, SEO-03)
 **UI hint**: yes
 
 ### Phase 5: Responsive Design
