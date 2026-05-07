@@ -15,7 +15,7 @@ import heroPhoto from '../assets/about-hero-placeholder.svg';
     <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-[var(--spacing-3xl)]">
 
       {/* Block 1 — Hero photo (D-03). Image column: visual order 2 below lg (sits below text on mobile/tablet), order 1 at lg+ (sits left). PLACEHOLDER: replace `src/assets/about-hero-placeholder.svg` with a real photo (16:9 or 3:2). <Image> pattern from src/pages/projects/[id].astro:70-81; widths/sizes retuned for the ~560px lg-column inside max-w-[1120px]. */}
-      <div class="relative order-2 lg:order-1 rounded-2xl overflow-hidden bg-[var(--color-secondary)] aspect-[4/5] [&>img]:object-cover [&>img]:h-full [&>img]:w-full">
+      <div class="relative order-2 lg:order-1 overflow-hidden bg-[var(--color-secondary)] aspect-[4/5] [&>img]:object-cover [&>img]:h-full [&>img]:w-full">
         <Image
           src={heroPhoto}
           alt="Tanya Zakus, portrait"
