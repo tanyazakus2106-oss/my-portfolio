@@ -6,62 +6,63 @@
   --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-geist: "Satoshi", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   /* Spacing scale (4px base, all multiples of 4) — per D-07 */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;    /* 8px */
-  --spacing-md: 1rem;      /* 16px */
-  --spacing-lg: 1.5rem;    /* 24px */
-  --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 3rem;     /* 48px */
-  --spacing-3xl: 4rem;     /* 64px */
-  --spacing-4xl: 6rem;     /* 96px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
 
   /* Light mode colors (default) — per D-08 */
   --color-background: #fcfcfc;
-  --color-secondary: #F5F5F4;
+  --color-secondary: #f5f5f4;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #6b6b6b;
-  --color-border: #E5E7EB;
-  --color-accent: #6F5FD5;
-  --color-destructive: #DC2626;
+  --color-border: #e5e7eb;
+  --color-accent: #6f5fd5;
+  --color-destructive: #dc2626;
 }
-
 
 /* Dark mode — system preference (base layer) — per D-08 */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #141414;
-    --color-secondary: #1A1A1A;
+    --color-secondary: #1a1a1a;
     --color-text-primary: #f5f5f5;
     --color-text-secondary: #8a8892;
-    --color-border: #2D2D2D;
-    --color-accent: #8776F9;
-    --color-destructive: #EF4444;
+    --color-border: #2d2d2d;
+    --color-accent: #8776f9;
+    --color-destructive: #ef4444;
   }
 }
 
 /* Dark mode — manual toggle override (toggle writes .dark to <html>) — per D-08 */
 :root.dark {
   --color-background: #141414;
-  --color-secondary: #1A1A1A;
+  --color-secondary: #1a1a1a;
   --color-text-primary: #f5f5f5;
   --color-text-secondary: #8a8892;
-  --color-border: #2D2D2D;
-  --color-accent: #8776F9;
-  --color-destructive: #EF4444;
+  --color-border: #2d2d2d;
+  --color-accent: #8776f9;
+  --color-destructive: #ef4444;
 }
 
 /* Light mode — manual override (overrides @media dark preference when .light is set) */
 :root.light {
   --color-background: #fcfcfc;
-  --color-secondary: #F5F5F4;
+  --color-secondary: #f5f5f4;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #6b6b6b;
-  --color-border: #E5E7EB;
-  --color-accent: #6F5FD5;
-  --color-destructive: #DC2626;
+  --color-border: #e5e7eb;
+  --color-accent: #6f5fd5;
+  --color-destructive: #dc2626;
 }
 
 /* ─── Base typography ─── */
@@ -84,36 +85,14 @@ body {
 }
 
 @layer base {
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1.1;
-  }
-}
-
-/* ─── Hero per-word entrance — fade + translate up ─── */
-.animate-word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(0.5em);
-  animation: word-fade-in 600ms ease-out both;
-  animation-delay: calc(var(--block-offset, 0ms) + var(--word-index, 0) * 70ms);
-  will-change: opacity, transform;
-}
-
-@keyframes word-fade-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-word {
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 }
 
@@ -206,13 +185,13 @@ hr {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-lg);   /* 1.5rem mobile */
+  padding-left: var(--spacing-lg); /* 1.5rem mobile */
   padding-right: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
   .container {
-    padding-left: var(--spacing-xl);  /* 2rem tablet and above */
+    padding-left: var(--spacing-xl); /* 2rem tablet and above */
     padding-right: var(--spacing-xl);
   }
 }

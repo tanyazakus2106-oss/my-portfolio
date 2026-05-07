@@ -1,19 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import ParticlesBg from '../components/ParticlesBg.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ParticlesBg from "../components/ParticlesBg.astro";
+import { getCollection } from "astro:content";
 
-const projects = (await getCollection('projects'))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
 
-const eyebrowText = 'Open to full-time & freelance';
-const headlineText = 'Designing humanist AI experiences';
-const descriptionText = "I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.";
+const eyebrowText = "Open to full-time & freelance";
+const headlineText = "Designing humanist AI experiences";
+const descriptionText =
+  "I'm a Product Designer with over 6 years of experience working on complex SaaS platforms and B2B/CRM products.";
 
-const eyebrowWordsList = eyebrowText.split(' ');
-const headlineWords = headlineText.split(' ').map((w, i) => ({ w, i }));
-const descriptionWordsList = descriptionText.split(' ');
+const eyebrowWordsList = eyebrowText.split(" ");
+const headlineWordsList = headlineText.split(" ");
+const descriptionWordsList = descriptionText.split(" ");
 ---
 
 <BaseLayout
@@ -21,35 +23,53 @@ const descriptionWordsList = descriptionText.split(' ');
   description="UX/UI designer with 6+ years building humanist AI experiences and complex SaaS platforms. Selected case studies and current availability."
   ogImage="/og-image.png"
 >
-
   {/* Hero section */}
-  <section class="relative min-h-screen -mt-20 pt-20 flex items-center overflow-hidden">
-<ParticlesBg />
+  <section
+    class="relative min-h-screen -mt-20 pt-20 flex items-center overflow-hidden"
+  >
+    <ParticlesBg />
     <div class="container w-full relative z-10">
       <div class="max-w-[760px]">
-        <p class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]" data-line-group>
-          {eyebrowWordsList.map((word, idx) => (
-            <>
-              {idx > 0 && ' '}
-              <span class="animate-line-word">{word}</span>
-            </>
-          ))}
+        <p
+          class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]"
+          data-line-group
+        >
+          {
+            eyebrowWordsList.map((word, idx) => (
+              <>
+                {idx > 0 && " "}
+                <span class="animate-line-word">{word}</span>
+              </>
+            ))
+          }
         </p>
-        <h1 class="mt-[var(--spacing-md)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)] max-w-[600px]" style="--block-offset: 600ms">
-          {headlineWords.map(({ w, i }, idx) => (
-            <>
-              {idx > 0 && ' '}
-              <span class="animate-word" style={`--word-index: ${i}`}>{w}</span>
-            </>
-          ))}
+        <h1
+          class="mt-[var(--spacing-md)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-text-primary)] max-w-[600px]"
+          style="--block-offset: 600ms"
+          data-line-group
+        >
+          {
+            headlineWordsList.map((word, idx) => (
+              <>
+                {idx > 0 && " "}
+                <span class="animate-line-word">{word}</span>
+              </>
+            ))
+          }
         </h1>
-        <p class="mt-[24px] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]" style="--block-offset: 1410ms" data-line-group>
-          {descriptionWordsList.map((word, idx) => (
-            <>
-              {idx > 0 && ' '}
-              <span class="animate-line-word">{word}</span>
-            </>
-          ))}
+        <p
+          class="mt-[24px] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]"
+          style="--block-offset: 1410ms"
+          data-line-group
+        >
+          {
+            descriptionWordsList.map((word, idx) => (
+              <>
+                {idx > 0 && " "}
+                <span class="animate-line-word">{word}</span>
+              </>
+            ))
+          }
         </p>
       </div>
     </div>
@@ -63,16 +83,19 @@ const descriptionWordsList = descriptionText.split(' ');
   {/* Projects section */}
   <section id="projects" class="pt-[132px] pb-[132px] scroll-mt-20">
     <div class="container">
-      <h2 class="text-[48px] text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]">Projects</h2>
+      <h2
+        class="text-[48px] text-[var(--color-text-primary)] mb-[var(--spacing-2xl)]"
+      >
+        Projects
+      </h2>
       <div class="flex flex-col gap-[132px]">
         {projects.map((entry, i) => <ProjectCard entry={entry} index={i} />)}
       </div>
     </div>
   </section>
-
 </BaseLayout>
 
 <script>
-  import '../scripts/scroll-animation.ts';
-  import '../scripts/hero-line-animation.ts';
+  import "../scripts/scroll-animation.ts";
+  import "../scripts/hero-line-animation.ts";
 </script>
