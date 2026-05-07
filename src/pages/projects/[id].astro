@@ -37,7 +37,12 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${entry.data.title} — Tanya Zakus`}>
+<BaseLayout
+  title={`${entry.data.title} — Tanya Zakus, UX/UI Designer`}
+  description={entry.data.summary}
+  ogImage="/og-image.png"
+  ogType="article"
+>
 
   {/* Back link */}
   <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)] animate-page-entry" style="--entry-index: 0">
