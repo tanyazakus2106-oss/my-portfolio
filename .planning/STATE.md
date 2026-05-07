@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-07 -- Completed quick task 260507-hah: Standardize text-color tokens to neutral grays
+Last activity: 2026-05-07 -- Completed quick task 260507-hm2: Tweak dark --color-text-secondary to #86858d
 
 Progress: [██░░░░░░░░] 33%
 
@@ -97,6 +97,7 @@ None yet.
 | 260507-g17 | Standardize body text size to 1.125rem across design system | 2026-05-07 | 8c103ab | [260507-g17-standardize-body-text-size-to-1-125rem-a](./quick/260507-g17-standardize-body-text-size-to-1-125rem-a/) |
 | 260507-gzo | Tokenize eyebrow labels to text-sm utility | 2026-05-07 | 8a79bbc | — (fast task) |
 | 260507-hah | Standardize text-color tokens to neutral grays | 2026-05-07 | 97894bc | — (fast task) |
+| 260507-hm2 | Tweak dark --color-text-secondary to #86858d | 2026-05-07 | 547c1bf | — (fast task) |
 
 ## Session Continuity
 
