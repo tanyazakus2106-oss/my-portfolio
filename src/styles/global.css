@@ -21,8 +21,8 @@
   /* Light mode colors (default) — per D-08 */
   --color-background: #fcfcfc;
   --color-secondary: #F5F5F4;
-  --color-text-primary: #1C1C1C;
-  --color-text-secondary: #6B7280;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b6b6b;
   --color-border: #E5E7EB;
   --color-accent: #6F5FD5;
   --color-destructive: #DC2626;
@@ -34,8 +34,8 @@
   :root {
     --color-background: #141414;
     --color-secondary: #1A1A1A;
-    --color-text-primary: #F5F5F4;
-    --color-text-secondary: #9CA3AF;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #8a8a8a;
     --color-border: #2D2D2D;
     --color-accent: #8776F9;
     --color-destructive: #EF4444;
@@ -46,8 +46,8 @@
 :root.dark {
   --color-background: #141414;
   --color-secondary: #1A1A1A;
-  --color-text-primary: #F5F5F4;
-  --color-text-secondary: #9CA3AF;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #8a8a8a;
   --color-border: #2D2D2D;
   --color-accent: #8776F9;
   --color-destructive: #EF4444;
@@ -57,8 +57,8 @@
 :root.light {
   --color-background: #fcfcfc;
   --color-secondary: #F5F5F4;
-  --color-text-primary: #1C1C1C;
-  --color-text-secondary: #6B7280;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b6b6b;
   --color-border: #E5E7EB;
   --color-accent: #6F5FD5;
   --color-destructive: #DC2626;
