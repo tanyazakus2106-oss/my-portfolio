@@ -12,24 +12,27 @@ Visitors immediately understand the quality and range of the designer's work, an
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] About section with bio and design philosophy — Validated in Phase 4: About, Contact & SEO
+- [x] Contact method (mailto: from footer + About; Resume PDF + LinkedIn from nav) — Validated in Phase 4: About, Contact & SEO
+- [x] Site-wide SEO meta (Open Graph, Twitter Card, canonical, branded favicon) — Validated in Phase 4: About, Contact & SEO
 
 ### Active
 
 - [ ] Project index page listing all case studies and visual work
 - [ ] Dedicated case study pages with long-form project breakdowns
-- [ ] About section with bio and design philosophy
-- [ ] Contact method (form or email link) for inbound inquiries
 - [ ] Clean, minimal aesthetic that lets the work take center stage
 - [ ] Responsive design across desktop and mobile
 
 ### Out of Scope
 
 - Blog / writing section — not a current priority, can be added later
-- Resume PDF download — not explicitly requested
 - CMS / admin UI — owner will edit code directly to add new work
 - Prototypes / embedded interactive demos — not in current work types
 - UX research docs — not in current showcase scope
+
+### Scope Evolution
+
+- **Resume PDF download** moved from Out of Scope → Validated in Phase 4. Original framing ("not explicitly requested") was superseded by the Phase 4 contact-strategy decision to make Tanya reachable via Resume PDF, LinkedIn, and email mailto rather than a contact form.
 
 ## Context
 
@@ -71,4 +74,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-11 after initialization*
+*Last updated: 2026-05-07 after Phase 4: About, Contact & SEO completion*
