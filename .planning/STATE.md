@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 03 (work-index-case-studies) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 03
-Last activity: 2026-05-07 -- Completed quick task 260507-i1o: Drop project card eyebrows to text-xs
+Last activity: 2026-05-07 -- Completed quick task 260507-i6a: Suppress click-residue focus ring on project cards
 
 Progress: [██░░░░░░░░] 33%
 
@@ -100,6 +100,7 @@ None yet.
 | 260507-hm2 | Tweak dark --color-text-secondary to #86858d | 2026-05-07 | 547c1bf | — (fast task) |
 | 260507-hr8 | Tweak dark --color-text-secondary to #8a8892 | 2026-05-07 | 731b7d7 | — (fast task) |
 | 260507-i1o | Drop project card eyebrows to text-xs (2-tier eyebrow hierarchy) | 2026-05-07 | 2f57081 | — (fast task) |
+| 260507-i6a | Suppress click-residue focus ring on project cards (focus-within → has-[:focus-visible]) | 2026-05-07 | 382f956 | — (fast task) |
 
 ## Session Continuity
 
