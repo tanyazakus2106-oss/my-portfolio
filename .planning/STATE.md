@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 5
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-05-07 - Completed quick task 260507-qy7: refactor(about): change image aspect ratio 3/2 → 4/5 (portrait)
+Last activity: 2026-05-07 - Completed quick task 260507-r0q: refactor(about): remove rounded-2xl corner radius from hero image
 
 Progress: [██░░░░░░░░] 33%
 
@@ -106,6 +106,7 @@ None yet.
 | 260507-qhb | refactor(about): mirror tushar.work/about grid (50/50 lg+, sticky text col, 1/4+3/4 sub-sections) | 2026-05-07 | b92923b | [260507-qhb-refactor-about-mirror-tushar-work-about-](./quick/260507-qhb-refactor-about-mirror-tushar-work-about-/) |
 | 260507-qnz | refactor(about): add hairline dividers + lock image aspect ratio (3:2) | 2026-05-07 | bbbc9fb | [260507-qnz-refactor-about-add-hairline-dividers-loc](./quick/260507-qnz-refactor-about-add-hairline-dividers-loc/) |
 | 260507-qy7 | refactor(about): change image aspect ratio 3/2 → 4/5 (portrait, matches tushar) | 2026-05-07 | 72a02bc | [260507-qy7-refactor-about-change-image-aspect-ratio](./quick/260507-qy7-refactor-about-change-image-aspect-ratio/) |
+| 260507-r0q | refactor(about): remove rounded-2xl corner radius from hero image | 2026-05-07 | 3b4f8c2 | [260507-r0q-refactor-about-remove-rounded-2xl-corner](./quick/260507-r0q-refactor-about-remove-rounded-2xl-corner/) |
 
 ## Session Continuity
 
