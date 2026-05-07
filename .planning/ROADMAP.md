@@ -76,7 +76,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   - [x] 04-01-PLAN.md — BaseLayout SEO meta extension (OG, Twitter Card, canonical, favicon links) + og-image.png placeholder (SEO-01, SEO-02, SEO-03, SEO-04)
   - [x] 04-02-PLAN.md — About page creation (src/pages/about.astro: hero photo + Now eyebrow + 4-block content per tushar.work skeleton minus Speaking/Press) (ABOUT-01, ABOUT-02, ABOUT-03)
   - [x] 04-03-PLAN.md — Resume + LinkedIn + Instagram URL wiring across Header/Footer/MobileNav + resume PDF placeholder (CONT-01, CONT-02, CONT-03)
-  - [ ] 04-04-PLAN.md — Per-page SEO props pass-through (homepage + case study route) — Wave 2, depends on 01+02 (SEO-01, SEO-02, SEO-03)
+  - [x] 04-04-PLAN.md — Per-page SEO props pass-through (homepage + case study route) — Wave 2, depends on 01+02 (SEO-01, SEO-02, SEO-03)
 **UI hint**: yes
 
 ### Phase 5: Responsive Design
