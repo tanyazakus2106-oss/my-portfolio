@@ -1,4 +1,4 @@
-// Shared scroll-entrance animation — used by /work cards and case study sections.
+// Shared scroll-entrance animation — used by home-page project cards and case-study sections.
 // Respects prefers-reduced-motion via the CSS @media block in global.css.
 // D-18 to D-23, WORK-06, POL-01.
 
