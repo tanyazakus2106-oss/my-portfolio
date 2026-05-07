@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 5
 Plan: Not started
 Status: Ready to plan
-Last activity: 2026-05-07 - Completed quick task 260507-p8w: fix(favicon): generate tz-branded favicon.ico from public/favicon.svg
+Last activity: 2026-05-07 - Completed quick task 260507-qab: refactor(about): split top hero into 2-col layout
 
 Progress: [██░░░░░░░░] 33%
 
@@ -102,6 +102,7 @@ None yet.
 | 260507-i1o | Drop project card eyebrows to text-xs (2-tier eyebrow hierarchy) | 2026-05-07 | 2f57081 | — (fast task) |
 | 260507-i6a | Suppress click-residue focus ring on project cards (focus-within → has-[:focus-visible]) | 2026-05-07 | 382f956 | — (fast task) |
 | 260507-p8w | fix(favicon): generate tz-branded favicon.ico from public/favicon.svg | 2026-05-07 | 69266e8 | [260507-p8w-fix-favicon-generate-tz-branded-favicon-](./quick/260507-p8w-fix-favicon-generate-tz-branded-favicon-/) |
+| 260507-qab | refactor(about): split top hero into 2-col layout (image 40% / text 60% at md+) | 2026-05-07 | ae78cc3 | [260507-qab-refactor-about-split-top-hero-into-2-col](./quick/260507-qab-refactor-about-split-top-hero-into-2-col/) |
 
 ## Session Continuity
 
