@@ -6,12 +6,21 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  canonical?: string;
 }
 
 const {
   title = "Tanya Zakus — UX/UI Designer",
   description = "",
+  ogImage = "/og-image.png",
+  ogType = "website",
+  canonical,
 } = Astro.props;
+
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? 'https://my-portfolio-8h7.pages.dev').href;
+const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://my-portfolio-8h7.pages.dev').href;
 ---
 
 <!DOCTYPE html>
@@ -40,6 +49,27 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {/* Canonical URL (D-22) */}
+    <link rel="canonical" href={canonicalUrl} />
+
+    {/* Open Graph (D-17) */}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Tanya Zakus" />
+    <meta property="og:locale" content="en_US" />
+
+    {/* Twitter Card (D-21) */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={absoluteOgImage} />
+
+    {/* Favicon (D-17, D-20) */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://api.fontshare.com" />
