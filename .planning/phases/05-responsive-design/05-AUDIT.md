@@ -85,10 +85,10 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 | Footer (grid reflow, icon-btn tap targets) | PASS | PASS | PASS | PASS | none | ≥44px | n/a | tap target 40→44 (commit 68b52c7) |
 | index.astro — hero section | | | | | | | | |
 | index.astro — projects section (ProjectCard layout) | | | | | | | | |
-| about.astro — hero grid (lg:grid-cols-2) | | | | | | | | |
+| about.astro — hero grid (lg:grid-cols-2) | | | | | | | PASS (4-step widths) | widths array refined for DPR-2 mobile coverage (commit e55112b) — layout cells pending 05-06 |
 | about.astro — how I work / beyond work sections | | | | | | | | |
 | projects/[id].astro — header, summary | | | | | | | | |
-| projects/[id].astro — cover image | | | | | | | | |
+| projects/[id].astro — cover image | | | | | | | PASS (4-step widths) | widths array refined for DPR-2 mobile coverage (commit e55112b) — layout cells pending 05-06 |
 | projects/[id].astro — case prose body | | | | | | | | |
 | projects/[id].astro — prev/next nav | | | | | | | | |
 | FullBleedImage (in case prose) | PASS | PASS | PASS | PASS | none | n/a | single-src | overflow-x guard on .full-bleed (commit 61d573d) |
