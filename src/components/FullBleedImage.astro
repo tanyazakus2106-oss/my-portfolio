@@ -19,7 +19,14 @@ const { src, alt } = Astro.props;
 ---
 
 <figure class="full-bleed my-[var(--spacing-2xl)]">
-  <img src={src} alt={alt} loading="lazy" decoding="async" />
+  <img
+    src={src}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    sizes="100vw"
+    class="w-full h-auto block"
+  />
 </figure>
 
 <style>

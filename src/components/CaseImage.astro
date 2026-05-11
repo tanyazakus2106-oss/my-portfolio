@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+interface Props { src: ImageMetadata; alt: string; caption?: string; }
+const { src, alt, caption } = Astro.props;
+---
+<figure class="my-[var(--spacing-2xl)]">
+  <Image
+    src={src}
+    alt={alt}
+    widths={[400, 720, 1440]}
+    sizes="(min-width: 768px) 720px, calc(100vw - 3rem)"
+    class="w-full h-auto rounded-lg"
+  />
+  {caption && <figcaption class="mt-[var(--spacing-sm)] text-sm text-[var(--color-text-secondary)]">{caption}</figcaption>}
+</figure>

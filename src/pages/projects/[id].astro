@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FullBleedImage from '../../components/FullBleedImage.astro';
+import CaseImage from '../../components/CaseImage.astro';
 import ArrowLink from '../../components/ui/ArrowLink.astro';
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
@@ -88,7 +89,7 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   {/* Body article — MDX prose + prev/next */}
   <article class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose animate-page-entry" style="--entry-index: 3">
 
-    <Content components={{ FullBleedImage }} />
+    <Content components={{ FullBleedImage, CaseImage }} />
 
     <nav
       class="mt-[var(--spacing-3xl)] pt-[var(--spacing-xl)] border-t border-[var(--color-border)] flex justify-between gap-[var(--spacing-md)]"
