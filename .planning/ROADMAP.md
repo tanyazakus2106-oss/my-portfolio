@@ -89,7 +89,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Case study pages are fully readable and correctly laid out on a mobile device
   4. Responsive images load appropriately sized assets for each viewport — no oversized images on mobile
 **Plans**: 7 plans
-  - [ ] 05-01-PLAN.md — Audit-matrix setup: create 05-AUDIT.md with 15 rows × 4 breakpoints + methodology snippets + pre-identified failures (NAV-05, CASE-06, RESP-01, RESP-02, RESP-03)
+  - [x] 05-01-PLAN.md — Audit-matrix setup: create 05-AUDIT.md with 15 rows × 4 breakpoints + methodology snippets + pre-identified failures (NAV-05, CASE-06, RESP-01, RESP-02, RESP-03)
   - [ ] 05-02-PLAN.md — Pre-identified fixes: footer-icon-btn 40→44px + FullBleedImage self-contained overflow-x guard (RESP-01, RESP-03)
   - [ ] 05-03-PLAN.md — MobileNav iOS Safari scroll-lock: replace body.overflow with position-fixed scroll-position-capture pattern (NAV-05, RESP-03)
   - [ ] 05-04-PLAN.md — Responsive Image widths refinement: About hero [400,600,800,1120] + case study cover [400,800,1200,1800] for DPR-2 mobile coverage (RESP-02, CASE-06)
