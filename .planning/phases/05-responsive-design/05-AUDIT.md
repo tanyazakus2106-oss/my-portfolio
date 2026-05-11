@@ -79,8 +79,8 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 | Component / Page | 375 | 768 | 1024 | 1440 | Overflow? | Tap targets? | Images? | Notes |
 |-----------------|-----|-----|------|------|-----------|--------------|---------|-------|
 | Header (sticky, logo, inline nav visibility) | | | | | | | | |
-| MobileNav trigger (hamburger tap target) | | | | | | | | |
-| MobileNav overlay (open/close, scroll lock, tap targets) | | | | | | | | |
+| MobileNav trigger (hamburger tap target) | PASS | PASS | N/A | N/A | none | ≥44px | n/a | existing min-h-[44px] min-w-[44px] already passes — no change |
+| MobileNav overlay (open/close, scroll lock, tap targets) | PROVISIONAL-PASS | PASS | N/A | N/A | none | ≥44px | n/a | scroll-lock mechanism switched to position-fixed pattern (commit b2716b3); 375 awaits real-iPhone verify in 05-07 |
 | ThemeToggle (tap target) | | | | | | | | |
 | Footer (grid reflow, icon-btn tap targets) | PASS | PASS | PASS | PASS | none | ≥44px | n/a | tap target 40→44 (commit 68b52c7) |
 | index.astro — hero section | | | | | | | | |
@@ -102,7 +102,7 @@ Per RESEARCH §3 and PATTERNS § "Key Pre-Identified Failures":
 |-----------|-------|---------------------|----------|
 | `Footer.astro` `.footer-icon-btn` | `width: 40px; height: 40px` — 4px below D-04 44px minimum | Footer.astro lines 92–93 | 05-02-PLAN.md — RESOLVED in 68b52c7 |
 | `FullBleedImage.astro` figure | `100vw` breakout causes horizontal scroll on browsers with visible scrollbars; the BaseLayout `overflow-x: hidden` guard the component comment references does not exist | Grep src/ — no overflow-x declaration; FullBleedImage.astro line 5 comment | 05-02-PLAN.md — RESOLVED in 61d573d |
-| `MobileNav.astro` `open()`/`close()` | `document.body.style.overflow = 'hidden'` does not prevent iOS Safari momentum scroll | MobileNav.astro lines 92, 108; multi-source verified | 05-03-PLAN.md |
+| `MobileNav.astro` `open()`/`close()` | `document.body.style.overflow = 'hidden'` does not prevent iOS Safari momentum scroll | MobileNav.astro lines 92, 108; multi-source verified | 05-03-PLAN.md — RESOLVED in b2716b3 (375-column gate still pending real-iPhone verify in 05-07) |
 
 These three FAILs are addressed in Wave 2 fix plans regardless of audit outcome.
 
