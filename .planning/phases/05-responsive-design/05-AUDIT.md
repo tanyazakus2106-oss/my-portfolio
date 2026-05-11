@@ -91,7 +91,8 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 | projects/[id].astro — cover image | | | | | | | PASS (4-step widths) | widths array refined for DPR-2 mobile coverage (commit e55112b) — layout cells pending 05-06 |
 | projects/[id].astro — case prose body | | | | | | | | |
 | projects/[id].astro — prev/next nav | | | | | | | | |
-| FullBleedImage (in case prose) | PASS | PASS | PASS | PASS | none | n/a | single-src | overflow-x guard on .full-bleed (commit 61d573d) |
+| FullBleedImage (in case prose) | PASS | PASS | PASS | PASS | none | n/a | PASS (sizes=100vw — Path A; Path B src/assets migration deferred, commit 4ed2e7d) | overflow-x guard on .full-bleed (commit 61d573d) + sizes hint (commit 4ed2e7d) |
+| CaseImage component (MDX wrapper) | PASS (preparedness — no real MDX usage yet) | PASS (preparedness) | PASS (preparedness) | PASS (preparedness) | n/a | n/a | PASS (widths=[400,720,1440], sizes for 720px column) | Wrapper component + registration + doc-comment in project-alpha.mdx (commits 4ed2e7d) |
 | ArrowLink (typographic density check only) | | | | | | | | |
 
 ## Pre-Identified Failures (recorded before audit runs)

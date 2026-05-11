@@ -93,7 +93,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   - [x] 05-02-PLAN.md — Pre-identified fixes: footer-icon-btn 40→44px + FullBleedImage self-contained overflow-x guard (RESP-01, RESP-03)
   - [x] 05-03-PLAN.md — MobileNav iOS Safari scroll-lock: replace body.overflow with position-fixed scroll-position-capture pattern (NAV-05, RESP-03)
   - [x] 05-04-PLAN.md — Responsive Image widths refinement: About hero [400,600,800,1120] + case study cover [400,800,1200,1800] for DPR-2 mobile coverage (RESP-02, CASE-06)
-  - [ ] 05-05-PLAN.md — CaseImage MDX wrapper component + FullBleedImage sizes="100vw" (Path A) + registration + doc-comment in project-alpha.mdx (RESP-02, CASE-06)
+  - [x] 05-05-PLAN.md — CaseImage MDX wrapper component + FullBleedImage sizes="100vw" (Path A) + registration + doc-comment in project-alpha.mdx (RESP-02, CASE-06)
   - [ ] 05-06-PLAN.md — Audit execution: fill all remaining breakpoint cells, Audit Summary, D-01 escape-hatch check, human spot-check (NAV-05, CASE-06, RESP-01, RESP-02, RESP-03)
   - [ ] 05-07-PLAN.md — Real-iPhone verification + audit sign-off (NAV-05, CASE-06, RESP-02)
 **UI hint**: yes
