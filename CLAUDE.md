@@ -169,7 +169,7 @@ These guide all visual decisions in this repo. Future sessions should align new 
 - **Aesthetic: minimal.** Default to fewer elements, fewer borders, fewer decorative flourishes. Whitespace is the structural element — let layout do the work that ornamentation does on busier sites.
 - **Generous whitespace.** Lean toward the larger end of the spacing scale (`--spacing-xl` and above) for vertical rhythm between sections. Tight spacing belongs only inside a single grouped element (e.g., a card's internal label/title pair).
 - **Typography intent: Inter.** Inter is the preferred sans-serif. **Current state:** `src/styles/global.css` declares `--font-sans: "Satoshi"` (with Instrument Serif as the secondary). Treat this as a known divergence from intent — flag it before making large typography changes, and propose a token swap rather than overriding font-family inline.
-- **Color**: Restrained palette. The accent color (currently `#6F5FD5`) is used sparingly for emphasis. Body text and surfaces stay near greyscale.
+- **Color**: Restrained palette. The accent color (currently `#553EE5` in light mode, `#8776F9` in dark mode) is used sparingly for emphasis. Body text and surfaces stay near greyscale.
 - **Motion**: Subtle, fast, dismissible. Scroll entrance animations are 500ms ease-out with a 60ms stagger; anything more dramatic is probably wrong for this site. Always honor `prefers-reduced-motion`.
 - **Density**: Designed for the full 1440px container width on desktop. Don't compress to narrower widths just because content is short — let space breathe.
 
