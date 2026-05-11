@@ -82,7 +82,7 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 | MobileNav trigger (hamburger tap target) | | | | | | | | |
 | MobileNav overlay (open/close, scroll lock, tap targets) | | | | | | | | |
 | ThemeToggle (tap target) | | | | | | | | |
-| Footer (grid reflow, icon-btn tap targets) | | | | | | | | |
+| Footer (grid reflow, icon-btn tap targets) | PASS | PASS | PASS | PASS | none | ≥44px | n/a | tap target 40→44 (commit 68b52c7) |
 | index.astro — hero section | | | | | | | | |
 | index.astro — projects section (ProjectCard layout) | | | | | | | | |
 | about.astro — hero grid (lg:grid-cols-2) | | | | | | | | |
@@ -91,7 +91,7 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 | projects/[id].astro — cover image | | | | | | | | |
 | projects/[id].astro — case prose body | | | | | | | | |
 | projects/[id].astro — prev/next nav | | | | | | | | |
-| FullBleedImage (in case prose) | | | | | | | | |
+| FullBleedImage (in case prose) | PASS | PASS | PASS | PASS | none | n/a | single-src | overflow-x guard on .full-bleed (commit 61d573d) |
 | ArrowLink (typographic density check only) | | | | | | | | |
 
 ## Pre-Identified Failures (recorded before audit runs)
@@ -100,8 +100,8 @@ Per RESEARCH §3 and PATTERNS § "Key Pre-Identified Failures":
 
 | Component | Issue | Source confirmation | Fix plan |
 |-----------|-------|---------------------|----------|
-| `Footer.astro` `.footer-icon-btn` | `width: 40px; height: 40px` — 4px below D-04 44px minimum | Footer.astro lines 92–93 | 05-02-PLAN.md |
-| `FullBleedImage.astro` figure | `100vw` breakout causes horizontal scroll on browsers with visible scrollbars; the BaseLayout `overflow-x: hidden` guard the component comment references does not exist | Grep src/ — no overflow-x declaration; FullBleedImage.astro line 5 comment | 05-02-PLAN.md |
+| `Footer.astro` `.footer-icon-btn` | `width: 40px; height: 40px` — 4px below D-04 44px minimum | Footer.astro lines 92–93 | 05-02-PLAN.md — RESOLVED in 68b52c7 |
+| `FullBleedImage.astro` figure | `100vw` breakout causes horizontal scroll on browsers with visible scrollbars; the BaseLayout `overflow-x: hidden` guard the component comment references does not exist | Grep src/ — no overflow-x declaration; FullBleedImage.astro line 5 comment | 05-02-PLAN.md — RESOLVED in 61d573d |
 | `MobileNav.astro` `open()`/`close()` | `document.body.style.overflow = 'hidden'` does not prevent iOS Safari momentum scroll | MobileNav.astro lines 92, 108; multi-source verified | 05-03-PLAN.md |
 
 These three FAILs are addressed in Wave 2 fix plans regardless of audit outcome.
