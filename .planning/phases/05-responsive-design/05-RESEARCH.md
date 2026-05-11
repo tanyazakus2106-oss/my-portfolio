@@ -620,22 +620,25 @@ Wave 0 creates `05-AUDIT.md` with the full matrix table. Each cell is filled dur
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **FullBleedImage asset strategy**
+1. **FullBleedImage asset strategy** — RESOLVED in Plan 05-05 Task 2 (Path A chosen)
    - What we know: FullBleedImage uses `public/` path strings. Astro's `<Image>` cannot generate srcset from `public/` strings. D-06 says "explicit `widths` + `sizes`" on FullBleedImage.
    - What's unclear: Does D-06 require a true srcset (requiring `src/assets/` migration) or just adding `sizes="100vw"` to the existing `<img>` tag?
    - Recommendation: Planner should spec the simplest interpretation first: add `loading="lazy"`, `decoding="async"`, `sizes="100vw"` to the existing `<img>` tag, and document that true srcset requires moving assets to `src/assets/case-studies/`. Defer the migration unless RESP-02 audit shows meaningful image weight on the FullBleedImage surface.
+   - **Resolution:** Plan 05-05 Task 2 implements Path A (`sizes="100vw"` on the existing `<img>`). Path B (`src/assets/` migration) is deferred to Phase 6 or later — D-06 of CONTEXT.md explicitly calls `sizes="100vw"` the "canonical pattern" for this surface, validating Path A as the locked-decision implementation.
 
-2. **`about.astro` uses `max-w-[1120px]` and `[id].astro` uses `max-w-[1200px]` — neither uses `.container`**
+2. **`about.astro` uses `max-w-[1120px]` and `[id].astro` uses `max-w-[1200px]` — neither uses `.container`** — RESOLVED in Plan 05-06 Task 1 Step 5
    - What we know: These are intentional design decisions from prior phases.
    - What's unclear: At 1440px, does the about page look noticeably narrower than the header? Is this intentional?
    - Recommendation: Mark as "verify at 1440px" in the audit — pass if intentional, fix if accidental divergence from design intent.
+   - **Resolution:** Plan 05-06 Task 1 includes a 1440px verification step that confirms intentional vs. accidental divergence and either ratifies the current widths or surfaces a fix-row in the audit matrix.
 
-3. **Real content readiness for MDX image strategy**
+3. **Real content readiness for MDX image strategy** — RESOLVED in Plan 05-05 Tasks 1, 3, 4
    - What we know: Placeholder MDX files have no inline `<Image>` usage; FullBleedImage is the only image component called from MDX.
    - What's unclear: Whether real case study content will have inline body images at all (vs. only full-bleed images).
    - Recommendation: Implement `<CaseImage>` wrapper anyway as a preparedness step. Cost is low; benefit is avoiding a follow-up task when Tanya adds real content.
+   - **Resolution:** Plan 05-05 creates `<CaseImage>` regardless of current MDX content, registers it in `[id].astro`, and documents the usage pattern in `project-alpha.mdx`. When Tanya later authors real body images, no follow-up plumbing is required.
 
 ---
 
