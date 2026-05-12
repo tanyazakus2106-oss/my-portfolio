@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 status: completed
 stopped_at: Phase 6 context gathered
-last_updated: "2026-05-12T19:22:00.000Z"
+last_updated: "2026-05-12T19:55:00.000Z"
 last_activity: 2026-05-12
 progress:
   total_phases: 6
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-05-12 - Completed quick task 260512-uy8: Polish: about hero corner radius, mobile project card spacing, remove touch focus states
+Last activity: 2026-05-12 - Completed quick task 260512-vhl: perf(particles): vendor particles.js, slim count, drop line-linking, drop touch interactivity
 
 Progress: [██░░░░░░░░] 33%
 
@@ -111,6 +111,7 @@ None yet.
 | 260507-r2f | refactor(about): apply animate-on-scroll fade-up to hero + sub-sections | 2026-05-07 | e083b7b | [260507-r2f-refactor-about-apply-animate-on-scroll-f](./quick/260507-r2f-refactor-about-apply-animate-on-scroll-f/) |
 | 260507-r5q | refactor(about): remove body text max-w-[600px] cap so paragraphs fill grid 3-col span | 2026-05-07 | 8655c1b | [260507-r5q-refactor-about-remove-max-w-600px-cap-fr](./quick/260507-r5q-refactor-about-remove-max-w-600px-cap-fr/) |
 | 260512-uy8 | Polish: about hero corner radius, mobile project card spacing, remove touch focus states | 2026-05-12 | 424b2eb | [260512-uy8-polish-about-hero-corner-radius-mobile-p](./quick/260512-uy8-polish-about-hero-corner-radius-mobile-p/) |
+| 260512-vhl | perf(particles): vendor particles.js, slim count, drop line-linking, drop touch interactivity | 2026-05-12 | 6c69b0f | [260512-vhl-perf-particles-vendor-particles-js-slim-](./quick/260512-vhl-perf-particles-vendor-particles-js-slim-/) |
 
 ## Deferred Items
 
