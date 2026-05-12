@@ -20,7 +20,20 @@
     "preconnect",
     "srcset",
     "WebP",
-    "AVIF"
+    "AVIF",
+    "frontmatter",
+    "wireframes",
+    "Wireframes",
+    "Wireframing",
+    "unmoderated",
+    "affordances",
+    "lede",
+    "focusables",
+    "reinitialising",
+    "Reinit",
+    "onhover",
+    "destroypJS",
+    "maxopacity"
   ],
   "ignorePaths": [
     "node_modules",
