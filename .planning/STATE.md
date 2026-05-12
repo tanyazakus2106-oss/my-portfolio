@@ -121,6 +121,7 @@ None yet.
 | 260513-xbm | fix(hero): lower particles layer opacity from 0.817 to 0.777 | 2026-05-13 | 6fa45e4 | — (fast task) |
 | 260513-xdr | fix(footer): drop desktop top-padding override (lg:pt-24) | 2026-05-13 | 7dfabea | — (fast task) |
 | 260513-xeu | fix(footer): zero desktop top-padding (lg:pt-0, mobile keeps pt-16) | 2026-05-13 | 0854e86 | — (fast task) |
+| 260513-xfy | fix(about): set desktop top+bottom padding to 132px (md: rhythm) | 2026-05-13 | 8c39bf9 | — (fast task) |
 
 ## Deferred Items
 
