@@ -2,7 +2,7 @@
 phase: 06-deployment
 plan: "02"
 subsystem: pre-launch-qa
-status: partial
+status: completed
 tags:
   - lighthouse
   - lychee
@@ -17,8 +17,9 @@ dependency_graph:
     - "cspell zero-error dictionary (SC4)"
     - "Lighthouse mobile baseline: 0.86 performance (SEO-05)"
     - "perf-pass-decision: pass by default, no surgical fixes needed"
+    - "mailto E2E human verification: PASS — Plan 03 unblocked"
   affects:
-    - "Plan 03: Cloudflare dashboard cutover (cleared for go-ahead once mailto E2E passes)"
+    - "Plan 03: Cloudflare dashboard cutover (cleared for go-ahead)"
     - "Plan 04: code cutover (will re-run Lighthouse against production hostname)"
 tech_stack:
   added:
@@ -33,24 +34,26 @@ key_files:
     - .planning/phases/06-deployment/lighthouse-mobile-baseline.html
     - .planning/phases/06-deployment/lighthouse-mobile-baseline.json
     - .planning/phases/06-deployment/perf-pass-decision.md
+    - .planning/phases/06-deployment/mailto-e2e-evidence.md
   modified:
     - cspell.json
 decisions:
   - "Lighthouse mobile performance 0.86 — PASS by default. No surgical perf fixes needed. Astro 6 + Phase 5 image work already exceeds the 0.80 SEO-05 gate."
   - "lychee v0.24.2 flag changes: --exclude-mail removed (mail excluded by default); --base deprecated in favor of --base-url. Both handled as deviation Rule 1 auto-fix."
   - "robots.txt sitemap URL (tanyazakus.com) is an expected false positive in lychee — domain not yet live; exit code 0 confirms no real broken links."
+  - "Mailto evidence captured as PASS via verbal owner confirmation rather than send/arrival timestamps — SC4 gate is a functional check, not a deliverability measurement."
 metrics:
-  duration: "~5 minutes (Tasks 1-3)"
+  duration: "~5 minutes scripted + ~5 minutes human verification"
   completed_date: "2026-05-12"
-  tasks_completed: 3
+  tasks_completed: 4
   tasks_total: 4
-  files_created: 5
+  files_created: 6
   files_modified: 1
 ---
 
-# Phase 6 Plan 02: Pre-Cutover QA Summary (PARTIAL — awaiting Task 4)
+# Phase 6 Plan 02: Pre-Cutover QA Summary
 
-Ran three of four SC4 pre-launch QA gates against the preview deploy. Baseline Lighthouse mobile performance is 0.86 — above the SEO-05 gate, meaning no surgical performance fixes are required. Zero real broken links found. cspell tuned to zero-error. Awaiting manual mailto E2E verification (Task 4 checkpoint).
+Ran the four SC4 pre-launch QA gates against the preview deploy. Baseline Lighthouse mobile performance is 0.86 — above the SEO-05 gate, so no surgical performance fixes are required. Zero real broken links found. cspell tuned to zero-error. Mailto E2E verified by the site owner: footer link resolves correctly and the test send arrives in Inbox (not Spam). All four SC4 gates pass — Plan 03 (Cloudflare cutover) is cleared to proceed.
 
 ## Tasks Completed
 
@@ -59,7 +62,7 @@ Ran three of four SC4 pre-launch QA gates against the preview deploy. Baseline L
 | 1 | Install lychee + run broken-link audit against dist/ | fce19ac | .planning/phases/06-deployment/lychee-report.txt |
 | 2 | Run cspell across MDX/Astro/Markdown and tune dictionary to zero-error | 6c9a006 | cspell.json |
 | 3 | Capture baseline Lighthouse mobile report against preview URL | 6fd7eab | lighthouse-mobile-baseline.html, .json, perf-pass-decision.md |
-| 4 | Manual mailto E2E send-and-receive test | PENDING | mailto-e2e-evidence.md |
+| 4 | Manual mailto E2E send-and-receive test | 6e2d443 | mailto-e2e-evidence.md |
 
 ## Task 1: Lychee Broken-Link Audit
 
@@ -105,14 +108,17 @@ No source files required typo fixes. `npx cspell` exits 0 across all 21 files.
 
 **Decision: PASS by default.** No surgical performance fixes needed. Astro 6 + Vite + Lightning CSS tree-shaking + Phase 5 explicit `widths`/`sizes` on high-impact images already deliver 0.86. The `uses-long-cache-ttl` audit (if present) is addressed by Plan 01's `_headers` immutable cache rules for `/_astro/*`. RESEARCH.md guardrail honored — no new npm dependencies added.
 
-## Task 4: Mailto E2E — AWAITING HUMAN VERIFICATION
+## Task 4: Mailto E2E — PASS
 
-Task 4 is a `checkpoint:human-verify` that requires Tanya to:
-1. Click the footer mailto link at https://my-portfolio-8h7.pages.dev
-2. Confirm the mail client opens with `tanyazakus2106@gmail.com` in To:
-3. Send a test email from a different account
-4. Confirm inbox arrival (not spam) within 5 minutes
-5. Write `.planning/phases/06-deployment/mailto-e2e-evidence.md` with the evidence table
+Site owner (Tanya Zakus) verified the footer mailto link end-to-end against the preview URL on 2026-05-12:
+
+| Surface | mailto resolves correctly? | Email arrived in Inbox? | Spam? | Result |
+|---------|----------------------------|--------------------------|-------|--------|
+| Footer email link (`src/components/Footer.astro:9`) | yes (`tanyazakus2106@gmail.com`) | yes | no | **PASS** |
+
+Send/arrival timestamps not captured — verbal owner confirmation accepted since SC4 is a yes/no functional gate, not a deliverability latency measurement.
+
+Evidence committed to `.planning/phases/06-deployment/mailto-e2e-evidence.md` (commit `6e2d443`).
 
 ## Deviations from Plan
 
@@ -132,13 +138,17 @@ Task 4 is a `checkpoint:human-verify` that requires Tanya to:
 - **Files modified:** None (invocation-only change)
 - **Commit:** 6fd7eab
 
+### Naming Convention
+
+The Task 1–3 commits produced an interim `06-02-SUMMARY.md`. On Task 4 wrap-up the orchestrator renamed it to `06-02-pre-cutover-qa-SUMMARY.md` to match the `{plan_id}-SUMMARY.md` convention established by Plan 01 (`06-01-launch-prep-SUMMARY.md`).
+
 ## Threat Surface Scan
 
-No new network endpoints, auth paths, or schema changes introduced. Evidence artifacts (HTML/JSON report, text report) contain the preview URL, which is already public. No new threat surface.
+No new network endpoints, auth paths, or schema changes introduced. Evidence artifacts (HTML/JSON report, text report, mailto evidence) contain the preview URL and owner email, both already public. No new threat surface.
 
 ## Known Stubs
 
-None. The three automated QA artifacts are real measurements; the mailto evidence file will be created by the human verifier in Task 4.
+None. All four SC4 gates produced real measurements or verified human evidence.
 
 ## Self-Check
 
@@ -147,7 +157,8 @@ None. The three automated QA artifacts are real measurements; the mailto evidenc
 - lighthouse-mobile-baseline.json exists: FOUND (6fd7eab)
 - perf-pass-decision.md exists: FOUND (6fd7eab)
 - cspell.json updated: FOUND (6c9a006)
-- mailto-e2e-evidence.md: PENDING (Task 4)
+- mailto-e2e-evidence.md exists: FOUND (6e2d443)
 - All task commits exist in git log: VERIFIED
+- SC4 gates all pass: VERIFIED (lychee=0, cspell=0, lighthouse=0.86, mailto=pass)
 
-## Self-Check: PARTIAL (Tasks 1-3 PASSED, Task 4 pending human verification)
+## Self-Check: PASSED
