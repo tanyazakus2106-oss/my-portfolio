@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: milestone_complete
+status: completed
 stopped_at: Phase 6 context gathered
-last_updated: "2026-05-12T11:51:22.044Z"
-last_activity: 2026-05-12 -- Phase 06 execution started
+last_updated: "2026-05-12T19:07:16.300Z"
+last_activity: 2026-05-12
 progress:
   total_phases: 6
   completed_phases: 6
   total_plans: 24
-  completed_plans: 20
+  completed_plans: 24
   percent: 100
 ---
 
@@ -110,6 +110,41 @@ None yet.
 | 260507-r0q | refactor(about): remove rounded-2xl corner radius from hero image | 2026-05-07 | 3b4f8c2 | [260507-r0q-refactor-about-remove-rounded-2xl-corner](./quick/260507-r0q-refactor-about-remove-rounded-2xl-corner/) |
 | 260507-r2f | refactor(about): apply animate-on-scroll fade-up to hero + sub-sections | 2026-05-07 | e083b7b | [260507-r2f-refactor-about-apply-animate-on-scroll-f](./quick/260507-r2f-refactor-about-apply-animate-on-scroll-f/) |
 | 260507-r5q | refactor(about): remove body text max-w-[600px] cap so paragraphs fill grid 3-col span | 2026-05-07 | 8655c1b | [260507-r5q-refactor-about-remove-max-w-600px-cap-fr](./quick/260507-r5q-refactor-about-remove-max-w-600px-cap-fr/) |
+
+## Deferred Items
+
+Items acknowledged and deferred at v1.0 milestone close on 2026-05-12. All 26 are documentation-shaped (process artifacts incomplete) rather than delivery-shaped (the live site at https://tanyazakus.com is functionally complete and verified). Per v1.0 audit recommendation Path A.
+
+| Category | Item | Status |
+|----------|------|--------|
+| uat_gap | 04-HUMAN-UAT.md (Phase 04) — 4 pending scenarios | partial |
+| verification_gap | 02-VERIFICATION.md (Phase 02) | human_needed |
+| verification_gap | 04-VERIFICATION.md (Phase 04) | human_needed |
+| quick_task | 260417-p8b-fix-global-layout-grid-alignment | missing planning artifact (committed in git) |
+| quick_task | 260506-zm1-fix-noise-overlay-zoom-darkening | missing planning artifact (committed in git) |
+| quick_task | 260506-zm2-update-bg-colors-and-remove-noise | missing planning artifact (committed in git) |
+| quick_task | 260506-zm3-rename-color-dominant-to-color-background | missing planning artifact (committed in git) |
+| quick_task | 260506-zm4-redesign-project-page-grid | missing planning artifact (committed in git) |
+| quick_task | 260506-zm5-restore-prev-next-hover-states | missing planning artifact (committed in git) |
+| quick_task | 260506-zm6-restore-prev-next-typography | missing planning artifact (committed in git) |
+| quick_task | 260506-zm7-unify-back-link-pattern | missing planning artifact (committed in git) |
+| quick_task | 260506-zm8-arrow-buttons-sentence-case-secondary | missing planning artifact (committed in git) |
+| quick_task | 260506-zm9-arrow-link-component | missing planning artifact (committed in git) |
+| quick_task | 260507-fcw-remove-work-page | missing planning artifact (committed in git) |
+| quick_task | 260507-g17-standardize-body-text-size-to-1-125rem-a | missing planning artifact (committed in git) |
+| quick_task | 260507-p8w-fix-favicon-generate-tz-branded-favicon- | missing planning artifact (committed in git) |
+| quick_task | 260507-qab-refactor-about-split-top-hero-into-2-col | missing planning artifact (committed in git) |
+| quick_task | 260507-qhb-refactor-about-mirror-tushar-work-about- | missing planning artifact (committed in git) |
+| quick_task | 260507-qnz-refactor-about-add-hairline-dividers-loc | missing planning artifact (committed in git) |
+| quick_task | 260507-qy7-refactor-about-change-image-aspect-ratio | missing planning artifact (committed in git) |
+| quick_task | 260507-r0q-refactor-about-remove-rounded-2xl-corner | missing planning artifact (committed in git) |
+| quick_task | 260507-r2f-refactor-about-apply-animate-on-scroll-f | missing planning artifact (committed in git) |
+| quick_task | 260507-r5q-refactor-about-remove-max-w-600px-cap-fr | missing planning artifact (committed in git) |
+| quick_task | 260507-zma-timeline-team-stacked | missing planning artifact (committed in git) |
+| quick_task | 260507-zmb-case-study-entrance-animation | missing planning artifact (committed in git) |
+| quick_task | 260507-zmc-remove-h2-scroll-animation | missing planning artifact (committed in git) |
+
+**Total:** 26 items (3 critical phase artifacts + 23 quick-task bookkeeping false-positives where actual code IS committed).
 
 ## Session Continuity
 
