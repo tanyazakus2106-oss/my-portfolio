@@ -1,0 +1,29 @@
+# Phase 6 — Cloudflare Pages _headers
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+# D-06 / DEPLOY-02 / SEO-05 — cache hygiene + ASVS L1 baseline security headers.
+# CSP intentionally omitted for v1 launch (Option A per 06-RESEARCH.md).
+
+# Hashed Astro assets — content-addressed, immutable, cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static images in public/images/
+/images/*
+  Cache-Control: public, max-age=604800
+
+# SVG, ICO, PDF in public/
+/*.svg
+  Cache-Control: public, max-age=604800
+/*.ico
+  Cache-Control: public, max-age=604800
+/*.pdf
+  Cache-Control: public, max-age=86400
+
+# Default for HTML and everything else
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
