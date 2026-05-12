@@ -2,7 +2,7 @@
 
 A personal UX/UI design portfolio showcasing case studies and visual design work. Built as a fully static site for fast load times, perfect Lighthouse scores, and zero runtime overhead.
 
-**Live site:** https://my-portfolio-8h7.pages.dev
+**Live site:** https://tanyazakus.com
 
 ## Tech stack
 

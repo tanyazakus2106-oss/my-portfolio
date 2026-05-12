@@ -76,7 +76,6 @@ None yet.
 
 - Project content readiness: 3-5 real case studies with outcomes and imagery are assumed to exist. If not ready, Phase 1 planning must include a content production step before templates are built.
 - Testimonial content (v2): Tanya needs to source quotes from past clients before v2 if testimonials are to be included. Early outreach recommended.
-- Vercel Pro cost: Verify Pro plan billing before Phase 6 planning begins.
 
 ### Quick Tasks Completed
 

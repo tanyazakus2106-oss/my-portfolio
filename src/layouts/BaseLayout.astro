@@ -19,8 +19,8 @@ const {
   canonical,
 } = Astro.props;
 
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? 'https://my-portfolio-8h7.pages.dev').href;
-const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://my-portfolio-8h7.pages.dev').href;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? 'https://tanyazakus.com').href;
+const absoluteOgImage = new URL(ogImage, Astro.site ?? 'https://tanyazakus.com').href;
 ---
 
 <!DOCTYPE html>
