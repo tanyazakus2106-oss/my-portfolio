@@ -8,7 +8,7 @@
 <button
   id="theme-toggle"
   type="button"
-  class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus-visible:text-[var(--color-text-primary)] active:text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
+  class="theme-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus-visible:text-[var(--color-text-primary)] active:text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
   aria-label="Switch to dark mode"
 >
   <svg class="theme-icon-moon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -18,6 +18,14 @@
 <style>
   :global(html.dark) .theme-icon-moon { display: none; }
   :global(html.dark) .theme-icon-sun { display: inline-block; }
+
+  /* Touch-device default: render the hover state color as the resting state so
+     the icon is visible without a hover signal. Same pattern as ArrowLink. */
+  @media (hover: none) {
+    .theme-toggle-btn {
+      color: var(--color-text-primary);
+    }
+  }
 </style>
 
 <script>

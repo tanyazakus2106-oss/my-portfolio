@@ -70,6 +70,15 @@ const links = [
   const closeBtn = document.getElementById('mobile-nav-close') as HTMLButtonElement | null;
 
   if (trigger && overlay && closeBtn) {
+    // Relocate the overlay to be a direct child of <body>. MobileNav is rendered
+    // inside <Header>, which gets `backdrop-filter: blur()` when scrolled. Per the
+    // CSS Filter Effects spec, backdrop-filter establishes a containing block for
+    // fixed-positioned descendants — so without this hoist, the overlay's
+    // `fixed inset-0` anchors to the 80px-tall header instead of the viewport.
+    if (overlay.parentElement !== document.body) {
+      document.body.appendChild(overlay);
+    }
+
     let isOpen = false;
 
     function getFocusable(): HTMLElement[] {
