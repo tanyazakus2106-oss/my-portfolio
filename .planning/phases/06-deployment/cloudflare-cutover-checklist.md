@@ -12,10 +12,10 @@
 
 ## Registration
 
-- [ ] Purchased tanyazakus.com via Cloudflare Registrar — order confirmation #{order-id} on {YYYY-MM-DD HH:MM}
-- [ ] Transfer Lock enabled
-- [ ] Auto-Renew enabled
-- [ ] Domain appears in Cloudflare DNS dashboard sidebar
+- [x] Purchased tanyazakus.com via Cloudflare Registrar — order confirmation pending receipt lookup (recoverable via Cloudflare → Billing → Order history) on 2026-05-12 17:01 EEST
+- [x] Transfer Lock enabled — verified at dash.cloudflare.com → Domain Registration → tanyazakus.com → Manage (status: locked; ICANN 60-day lock also active as belt-and-suspenders)
+- [x] Auto-Renew enabled — verified at same panel (status: ON)
+- [x] Domain appears in Cloudflare DNS dashboard sidebar — verified at 2026-05-12 17:01 EEST
 
 ## Custom domain attach
 
