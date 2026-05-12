@@ -117,6 +117,7 @@ None yet.
 | 260512-wpa | fix(about): mobile-only 24px gap above and below the hero image | 2026-05-12 | d2d217d | [260512-wpa-fix-about-mobile-only-24px-gap-above-and](./quick/260512-wpa-fix-about-mobile-only-24px-gap-above-and/) |
 | 260512-wsd | fix(about): bump mobile image gap from 24px to 48px (iteration on wpa) | 2026-05-12 | db49da1 | — (fast task) |
 | 260512-wtt | fix(about): set below-image gap to 64px on mobile (iteration on wsd) | 2026-05-12 | 64fb526 | — (fast task) |
+| 260513-xak | fix(hero): raise particles layer opacity from 0.717 to 0.817 | 2026-05-13 | 128279e | — (fast task) |
 
 ## Deferred Items
 
