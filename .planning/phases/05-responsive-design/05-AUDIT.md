@@ -80,7 +80,7 @@ In DevTools Network tab → Img filter → reload page at the target breakpoint 
 |-----------------|-----|-----|------|------|-----------|--------------|---------|-------|
 | Header (sticky, logo, inline nav visibility) | PASS | PASS | PASS | PASS | none@all | ≥44px@375 | n/a | inline nav visible at md+; hamburger md:hidden; sticky preserved |
 | MobileNav trigger (hamburger tap target) | PASS | PASS | N/A | N/A | none | ≥44px | n/a | existing min-h-[44px] min-w-[44px] already passes — no change |
-| MobileNav overlay (open/close, scroll lock, tap targets) | PROVISIONAL-PASS | PASS | N/A | N/A | none | ≥44px | n/a | scroll-lock mechanism switched to position-fixed pattern (commit b2716b3); 375 awaits real-iPhone verify in 05-07 |
+| MobileNav overlay (open/close, scroll lock, tap targets) | PASS | PASS | N/A | N/A | none | ≥44px | n/a | scroll-lock (commit b2716b3) + overlay DOM relocation to body on mount, fixes backdrop-filter containing-block issue (commit 8b36c31); real-iPhone verified |
 | ThemeToggle (tap target) | PASS | PASS | PASS | PASS | n/a | ≥44px@375 | n/a | toggle visible and tappable at all widths |
 | Footer (grid reflow, icon-btn tap targets) | PASS | PASS | PASS | PASS | none | ≥44px | n/a | tap target 40→44 (commit 68b52c7) |
 | index.astro — hero section | PASS | PASS | PASS | PASS | none@all | n/a | n/a | headline scales cleanly through all widths to 1440 design target |
@@ -116,7 +116,7 @@ These three FAILs are addressed in Wave 2 fix plans regardless of audit outcome.
 **Matrix dimensions:** 16 rows × 4 breakpoints = 64 cells
 
 ### Cell tallies
-- PASS cells: 60 (includes 1 PROVISIONAL-PASS — MobileNav overlay @375, pending plan 05-07)
+- PASS cells: 60 (all real-device verified; MobileNav overlay @375 upgraded from its provisional state after 05-07 iPhone walk)
 - COSMETIC cells (1024 only — D-03): 0
 - FAIL cells: 0
 - N/A cells (component hidden at this breakpoint): 4 (MobileNav trigger + overlay at 1024 and 1440 — both `md:hidden`)
@@ -135,10 +135,17 @@ No repeated-pattern failures observed. The audit surfaced two RESP-03 touch-UX g
 |-----------|----------|-----|--------|
 | ArrowLink hover affordance never visible on `(hover: none)` touch devices — destination cue invisible to phone/tablet users | RESP-03 | Scoped `@media (hover: none)` block in `ArrowLink.astro` sets resting state to accent color. Underline reveal stays hover-only (touch needs accent only, per user spec). Desktop unchanged. | `4f0f85f` → trimmed in `56df3ff` |
 | Case study prev/next nav tap zone narrowed to text content width (~100-130px) on 375 — touch users miss the dead zone between left/right edges | RESP-03 | Added `flex-1` to both `<a>` elements in `src/pages/projects/[id].astro` nav. Each link now fills half the row; `items-end` preserves right-alignment of the right link's content. Tap zone widens to ~165px each at 375. | `4f0f85f` |
+| MobileNav overlay broken on iPhone — opening from a scrolled position clipped the overlay to the scrolled header's 80px bounding box (Work link missing, page bleed-through). Root cause: `backdrop-filter: blur()` on `#site-header.is-scrolled` establishes a containing block for fixed-positioned descendants per the CSS Filter Effects spec. | NAV-05 | Relocate the overlay DOM to `document.body` on mount (3-line JS in `MobileNav.astro`). Overlay's `fixed inset-0` now correctly anchors to the viewport regardless of any ancestor's stacking context. | `8b36c31` |
+| ThemeToggle icon muted on touch — used `text-secondary hover:text-primary`; on `(hover: none)` it never reached primary. Visually weaker than the hamburger which already uses text-primary. | RESP-03 | Scoped `@media (hover: none)` block in `ThemeToggle.astro` renders the icon at `var(--color-text-primary)` by default on touch. Desktop hover transition unchanged. Same pattern as ArrowLink touch-default. | `8b36c31` |
 
 ### Recommended follow-up actions
 
-None for this phase. Plan 05-07 (real-iPhone verification) is the only outstanding gate: confirms MobileNav scroll-lock on iOS Safari momentum scroll + DPR-aware srcset selection on a physical device. Both audit-driven RESP-03 fixes should be re-verified on real hardware as part of 05-07.
+Phase 5 is sign-off ready. Two non-blocking findings surfaced during 05-07 iPhone verification are deferred to Phase 6:
+
+| Finding | Why deferred to Phase 6 |
+|---------|------------------------|
+| Remove `:focus-visible` outline on touch devices | `:focus-visible` should already only trigger on keyboard focus per spec, so this may be a misdiagnosis. Needs reproduction on the specific element where the focus ring is firing on touch before a fix is scoped. |
+| Mobile padding feels too generous (section gaps + vertical rhythm) | Substantial design-system change affecting the spacing scale across the site. Conflicts with CLAUDE.md "Generous whitespace. Lean toward the larger end of the spacing scale" — needs an explicit decision on whether to revise that preference for the mobile breakpoint. Out of scope for a responsive-correctness phase. |
 
 ## Sign-Off
 
@@ -146,5 +153,5 @@ None for this phase. Plan 05-07 (real-iPhone verification) is the only outstandi
 - [x] Every FAIL cell has a linked fix commit SHA in the Notes column — N/A, no FAILs
 - [x] Overflow snippet returns empty table on every page at every breakpoint
 - [x] Touch-target snippet returns empty failures table at 375 px on every page (ArrowLink instances excluded per D-04)
-- [ ] Real-iPhone 375 column verification passed (per 05-07-PLAN.md)
-- [ ] Sign-off date recorded: ___________
+- [x] Real-iPhone 375 column verification passed (per 05-07-PLAN.md): MobileNav scroll-lock + tap reliability + ThemeToggle prominence all confirmed on physical iPhone Safari after fixes 8b36c31
+- [x] Sign-off date recorded: 2026-05-12
