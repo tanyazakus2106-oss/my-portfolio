@@ -185,8 +185,8 @@ hr {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-md); /* 1rem mobile — tightened from 1.5rem for more content width on small screens */
-  padding-right: var(--spacing-md);
+  padding-left: var(--spacing-lg); /* 1.5rem mobile */
+  padding-right: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
