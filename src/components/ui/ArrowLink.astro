@@ -44,4 +44,19 @@ const tagAttrs: Record<string, unknown> = decorative
   : { href: href ?? '#', ...rest };
 ---
 
-<Tag class:list={[baseClass, interactionClass, className]} {...tagAttrs}>{direction === 'left' ? `${arrow} ` : ''}<span class={underlineClass}><slot /></span>{direction === 'right' ? ` ${arrow}` : ''}</Tag>
+<Tag class:list={[baseClass, interactionClass, className, 'arrow-link']} {...tagAttrs}>{direction === 'left' ? `${arrow} ` : ''}<span class={underlineClass}><slot /></span>{direction === 'right' ? ` ${arrow}` : ''}</Tag>
+
+<style>
+  /* Touch-device default: render the hover state (accent color + revealed underline)
+     as the resting state. Touch devices cannot reveal hover affordances, so the
+     destination cue must be visible by default. Desktop (hover: hover) is unchanged. */
+  @media (hover: none) {
+    .arrow-link {
+      color: var(--color-accent);
+    }
+    .arrow-link span::after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
+  }
+</style>
