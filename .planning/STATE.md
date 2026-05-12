@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 status: completed
 stopped_at: Phase 6 context gathered
-last_updated: "2026-05-12T20:30:00.000Z"
+last_updated: "2026-05-12T20:34:00.000Z"
 last_activity: 2026-05-12
 progress:
   total_phases: 6
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-05-12 - Completed quick task 260512-wjo: fix(about): mobile-only margin-bottom on section titles (How I work / Beyond work) — reduce 48px grid gap to 24px margin
+Last activity: 2026-05-12 - Completed quick task 260512-wpa: fix(about): mobile-only 24px gap above and below the hero image
 
 Progress: [██░░░░░░░░] 33%
 
@@ -114,6 +114,7 @@ None yet.
 | 260512-vhl | perf(particles): vendor particles.js, slim count, drop line-linking, drop touch interactivity | 2026-05-12 | 6c69b0f | [260512-vhl-perf-particles-vendor-particles-js-slim-](./quick/260512-vhl-perf-particles-vendor-particles-js-slim-/) |
 | 260512-vss | fix(hero): swap min-h-screen to layered min-h-screen + min-h-svh for iOS vertical centering | 2026-05-12 | aee3755 | [260512-vss-fix-hero-swap-min-h-screen-to-layered-mi](./quick/260512-vss-fix-hero-swap-min-h-screen-to-layered-mi/) |
 | 260512-wjo | fix(about): mobile-only margin-bottom on section titles (How I work / Beyond work) | 2026-05-12 | e92ff1a | [260512-wjo-fix-about-mobile-only-margin-bottom-on-s](./quick/260512-wjo-fix-about-mobile-only-margin-bottom-on-s/) |
+| 260512-wpa | fix(about): mobile-only 24px gap above and below the hero image | 2026-05-12 | d2d217d | [260512-wpa-fix-about-mobile-only-24px-gap-above-and](./quick/260512-wpa-fix-about-mobile-only-24px-gap-above-and/) |
 
 ## Deferred Items
 
