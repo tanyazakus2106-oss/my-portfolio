@@ -90,7 +90,7 @@ const links = [
       );
     }
 
-    function open() {
+    function open(opts: { autoFocus?: boolean } = {}) {
       if (!overlay || !trigger) return;
       isOpen = true;
       overlay.dataset.state = 'open';
@@ -102,11 +102,15 @@ const links = [
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
-      // Focus first focusable (close button) on next tick so transition has started
-      requestAnimationFrame(() => {
-        const focusables = getFocusable();
-        focusables[0]?.focus();
-      });
+      // Auto-focus only on keyboard activation. Programmatic .focus() on iOS Safari
+      // makes :focus-visible match even after a touch — leaving a stuck focus ring
+      // on the close button. Keyboard users still get focus trap via Tab handling.
+      if (opts.autoFocus !== false) {
+        requestAnimationFrame(() => {
+          const focusables = getFocusable();
+          focusables[0]?.focus();
+        });
+      }
     }
 
     function close() {
@@ -125,7 +129,12 @@ const links = [
       trigger.focus();
     }
 
-    trigger.addEventListener('click', open);
+    trigger.addEventListener('click', (e) => {
+      // e.detail === 0 signals keyboard activation (Enter/Space synthesizes click
+      // with no associated pointer event). Touch and mouse clicks have detail >= 1.
+      const isKeyboardActivation = (e as MouseEvent).detail === 0;
+      open({ autoFocus: isKeyboardActivation });
+    });
     closeBtn.addEventListener('click', close);
 
     // Backdrop click: close if click target is the overlay itself (not a child)
