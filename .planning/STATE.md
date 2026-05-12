@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 status: completed
 stopped_at: Phase 6 context gathered
-last_updated: "2026-05-12T20:37:00.000Z"
+last_updated: "2026-05-12T20:38:30.000Z"
 last_activity: 2026-05-12
 progress:
   total_phases: 6
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-05-12 - Completed fast task 260512-wsd: fix(about): bump mobile image gap from 24px to 48px
+Last activity: 2026-05-12 - Completed fast task 260512-wtt: fix(about): match below-image gap to desktop (64px)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -116,6 +116,7 @@ None yet.
 | 260512-wjo | fix(about): mobile-only margin-bottom on section titles (How I work / Beyond work) | 2026-05-12 | e92ff1a | [260512-wjo-fix-about-mobile-only-margin-bottom-on-s](./quick/260512-wjo-fix-about-mobile-only-margin-bottom-on-s/) |
 | 260512-wpa | fix(about): mobile-only 24px gap above and below the hero image | 2026-05-12 | d2d217d | [260512-wpa-fix-about-mobile-only-24px-gap-above-and](./quick/260512-wpa-fix-about-mobile-only-24px-gap-above-and/) |
 | 260512-wsd | fix(about): bump mobile image gap from 24px to 48px (iteration on wpa) | 2026-05-12 | db49da1 | — (fast task) |
+| 260512-wtt | fix(about): set below-image gap to 64px on mobile (iteration on wsd) | 2026-05-12 | 64fb526 | — (fast task) |
 
 ## Deferred Items
 
