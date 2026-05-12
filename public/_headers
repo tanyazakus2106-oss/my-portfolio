@@ -11,6 +11,10 @@
 /images/*
   Cache-Control: public, max-age=604800
 
+# Vendored JS libraries in public/js/ (e.g. particles.min.js) — effectively immutable per version
+/js/*
+  Cache-Control: public, max-age=604800
+
 # SVG, ICO, PDF in public/
 /*.svg
   Cache-Control: public, max-age=604800

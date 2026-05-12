@@ -37,9 +37,12 @@
       ? { particles: '#c4b5fd', lines: '#a78bfa', accent: '#7c3aed' }
       : { particles: '#7c3aed', lines: '#8b5cf6', accent: '#6d28d9' };
 
+    // Touch-primary devices skip hover/click events that have no meaning on touch
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
     w.particlesJS('particles-js', {
       particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
+        number: { value: 30, density: { enable: true, value_area: 800 } },
         color: { value: colors.particles },
         shape: { type: 'circle', stroke: { width: 0.5, color: colors.accent } },
         opacity: {
@@ -52,8 +55,10 @@
           random: true,
           anim: { enable: true, speed: 2, size_min: 1 },
         },
+        // line_linked disabled — the dominant per-frame cost (O(n²) pair scan).
+        // Color/distance/opacity left in case a future tweak re-enables for desktop.
         line_linked: {
-          enable: true,
+          enable: false,
           distance: 150,
           color: colors.lines,
           opacity: 0.14,
@@ -64,8 +69,8 @@
       interactivity: {
         detect_on: 'window',
         events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
+          onhover: { enable: !isTouch, mode: 'grab' },
+          onclick: { enable: !isTouch, mode: 'push' },
           resize: true,
         },
         modes: {
@@ -93,9 +98,9 @@
     });
   }
 
-  // Load particles.js from CDN then bootstrap
+  // Load self-hosted particles.js (vendored to public/js/) then bootstrap
   const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+  script.src = '/js/particles.min.js';
   script.async = true;
   script.onload = () => {
     bootstrap();
