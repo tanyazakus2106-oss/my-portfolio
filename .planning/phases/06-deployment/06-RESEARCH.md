@@ -850,24 +850,28 @@ dist/sitemap-0.xml (build artifact, not committed) — regenerates from site:
 | A6 | The current Cloudflare Pages preview URL behavior (auto-noindex via X-Robots-Tag) means leaving it accessible doesn't cause SEO duplicate-content issues | Pitfall 7 + robots.txt note | Low — Cloudflare docs confirm preview URLs get `X-Robots-Tag: noindex` automatically. [VERIFIED] |
 | A7 | A planner picking the Astro 6 Fonts API migration could complete it in 1-2 hours | Performance Pass — Decision Flowchart | Medium — the migration touches `BaseLayout.astro` head, `--font-sans`/`--font-serif` tokens in `global.css`, may require font weight verification. Could be 3-4 hours if Fontshare-hosted Satoshi requires the `fontProviders.local()` workaround (download + bundle). [ASSUMED — would need a spike to verify] |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Does Tailwind v4 emit inline `style` attributes in our compiled output?**
+   - **RESOLVED:** N/A for v1 — CSP Option A (skip CSP) is the chosen path, so this spike is unnecessary. Revisit if v2 hardening pulls in CSP.
    - What we know: Some Tailwind utilities (especially arbitrary value `bg-[var(--foo)]`) may or may not compile to inline styles depending on the version and Lightning CSS settings.
    - What's unclear: Whether THIS codebase's compiled HTML has inline `style=` attributes.
    - Recommendation: If the planner picks CSP Option B (lax CSP with hashes), spike this first: `grep -r 'style=' dist/*.html` after a build. If the count is low (< 5), hash them; if high, accept `style-src 'unsafe-inline'` or skip CSP.
 
 2. **Is the Astro 6 Fonts API's Fontshare provider production-ready, or do we need `fontProviders.local()` for Satoshi?**
+   - **RESOLVED:** Defer — measurement-gated. Plan 06-02 Task 3 (Lighthouse baseline) determines whether font loading is a hotspot; only then migrate. CONTEXT D-06 (Phase 5) confirmed Phase 5 image work is sufficient.
    - What we know: Astro docs list "Fontshare" among supported providers but show only Google in examples.
    - What's unclear: Whether `fontProviders.fontshare({ family: 'Satoshi', weights: [...] })` exists today, or whether the only path is to download Satoshi WOFF2 files and self-host with `fontProviders.local()`.
    - Recommendation: If Lighthouse flags font loading, spike `fontProviders.fontshare()` first; fall back to `local()` with downloaded WOFF2 files if not supported. Either way, get Tanya's blessing before committing to the migration in PLAN.md.
 
 3. **Should the preview URL `my-portfolio-8h7.pages.dev` redirect to production after launch, or just stay accessible?**
+   - **RESOLVED:** Defer per CONTEXT Claude's Discretion + Specifics. Preview URL stays accessible after launch; Cloudflare auto-applies X-Robots-Tag: noindex to *.pages.dev preview hostnames. Revisit if preview URL surfaces in search results.
    - What we know: CONTEXT specifics flags this as Claude's Discretion. Cloudflare auto-applies `X-Robots-Tag: noindex` to preview URLs, so SEO impact is zero.
    - What's unclear: Whether Tanya cares about redirecting it.
    - Recommendation: **Leave it accessible** for v1. Adding a redirect is a separate Cloudflare Redirect Rule (similar pattern to www→apex). It's reversible cheaply later. Defer.
 
 4. **Should `npm run typecheck` be gated in the Cloudflare Pages build?**
+   - **RESOLVED:** Defer per CONTEXT Deferred Ideas. Solo-maintainer trade-off — friction of failing builds for occasional .astro prop typos outweighs the benefit at v1 scale. Revisit if a type bug ships to production.
    - What we know: CONTEXT deferred lists this as "minor friction for a solo maintainer."
    - What's unclear: Whether the planner wants to enable it in Phase 6 (adds confidence on every push) or defer (keeps Phase 6 surgical).
    - Recommendation: Defer per CONTEXT. Cloudflare Pages build command is `npm run build`; changing it to `npm run typecheck && npm run build` is one dashboard click but slows every preview deploy by 5-10s.

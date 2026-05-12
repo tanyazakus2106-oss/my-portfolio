@@ -52,7 +52,6 @@ must_haves:
       contains: "https://tanyazakus.com"
     - path: ".planning/STATE.md"
       provides: "State doc with stale Vercel blocker retired"
-      not_contains: "Vercel Pro"
     - path: ".planning/phases/06-deployment/lighthouse-mobile-launch.html"
       provides: "Post-cutover Lighthouse mobile report against production URL — SEO-05 final gate evidence"
       contains: "tanyazakus.com"
@@ -195,7 +194,7 @@ README.md (current line 5):
     Do NOT push yet — pushing happens in Task 2 once a final pre-push grep sanity check passes.
   </action>
   <verify>
-    <automated>grep -qE "^  site: 'https://tanyazakus\.com',$" astro.config.mjs && grep -qE "^\*\*Live site:\*\* https://tanyazakus\.com$" README.md && grep -qE "Astro\.site \?\? 'https://tanyazakus\.com'" src/layouts/BaseLayout.astro && [ "$(grep -c "Astro.site ?? 'https://tanyazakus.com'" src/layouts/BaseLayout.astro)" -eq 2 ] && ! grep -q "Vercel Pro" .planning/STATE.md && ! grep -q "my-portfolio-8h7.pages.dev" astro.config.mjs && ! grep -q "my-portfolio-8h7.pages.dev" README.md && ! grep -q "my-portfolio-8h7.pages.dev" src/layouts/BaseLayout.astro && npm run build > /dev/null 2>&1 && grep -q "https://tanyazakus.com/" dist/sitemap-0.xml && echo "OK"</automated>
+    <automated>grep -qE "^  site: 'https://tanyazakus\.com',$" astro.config.mjs && grep -qE "^\*\*Live site:\*\* https://tanyazakus\.com$" README.md && grep -qE "Astro\.site \?\? 'https://tanyazakus\.com'" src/layouts/BaseLayout.astro && [ "$(grep -c "Astro.site ?? 'https://tanyazakus.com'" src/layouts/BaseLayout.astro)" -eq 2 ] && ! grep -qi "vercel" .planning/STATE.md && ! grep -q "my-portfolio-8h7.pages.dev" astro.config.mjs && ! grep -q "my-portfolio-8h7.pages.dev" README.md && ! grep -q "my-portfolio-8h7.pages.dev" src/layouts/BaseLayout.astro && npm run build > /dev/null 2>&1 && grep -q "https://tanyazakus.com/" dist/sitemap-0.xml && echo "OK"</automated>
   </verify>
   <acceptance_criteria>
     - `astro.config.mjs` line 9 matches exactly `  site: 'https://tanyazakus.com',` (two-space indent preserved, trailing comma preserved)
@@ -204,7 +203,7 @@ README.md (current line 5):
     - `README.md` does NOT contain the substring `my-portfolio-8h7.pages.dev`
     - `src/layouts/BaseLayout.astro` contains the substring `Astro.site ?? 'https://tanyazakus.com'` EXACTLY TWICE (one per fallback on lines 22 and 23)
     - `src/layouts/BaseLayout.astro` does NOT contain the substring `my-portfolio-8h7.pages.dev`
-    - `.planning/STATE.md` does NOT contain the substring `Vercel Pro` (case-sensitive — the original line used "Vercel Pro" capitalized)
+    - `.planning/STATE.md` does NOT contain any case-insensitive match for `vercel` (per PATTERNS.md: `grep -qi vercel` must return zero matches — broader than original "Vercel Pro" line per spec)
     - `npm run build` exits 0
     - `dist/sitemap-0.xml` contains at least one URL beginning with `https://tanyazakus.com/`
     - A single new git commit exists with message starting `feat(06): production domain cutover (D-06/D-07)` containing exactly 4 modified files (`astro.config.mjs`, `README.md`, `src/layouts/BaseLayout.astro`, `.planning/STATE.md`) — verified via `git diff-tree --no-commit-id --name-only -r HEAD | sort` returning those four paths
@@ -257,6 +256,7 @@ README.md (current line 5):
     | www 301 to apex | `curl -sI https://www.tanyazakus.com \| grep -i ^location` | `location: https://tanyazakus.com` | {actual} | pass/fail |
     | http 301 to https | `curl -sI http://tanyazakus.com \| grep -i ^location` | `location: https://tanyazakus.com/` | {actual} | pass/fail |
     | Sitemap absolute URLs reflect apex | `curl -s https://tanyazakus.com/sitemap-0.xml \| grep -c "https://tanyazakus.com/"` | `>= 1` | {actual count} | pass/fail |
+    | Sitemap index references apex | `curl -s https://tanyazakus.com/sitemap-index.xml \| grep -c "https://tanyazakus.com/"` | `>= 1` | {actual count} | pass/fail |
     | Sitemap does NOT contain preview URL | `curl -s https://tanyazakus.com/sitemap-0.xml \| grep -c "my-portfolio-8h7.pages.dev"` | `0` | {actual} | pass/fail |
     | Canonical tag on homepage uses apex | `curl -s https://tanyazakus.com/ \| grep -oE '<link rel="canonical"[^>]*>'` | href contains `tanyazakus.com` | {actual} | pass/fail |
     | OG URL on homepage uses apex | `curl -s https://tanyazakus.com/ \| grep -oE '<meta property="og:url"[^>]*>'` | content contains `tanyazakus.com` | {actual} | pass/fail |
@@ -445,7 +445,7 @@ grep -c "Astro.site ?? 'https://tanyazakus.com'" src/layouts/BaseLayout.astro
 # Expect: 2 matches
 
 # Cleanup landed
-! grep -q "Vercel Pro" .planning/STATE.md
+! grep -qi "vercel" .planning/STATE.md
 ! grep -RIn "my-portfolio-8h7.pages.dev" astro.config.mjs README.md src/
 
 # Production is live and correct
