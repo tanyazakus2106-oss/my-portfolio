@@ -122,6 +122,7 @@ None yet.
 | 260513-xdr | fix(footer): drop desktop top-padding override (lg:pt-24) | 2026-05-13 | 7dfabea | — (fast task) |
 | 260513-xeu | fix(footer): zero desktop top-padding (lg:pt-0, mobile keeps pt-16) | 2026-05-13 | 0854e86 | — (fast task) |
 | 260513-xfy | fix(about): set desktop top+bottom padding to 132px (md: rhythm) | 2026-05-13 | 8c39bf9 | — (fast task) |
+| 260513-xg3 | fix(footer): set desktop top-padding to match bottom (lg:pt-8, symmetric 32px) | 2026-05-13 | 2d848ed | — (fast task) |
 
 ## Deferred Items
 
