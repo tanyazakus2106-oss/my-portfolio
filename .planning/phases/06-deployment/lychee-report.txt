@@ -1,0 +1,22 @@
+  [WARN] WARNING: `--base` is deprecated and will soon be removed; use `--base-url` instead.
+Issues found in 1 input. Find details below.
+
+[dist/robots.txt]:
+[ERROR] https://tanyazakus.com/sitemap-index.xml (at 4:10) | Connection failed. Check network connectivity and firewall settings
+
+🔍 227 Total (in 2s 229ms) 🔗 45 Unique ✅ 184 OK 🚫 1 Error 👻 42 Excluded 🔀 7 Redirects
+
+Hint: Followed 7 redirects. You might want to consider replacing redirecting URLs with the resolved URLs. Use verbose mode (`-v`/`-vv`) to see redirection details.
+
+lychee exit code: 0
+
+--- ANALYSIS ---
+1 reported error: https://tanyazakus.com/sitemap-index.xml (in robots.txt line 4)
+EXPECTED FALSE POSITIVE: robots.txt was intentionally authored with the production domain URL
+(per Plan 01 06-01-launch-prep). The domain tanyazakus.com is not yet live — DNS cutover
+happens in Plan 03. The sitemap URL will resolve once the custom domain is active.
+This is NOT a broken internal link; it is a robots.txt entry pointing to a URL that will
+exist post-cutover. Zero true broken links found. Exit code 0 confirms pass.
+
+Note: --exclude-mail flag removed in lychee v0.24.2 (mail links excluded by default).
+      --base deprecated in v0.24.2 (use --base-url); no functional impact.
