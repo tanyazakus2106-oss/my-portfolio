@@ -119,6 +119,7 @@ None yet.
 | 260512-wtt | fix(about): set below-image gap to 64px on mobile (iteration on wsd) | 2026-05-12 | 64fb526 | — (fast task) |
 | 260513-xak | fix(hero): raise particles layer opacity from 0.717 to 0.817 | 2026-05-13 | 128279e | — (fast task) |
 | 260513-xbm | fix(hero): lower particles layer opacity from 0.817 to 0.777 | 2026-05-13 | 6fa45e4 | — (fast task) |
+| 260513-xcq | fix(hero): raise particles size ceiling from 3 to 4 | 2026-05-13 | d7f9f6e | — (fast task) |
 
 ## Deferred Items
 
