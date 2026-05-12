@@ -107,7 +107,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A custom domain is configured on Cloudflare and resolves correctly with HTTPS
   3. Mobile Lighthouse performance score is above 80
   4. A broken link audit, spelling review, and contact mailto end-to-end test all pass before the site is considered launched
-**Plans**: TBD
+**Plans**: 4 plans
+  - [ ] 06-01-PLAN.md — Repo-side launch prep: public/_headers (cache + ASVS L1 security headers), public/_redirects (/work legacy), public/robots.txt, cspell.json (DEPLOY-02, SEO-05)
+  - [ ] 06-02-PLAN.md — Pre-cutover QA gates: lychee broken-link audit, cspell spelling review, baseline mobile Lighthouse on preview URL, mailto E2E manual (SEO-05, DEPLOY-02)
+  - [ ] 06-03-PLAN.md — Cloudflare dashboard cutover (manual): registrar purchase, custom domain attach apex + www, Universal SSL, SSL Full strict, Always Use HTTPS, www→apex Redirect Rule (DEPLOY-01, DEPLOY-03)
+  - [ ] 06-04-PLAN.md — Code cutover + housekeeping + production verify: site: URL flip (D-06), README pointer (D-07), BaseLayout fallbacks, STATE.md cleanup, final Lighthouse on production hostname (DEPLOY-01, DEPLOY-03, SEO-05)
 
 ## Progress
 
@@ -121,4 +125,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Work Index & Case Studies | 0/TBD | Not started | - |
 | 4. About, Contact & SEO | 0/TBD | Not started | - |
 | 5. Responsive Design | 0/TBD | Not started | - |
-| 6. Deployment | 0/TBD | Not started | - |
+| 6. Deployment | 0/4 | Not started | - |
