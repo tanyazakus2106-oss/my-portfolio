@@ -12,7 +12,7 @@ import heroPhoto from '../assets/about_img.jpg';
   <article class="max-w-[1120px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-2xl)] pb-[var(--spacing-4xl)]">
 
     {/* Hero grid — mirrors tushar.work/about. lg+ = 50/50 image-left / text-right; below lg = single column with text-above-image (Tailwind order-* visual reorder, DOM source order preserved). Text column sticky on lg+. */}
-    <div class="animate-on-scroll grid grid-cols-1 lg:grid-cols-2 items-start gap-[var(--spacing-lg)] lg:gap-[var(--spacing-3xl)]">
+    <div class="animate-on-scroll grid grid-cols-1 lg:grid-cols-2 items-start gap-[var(--spacing-2xl)] lg:gap-[var(--spacing-3xl)]">
 
       {/* Block 1 — Hero photo (D-03). Image column: visual order 2 below lg (sits below text on mobile/tablet), order 1 at lg+ (sits left). */}
       <div class="relative order-2 lg:order-1 overflow-hidden rounded-lg bg-[var(--color-secondary)] aspect-[4/5] [&>img]:object-cover [&>img]:h-full [&>img]:w-full">
@@ -44,7 +44,7 @@ import heroPhoto from '../assets/about_img.jpg';
     </div>
 
     {/* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body). */}
-    <section class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-lg)] lg:mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]">
+    <section class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-2xl)] lg:mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]">
       <h2 class="text-[28px] md:text-[32px] font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0">
         How I work
       </h2>
