@@ -124,6 +124,7 @@ None yet.
 | 260513-xfy | fix(about): set desktop top+bottom padding to 132px (md: rhythm) | 2026-05-13 | 8c39bf9 | — (fast task) |
 | 260513-xh6 | fix(about): retune desktop padding to 80px top / 156px bottom | 2026-05-13 | 0c84790 | — (fast task) |
 | 260513-xig | fix(about): tighten desktop padding to 64px top / 148px bottom | 2026-05-13 | eb840a3 | — (fast task) |
+| 260513-xjk | refactor(about): tokenize desktop top padding (md:pt-[var(--spacing-3xl)]) | 2026-05-13 | 9c99e00 | — (fast task) |
 
 ## Deferred Items
 
