@@ -195,3 +195,13 @@ hr {
     padding-right: var(--spacing-xl);
   }
 }
+
+/* Touch-primary devices (phones/tablets, no hover, coarse pointer) —
+   suppress focus outlines that iOS Safari leaves after tap. Desktop and
+   touch devices with an attached fine pointer keep keyboard focus rings. */
+@media (hover: none) and (pointer: coarse) {
+  *:focus,
+  *:focus-visible {
+    outline: none !important;
+  }
+}
