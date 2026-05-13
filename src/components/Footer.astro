@@ -97,9 +97,13 @@ const INSTAGRAM_URL = 'https://www.instagram.com/tania_zakus';
     border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
     transition: border-color 150ms ease, color 150ms ease;
   }
-  .footer-icon-btn:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+  /* Scope hover effect to devices that can actually hover, so touch devices
+     don't keep the accent state stuck after a tap. */
+  @media (hover: hover) {
+    .footer-icon-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
   }
   .footer-icon-btn:focus-visible {
     outline: 2px solid var(--color-accent);
