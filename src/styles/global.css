@@ -180,8 +180,8 @@ body {
 /* ─── Status dot — breathing availability indicator (hero eyebrow) ─── */
 .status-dot {
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 8px;
+  height: 8px;
   background-color: var(--color-status-online);
   border-radius: 9999px;
   vertical-align: 0.05em;
@@ -193,11 +193,11 @@ body {
 @keyframes status-dot-pulse {
   0%,
   100% {
-    transform: scale(0.85);
+    transform: scale(0.75);
     opacity: 0.5;
   }
   50% {
-    transform: scale(1.15);
+    transform: scale(1);
     opacity: 1;
   }
 }
