@@ -126,6 +126,7 @@ None yet.
 | 260513-xig | fix(about): tighten desktop padding to 64px top / 148px bottom | 2026-05-13 | eb840a3 | — (fast task) |
 | 260513-xjk | refactor(about): tokenize desktop top padding (md:pt-[var(--spacing-3xl)]) | 2026-05-13 | 9c99e00 | — (fast task) |
 | 260513-xlp | feat(hero): replace ✦ with pulsating green availability dot | 2026-05-13 | c99a635 | — (fast task) |
+| 260513-xmq | refactor(hero): swap halo ring for breathing dot animation | 2026-05-13 | c55d58f | — (fast task) |
 
 ## Deferred Items
 
