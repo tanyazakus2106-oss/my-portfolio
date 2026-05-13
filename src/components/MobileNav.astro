@@ -11,7 +11,7 @@ const links = [
 <button
   id="mobile-nav-trigger"
   type="button"
-  class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+  class="mobile-nav-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
   aria-label="Open navigation"
   aria-expanded="false"
   aria-controls="mobile-nav-overlay"
@@ -36,7 +36,7 @@ const links = [
   <button
     id="mobile-nav-close"
     type="button"
-    class="absolute top-[var(--spacing-md)] right-[var(--spacing-md)] min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+    class="mobile-nav-btn absolute top-[var(--spacing-md)] right-[var(--spacing-md)] min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
     aria-label="Close navigation"
   >
     <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -163,3 +163,13 @@ const links = [
     });
   }
 </script>
+
+<style>
+  /* Touch-device default: drop the hover background so the button doesn't
+     appear "stuck pressed" after a tap. Same pattern as ThemeToggle. */
+  @media (hover: none) {
+    .mobile-nav-btn:hover {
+      background-color: transparent;
+    }
+  }
+</style>
