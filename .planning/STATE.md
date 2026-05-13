@@ -133,6 +133,7 @@ None yet.
 | 260513-xqu | style(hero): widen status dot pulse to 2->8px / 30->100% opacity | 2026-05-13 | e78e076 | — (fast task) |
 | 260513-xrv | style(hero): raise status dot trough size from 2px to 4px | 2026-05-13 | 0809d78 | — (fast task) |
 | 260513-xsw | style(hero): raise status dot trough size from 4px to 6px | 2026-05-13 | ab1461f | — (fast task) |
+| 260513-xtx | style(hero): set status dot color to #3dff8f (spring green) | 2026-05-13 | 4fa5a59 | — (fast task) |
 
 ## Deferred Items
 
