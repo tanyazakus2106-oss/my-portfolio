@@ -140,6 +140,7 @@ None yet.
 | 260514-ydd | style(mobile-nav): set overlay menu links to serif font | 2026-05-14 | 13c0906 | — (fast task) |
 | 260514-yee | style(mobile-nav): drop overlay menu link weight to 400 to match loaded Instrument Serif cut | 2026-05-14 | 2cdefa8 | — (fast task) |
 | 260514-yff | style(header): optically center tz logo via line-height:1 + 2px bottom padding | 2026-05-14 | 15aa06d | — (fast task) |
+| 260514-ygg | style(favicon): nudge tz baseline up 1px to optically center in square | 2026-05-14 | c9b60f3 | — (fast task) |
 
 ## Deferred Items
 
