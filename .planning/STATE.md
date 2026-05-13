@@ -127,6 +127,7 @@ None yet.
 | 260513-xjk | refactor(about): tokenize desktop top padding (md:pt-[var(--spacing-3xl)]) | 2026-05-13 | 9c99e00 | — (fast task) |
 | 260513-xlp | feat(hero): replace ✦ with pulsating green availability dot | 2026-05-13 | c99a635 | — (fast task) |
 | 260513-xmq | refactor(hero): swap halo ring for breathing dot animation | 2026-05-13 | c55d58f | — (fast task) |
+| 260513-xnr | style(hero): set status dot color to #c7ff3d (neon chartreuse) | 2026-05-13 | e83d648 | — (fast task) |
 
 ## Deferred Items
 
