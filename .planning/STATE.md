@@ -135,6 +135,7 @@ None yet.
 | 260513-xsw | style(hero): raise status dot trough size from 4px to 6px | 2026-05-13 | ab1461f | — (fast task) |
 | 260513-xtx | style(hero): set status dot color to #3dff8f (spring green) | 2026-05-13 | 4fa5a59 | — (fast task) |
 | 260514-yaa | style(hero): set status dot color to #31b76b (muted forest green) | 2026-05-14 | 5f4d5dd | — (fast task) |
+| 260514-ybb | fix(mobile-nav): drop hover bg on touch devices so icon buttons don't look stuck | 2026-05-14 | c4627ba | — (fast task) |
 
 ## Deferred Items
 
