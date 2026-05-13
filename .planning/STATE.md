@@ -129,6 +129,7 @@ None yet.
 | 260513-xmq | refactor(hero): swap halo ring for breathing dot animation | 2026-05-13 | c55d58f | — (fast task) |
 | 260513-xnr | style(hero): set status dot color to #c7ff3d (neon chartreuse) | 2026-05-13 | e83d648 | — (fast task) |
 | 260513-xos | style(hero): drop status dot trough opacity from 0.55 to 0.5 | 2026-05-13 | 5a67fe4 | — (fast task) |
+| 260513-xpt | style(hero): cap status dot max size at 8x8px | 2026-05-13 | 9f0c580 | — (fast task) |
 
 ## Deferred Items
 
