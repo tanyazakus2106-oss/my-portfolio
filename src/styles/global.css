@@ -28,7 +28,7 @@
   --color-border: #e5e7eb;
   --color-accent: #553ee5;
   --color-destructive: #dc2626;
-  --color-status-online: #3dff8f;
+  --color-status-online: #31b76b;
 }
 
 /* Dark mode — system preference (base layer) — per D-08 */
@@ -41,7 +41,7 @@
     --color-border: #2d2d2d;
     --color-accent: #8776f9;
     --color-destructive: #ef4444;
-    --color-status-online: #3dff8f;
+    --color-status-online: #31b76b;
   }
 }
 
@@ -54,7 +54,7 @@
   --color-border: #2d2d2d;
   --color-accent: #8776f9;
   --color-destructive: #ef4444;
-  --color-status-online: #3dff8f;
+  --color-status-online: #31b76b;
 }
 
 /* Light mode — manual override (overrides @media dark preference when .light is set) */
