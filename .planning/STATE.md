@@ -128,6 +128,7 @@ None yet.
 | 260513-xlp | feat(hero): replace ✦ with pulsating green availability dot | 2026-05-13 | c99a635 | — (fast task) |
 | 260513-xmq | refactor(hero): swap halo ring for breathing dot animation | 2026-05-13 | c55d58f | — (fast task) |
 | 260513-xnr | style(hero): set status dot color to #c7ff3d (neon chartreuse) | 2026-05-13 | e83d648 | — (fast task) |
+| 260513-xos | style(hero): drop status dot trough opacity from 0.55 to 0.5 | 2026-05-13 | 5a67fe4 | — (fast task) |
 
 ## Deferred Items
 
