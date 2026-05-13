@@ -131,6 +131,7 @@ None yet.
 | 260513-xos | style(hero): drop status dot trough opacity from 0.55 to 0.5 | 2026-05-13 | 5a67fe4 | — (fast task) |
 | 260513-xpt | style(hero): cap status dot max size at 8x8px | 2026-05-13 | 9f0c580 | — (fast task) |
 | 260513-xqu | style(hero): widen status dot pulse to 2->8px / 30->100% opacity | 2026-05-13 | e78e076 | — (fast task) |
+| 260513-xrv | style(hero): raise status dot trough size from 2px to 4px | 2026-05-13 | 0809d78 | — (fast task) |
 
 ## Deferred Items
 
