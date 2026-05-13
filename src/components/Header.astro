@@ -91,6 +91,11 @@ function isActive(href: string): boolean {
     justify-content: center;
     width: 44px;
     height: 44px;
+    /* line-height: 1 collapses the line box to the em-box; padding-bottom
+       nudges the centered glyphs up to compensate for the empty descender
+       slot in "tz" (no descenders + only a stub ascender on "t"). */
+    line-height: 1;
+    padding-bottom: 2px;
     border-radius: 50%;
     background-color: color-mix(
       in srgb,
