@@ -193,7 +193,7 @@ body {
 @keyframes status-dot-pulse {
   0%,
   100% {
-    transform: scale(0.5);
+    transform: scale(0.75);
     opacity: 0.3;
   }
   50% {
