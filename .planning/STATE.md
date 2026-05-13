@@ -137,6 +137,7 @@ None yet.
 | 260514-yaa | style(hero): set status dot color to #31b76b (muted forest green) | 2026-05-14 | 5f4d5dd | — (fast task) |
 | 260514-ybb | fix(mobile-nav): drop hover bg on touch devices so icon buttons don't look stuck | 2026-05-14 | c4627ba | — (fast task) |
 | 260514-ycc | fix(footer): scope icon-button hover to hover-capable devices so it doesn't stick on touch | 2026-05-14 | 40bbb42 | — (fast task) |
+| 260514-ydd | style(mobile-nav): set overlay menu links to serif font | 2026-05-14 | 13c0906 | — (fast task) |
 
 ## Deferred Items
 
