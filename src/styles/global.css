@@ -19,6 +19,8 @@
   --spacing-2xl: 3rem; /* 48px */
   --spacing-3xl: 4rem; /* 64px */
   --spacing-4xl: 6rem; /* 96px */
+  /* Fluid section rhythm: 64px (3xl) on mobile → 132px @1440px viewport, scales with width */
+  --spacing-section: clamp(64px, 40px + 6.39vw, 132px);
 
   /* Light mode colors (default) — per D-08 */
   --color-background: #fcfcfc;
