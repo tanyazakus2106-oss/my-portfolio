@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-05-12 - Completed fast task 260512-wtt: fix(about): match below-image gap to desktop (64px)
+Last activity: 2026-06-14 - Completed quick task 260614-woi: Morph mobile menu toggle into single hamburger⇄X button
 
 Progress: [██░░░░░░░░] 33%
 
@@ -142,6 +142,7 @@ None yet.
 | 260514-yff | style(header): optically center tz logo via line-height:1 + 2px bottom padding | 2026-05-14 | 15aa06d | — (fast task) |
 | 260514-ygg | style(favicon): nudge tz baseline up 1px to optically center in square | 2026-05-14 | c9b60f3 | — (fast task) |
 | 260614-yhh | style(header): move mobile menu trigger right of theme toggle | 2026-06-14 | a8844e7 | — (fast task) |
+| 260614-woi | Morph mobile menu toggle into single hamburger⇄X button | 2026-06-14 | ff17bcd | [260614-woi-morph-mobile-menu-toggle-into-single-but](./quick/260614-woi-morph-mobile-menu-toggle-into-single-but/) |
 
 ## Deferred Items
 
