@@ -50,12 +50,13 @@ const links = [
   <!-- Nav links — centered, large type -->
   <nav aria-label="Mobile navigation" class="flex h-full w-full items-center justify-center py-[var(--spacing-3xl)]">
     <ul id="mobile-nav-links" class="flex flex-col items-center gap-[var(--spacing-xl)]">
-      {links.map((link) => (
+      {links.map((link, index) => (
         <li>
           <a
             href={link.href}
             {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             class="text-[2rem] font-semibold leading-[1.2] text-[var(--color-text-primary)] min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+            style={`--i:${index}`}
             data-mobile-nav-link
           >
             {link.label}
@@ -223,8 +224,34 @@ const links = [
     }
   }
 
+  /* ─── Staggered link entrance ─── */
   [data-mobile-nav-link] {
     font-family: var(--font-serif);
     font-weight: 400;
+    /* Resting/closed state: nudged below + hidden. The overlay is itself hidden
+       (opacity-0 / pointer-events-none) when closed, so these never flash before
+       open. transition-delay defaults to 0 here, so on CLOSE all items leave
+       together as the overlay fades — only the OPEN state staggers. */
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
+  }
+
+  /* Open: rise into place + fade in, staggered 60ms per item (project rhythm). */
+  #mobile-nav-overlay[data-state='open'] [data-mobile-nav-link] {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-mobile-nav-link] {
+      transition: none;
+    }
+    #mobile-nav-overlay[data-state='open'] [data-mobile-nav-link] {
+      transition-delay: 0ms;
+    }
   }
 </style>
