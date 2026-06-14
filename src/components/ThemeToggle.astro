@@ -11,13 +11,41 @@
   class="theme-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus-visible:text-[var(--color-text-primary)] active:text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2 transition-colors"
   aria-label="Switch to dark mode"
 >
-  <svg class="theme-icon-moon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  <svg class="theme-icon-sun h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+  <svg
+    class="theme-icon-moon h-5 w-5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg
+  >
+  <svg
+    class="theme-icon-sun h-5 w-5 hidden"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path
+      d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path
+      d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path
+      d="M20 12h2"></path><path d="m4.93 19.07 1.41-1.41"></path><path
+      d="m17.66 6.34 1.41-1.41"></path></svg
+  >
 </button>
 
 <style>
-  :global(html.dark) .theme-icon-moon { display: none; }
-  :global(html.dark) .theme-icon-sun { display: inline-block; }
+  :global(html.dark) .theme-icon-moon {
+    display: none;
+  }
+  :global(html.dark) .theme-icon-sun {
+    display: inline-block;
+  }
 
   /* Touch-device default: render the hover state color as the resting state so
      the icon is visible without a hover signal. Same pattern as ArrowLink. */
@@ -29,21 +57,24 @@
 </style>
 
 <script>
-  const btn = document.getElementById('theme-toggle');
+  const btn = document.getElementById("theme-toggle");
   const root = document.documentElement;
 
   function syncAria() {
-    const isDark = root.classList.contains('dark');
-    btn?.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    const isDark = root.classList.contains("dark");
+    btn?.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode",
+    );
   }
 
   syncAria();
 
-  btn?.addEventListener('click', () => {
-    const willBeDark = !root.classList.contains('dark');
-    root.classList.toggle('dark', willBeDark);
-    root.classList.toggle('light', !willBeDark);
-    localStorage.setItem('theme', willBeDark ? 'dark' : 'light');
+  btn?.addEventListener("click", () => {
+    const willBeDark = !root.classList.contains("dark");
+    root.classList.toggle("dark", willBeDark);
+    root.classList.toggle("light", !willBeDark);
+    localStorage.setItem("theme", willBeDark ? "dark" : "light");
     syncAria();
   });
 </script>

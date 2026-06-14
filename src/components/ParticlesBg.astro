@@ -1,8 +1,5 @@
 <!-- Muted purple particles background — adapts to light/dark mode -->
-<div
-  id="particles-js"
-  class="particles-hero"
-></div>
+<div id="particles-js" class="particles-hero"></div>
 
 <style>
   .particles-hero {
@@ -23,7 +20,7 @@
 <script>
   function initParticles(isDark: boolean) {
     // Remove old canvas if reinitialising
-    const oldCanvas = document.querySelector('#particles-js canvas');
+    const oldCanvas = document.querySelector("#particles-js canvas");
     if (oldCanvas) oldCanvas.remove();
 
     const w = window as any;
@@ -34,17 +31,19 @@
 
     // Muted purple palette
     const colors = isDark
-      ? { particles: '#c4b5fd', lines: '#a78bfa', accent: '#7c3aed' }
-      : { particles: '#7c3aed', lines: '#8b5cf6', accent: '#6d28d9' };
+      ? { particles: "#c4b5fd", lines: "#a78bfa", accent: "#7c3aed" }
+      : { particles: "#7c3aed", lines: "#8b5cf6", accent: "#6d28d9" };
 
     // Touch-primary devices skip hover/click events that have no meaning on touch
-    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const isTouch = window.matchMedia(
+      "(hover: none) and (pointer: coarse)",
+    ).matches;
 
-    w.particlesJS('particles-js', {
+    w.particlesJS("particles-js", {
       particles: {
         number: { value: 30, density: { enable: true, value_area: 800 } },
         color: { value: colors.particles },
-        shape: { type: 'circle', stroke: { width: 0.5, color: colors.accent } },
+        shape: { type: "circle", stroke: { width: 0.5, color: colors.accent } },
         opacity: {
           value: 0.24,
           random: true,
@@ -64,13 +63,13 @@
           opacity: 0.14,
           width: 1,
         },
-        move: { enable: true, speed: 1.5, random: true, out_mode: 'bounce' },
+        move: { enable: true, speed: 1.5, random: true, out_mode: "bounce" },
       },
       interactivity: {
-        detect_on: 'window',
+        detect_on: "window",
         events: {
-          onhover: { enable: !isTouch, mode: 'grab' },
-          onclick: { enable: !isTouch, mode: 'push' },
+          onhover: { enable: !isTouch, mode: "grab" },
+          onclick: { enable: !isTouch, mode: "push" },
           resize: true,
         },
         modes: {
@@ -85,8 +84,8 @@
   function bootstrap() {
     const html = document.documentElement;
     const isDark = () =>
-      html.classList.contains('dark') ||
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
+      html.classList.contains("dark") ||
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     initParticles(isDark());
 
@@ -94,13 +93,13 @@
     const observer = new MutationObserver(() => initParticles(isDark()));
     observer.observe(html, {
       attributes: true,
-      attributeFilter: ['class', 'data-theme'],
+      attributeFilter: ["class", "data-theme"],
     });
   }
 
   // Load self-hosted particles.js (vendored to public/js/) then bootstrap
-  const script = document.createElement('script');
-  script.src = '/js/particles.min.js';
+  const script = document.createElement("script");
+  script.src = "/js/particles.min.js";
   script.async = true;
   script.onload = () => {
     bootstrap();
@@ -109,10 +108,10 @@
     let zoomTimer: ReturnType<typeof setTimeout> | null = null;
     const html = document.documentElement;
     const isDark = () =>
-      html.classList.contains('dark') ||
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
+      html.classList.contains("dark") ||
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    window.visualViewport?.addEventListener('resize', () => {
+    window.visualViewport?.addEventListener("resize", () => {
       if (zoomTimer) clearTimeout(zoomTimer);
       zoomTimer = setTimeout(() => initParticles(isDark()), 200);
     });

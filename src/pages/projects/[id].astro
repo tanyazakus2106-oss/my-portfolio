@@ -1,15 +1,16 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import FullBleedImage from '../../components/FullBleedImage.astro';
-import CaseImage from '../../components/CaseImage.astro';
-import ArrowLink from '../../components/ui/ArrowLink.astro';
-import { Image } from 'astro:assets';
-import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FullBleedImage from "../../components/FullBleedImage.astro";
+import CaseImage from "../../components/CaseImage.astro";
+import ArrowLink from "../../components/ui/ArrowLink.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const all = (await getCollection('projects'))
-    .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+  const all = (await getCollection("projects")).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+  );
 
   return all.map((entry, i) => ({
     params: { id: entry.id },
@@ -24,17 +25,17 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  entry: CollectionEntry<'projects'>;
-  nextEntry: CollectionEntry<'projects'>;
-  prevEntry: CollectionEntry<'projects'>;
+  entry: CollectionEntry<"projects">;
+  nextEntry: CollectionEntry<"projects">;
+  prevEntry: CollectionEntry<"projects">;
 };
 
 const { entry, nextEntry, prevEntry } = Astro.props as Props;
 const { Content } = await render(entry);
 
-const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
-  month: 'long',
-  year: 'numeric',
+const timeline = entry.data.publishDate.toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
 });
 ---
 
@@ -44,36 +45,60 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   ogImage="/og-image.png"
   ogType="article"
 >
-
   {/* Back link */}
-  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)] animate-page-entry" style="--entry-index: 0">
+  <div
+    class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-lg)] animate-page-entry"
+    style="--entry-index: 0"
+  >
     <ArrowLink href="/#projects" direction="left">Back to work</ArrowLink>
   </div>
 
   {/* Header — eyebrow, title, summary, metadata */}
-  <header class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-xl)] pb-[var(--spacing-xl)] animate-page-entry" style="--entry-index: 1">
-    <p class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-md)]">
-      {[entry.data.role, ...entry.data.skills].join(', ')}
+  <header
+    class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-xl)] pb-[var(--spacing-xl)] animate-page-entry"
+    style="--entry-index: 1"
+  >
+    <p
+      class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-md)]"
+    >
+      {[entry.data.role, ...entry.data.skills].join(", ")}
     </p>
 
-    <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] mb-[var(--spacing-lg)] max-w-[20ch] text-[var(--color-text-primary)]">
+    <h1
+      class="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] mb-[var(--spacing-lg)] max-w-[20ch] text-[var(--color-text-primary)]"
+    >
       {entry.data.title}
     </h1>
 
-    <p class="text-xl md:text-2xl text-[var(--color-text-secondary)] max-w-[55ch] leading-relaxed mb-[var(--spacing-lg)]">
+    <p
+      class="text-xl md:text-2xl text-[var(--color-text-secondary)] max-w-[55ch] leading-relaxed mb-[var(--spacing-lg)]"
+    >
       {entry.data.summary}
     </p>
 
     {/* Timeline + team — single block, two stacked rows, no card */}
     <dl class="mt-[var(--spacing-lg)]">
-      <dt class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]">Timeline</dt>
-      <dd class="m-0 text-sm text-[var(--color-text-secondary)]">{entry.data.timelineRange ?? timeline}</dd>
-      <dd class="m-0 mt-[var(--spacing-xs)] text-sm text-[var(--color-text-secondary)]">{entry.data.team ?? 'Placeholder team — update in MDX'}</dd>
+      <dt
+        class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-sm)]"
+      >
+        Timeline
+      </dt>
+      <dd class="m-0 text-sm text-[var(--color-text-secondary)]">
+        {entry.data.timelineRange ?? timeline}
+      </dd>
+      <dd
+        class="m-0 mt-[var(--spacing-xs)] text-sm text-[var(--color-text-secondary)]"
+      >
+        {entry.data.team ?? "Placeholder team — update in MDX"}
+      </dd>
     </dl>
   </header>
 
   {/* Hero image */}
-  <div class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] mb-[var(--spacing-2xl)] animate-page-entry" style="--entry-index: 2">
+  <div
+    class="max-w-[1200px] mx-auto px-[var(--spacing-lg)] mb-[var(--spacing-2xl)] animate-page-entry"
+    style="--entry-index: 2"
+  >
     <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
       <Image
         src={entry.data.thumbnail}
@@ -87,8 +112,10 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
   </div>
 
   {/* Body article — MDX prose + prev/next */}
-  <article class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose animate-page-entry" style="--entry-index: 3">
-
+  <article
+    class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose animate-page-entry"
+    style="--entry-index: 3"
+  >
     <Content components={{ FullBleedImage, CaseImage }} />
 
     <nav
@@ -100,18 +127,23 @@ const timeline = entry.data.publishDate.toLocaleDateString('en-US', {
         class="group flex-1 flex flex-col min-h-[44px] py-[var(--spacing-sm)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
         <ArrowLink decorative direction="left">Previous project</ArrowLink>
-        <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{prevEntry.data.title}</span>
+        <span
+          class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]"
+          >{prevEntry.data.title}</span
+        >
       </a>
       <a
         href={`/projects/${nextEntry.id}`}
         class="group flex-1 flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
         <ArrowLink decorative direction="right">Next project</ArrowLink>
-        <span class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]">{nextEntry.data.title}</span>
+        <span
+          class="mt-[var(--spacing-xs)] text-base text-[var(--color-text-primary)]"
+          >{nextEntry.data.title}</span
+        >
       </a>
     </nav>
   </article>
-
 </BaseLayout>
 
 <style is:global>

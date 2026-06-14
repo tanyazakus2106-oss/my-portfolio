@@ -1,21 +1,28 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import heroPhoto from '../assets/about_img.jpg';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import heroPhoto from "../assets/about_img.jpg";
 ---
 
 <BaseLayout
   title="About — Tanya Zakus, UX/UI Designer"
   description="UX/UI designer with 6+ years building humanist AI experiences and complex SaaS platforms. Open to full-time roles and freelance projects."
 >
-
-  <article class="max-w-[1120px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-2xl)] pb-[var(--spacing-4xl)] md:pt-[var(--spacing-3xl)] md:pb-[148px]">
-
-    {/* Hero grid — mirrors tushar.work/about. lg+ = 50/50 image-left / text-right; below lg = single column with text-above-image (Tailwind order-* visual reorder, DOM source order preserved). Text column sticky on lg+. */}
-    <div class="animate-on-scroll grid grid-cols-1 lg:grid-cols-2 items-start gap-[var(--spacing-2xl)] lg:gap-[var(--spacing-3xl)]">
-
-      {/* Block 1 — Hero photo (D-03). Image column: visual order 2 below lg (sits below text on mobile/tablet), order 1 at lg+ (sits left). */}
-      <div class="relative order-2 lg:order-1 overflow-hidden rounded-lg bg-[var(--color-secondary)] aspect-[4/5] [&>img]:object-cover [&>img]:h-full [&>img]:w-full">
+  <article
+    class="max-w-[1120px] mx-auto px-[var(--spacing-lg)] pt-[var(--spacing-2xl)] pb-[var(--spacing-4xl)] md:pt-[var(--spacing-3xl)] md:pb-[148px]"
+  >
+    {
+      /* Hero grid — mirrors tushar.work/about. lg+ = 50/50 image-left / text-right; below lg = single column with text-above-image (Tailwind order-* visual reorder, DOM source order preserved). Text column sticky on lg+. */
+    }
+    <div
+      class="animate-on-scroll grid grid-cols-1 lg:grid-cols-2 items-start gap-[var(--spacing-2xl)] lg:gap-[var(--spacing-3xl)]"
+    >
+      {
+        /* Block 1 — Hero photo (D-03). Image column: visual order 2 below lg (sits below text on mobile/tablet), order 1 at lg+ (sits left). */
+      }
+      <div
+        class="relative order-2 lg:order-1 overflow-hidden rounded-lg bg-[var(--color-secondary)] aspect-[4/5] [&>img]:object-cover [&>img]:h-full [&>img]:w-full"
+      >
         <Image
           src={heroPhoto}
           alt="Tanya Zakus, portrait"
@@ -26,57 +33,95 @@ import heroPhoto from '../assets/about_img.jpg';
         />
       </div>
 
-      {/* Block 2 — Eyebrow + hero headline + intro. Visual order 1 below lg (lede first on mobile), order 2 at lg+ (sits right of image). Sticky on lg+ at top-128px (header is 80px sticky, leaves 48px buffer). */}
-      <header class="order-1 lg:order-2 lg:sticky lg:top-[calc(var(--spacing-4xl)+var(--spacing-xl))]">
-        <p class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]">
+      {
+        /* Block 2 — Eyebrow + hero headline + intro. Visual order 1 below lg (lede first on mobile), order 2 at lg+ (sits right of image). Sticky on lg+ at top-128px (header is 80px sticky, leaves 48px buffer). */
+      }
+      <header
+        class="order-1 lg:order-2 lg:sticky lg:top-[calc(var(--spacing-4xl)+var(--spacing-xl))]"
+      >
+        <p
+          class="text-sm uppercase tracking-[0.08em] font-normal text-[var(--color-text-secondary)]"
+        >
           Now — Open to full-time &amp; freelance
         </p>
 
-        <h1 class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-text-primary)]">
+        <h1
+          class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-text-primary)]"
+        >
           Tanya Zakus, UX/UI designer for humanist AI products and complex SaaS.
         </h1>
 
-        <p class="mt-[var(--spacing-lg)] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]">
-          I&apos;ve spent six years designing the kind of software people use every day at work — B2B platforms, CRMs, and AI tools where clarity is the whole product. I care about the small details that make a system feel calm to use.
+        <p
+          class="mt-[var(--spacing-lg)] text-[20px] leading-[30px] text-[var(--color-text-secondary)] max-w-[600px]"
+        >
+          I&apos;ve spent six years designing the kind of software people use
+          every day at work — B2B platforms, CRMs, and AI tools where clarity is
+          the whole product. I care about the small details that make a system
+          feel calm to use.
         </p>
       </header>
-
     </div>
 
-    {/* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body). */}
-    <section class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]">
-      <h2 class="text-[28px] md:text-[32px] font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0">
+    {
+      /* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body). */
+    }
+    <section
+      class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]"
+    >
+      <h2
+        class="text-[28px] md:text-[32px] font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0"
+      >
         How I work
       </h2>
       <div class="lg:col-span-3 space-y-[var(--spacing-xl)]">
-        <p class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]">
-          I start by listening — to users, to support tickets, to the engineers who&apos;ll have to build it. Most design problems are clarity problems wearing a costume, so I look for the smallest change that makes the most expensive thing easier.
+        <p
+          class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]"
+        >
+          I start by listening — to users, to support tickets, to the engineers
+          who&apos;ll have to build it. Most design problems are clarity
+          problems wearing a costume, so I look for the smallest change that
+          makes the most expensive thing easier.
         </p>
-        <p class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]">
-          I work best with teams that ship in small slices, talk to their users often, and treat design and engineering as one conversation rather than a handoff.
+        <p
+          class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]"
+        >
+          I work best with teams that ship in small slices, talk to their users
+          often, and treat design and engineering as one conversation rather
+          than a handoff.
         </p>
       </div>
     </section>
 
-    {/* Block 4 — Beyond Work (D-07; D-05 warm body; D-08 placeholder personality copy). */}
-    <section class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]">
-      <h2 class="text-[28px] md:text-[32px] font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0">
+    {
+      /* Block 4 — Beyond Work (D-07; D-05 warm body; D-08 placeholder personality copy). */
+    }
+    <section
+      class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]"
+    >
+      <h2
+        class="text-[28px] md:text-[32px] font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0"
+      >
         Beyond work
       </h2>
       <div class="lg:col-span-3 space-y-[var(--spacing-xl)]">
-        <p class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]">
-          Outside of design, I&apos;m usually cooking something I&apos;ve never made before, walking long routes through new neighborhoods, or reading anything written by someone who really cares about their craft.
+        <p
+          class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]"
+        >
+          Outside of design, I&apos;m usually cooking something I&apos;ve never
+          made before, walking long routes through new neighborhoods, or reading
+          anything written by someone who really cares about their craft.
         </p>
-        <p class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]">
-          Lately I&apos;ve been curious about how small studios run — the ones that stay small on purpose.
+        <p
+          class="text-[18px] leading-[1.625] text-[var(--color-text-secondary)]"
+        >
+          Lately I&apos;ve been curious about how small studios run — the ones
+          that stay small on purpose.
         </p>
       </div>
     </section>
-
   </article>
-
 </BaseLayout>
 
 <script>
-  import '../scripts/scroll-animation.ts';
+  import "../scripts/scroll-animation.ts";
 </script>

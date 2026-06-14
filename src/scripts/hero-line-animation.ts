@@ -7,25 +7,28 @@
 const TOP_TOLERANCE_PX = 2;
 
 function initLineAnimation(): void {
-  const groups = document.querySelectorAll<HTMLElement>('[data-line-group]');
+  const groups = document.querySelectorAll<HTMLElement>("[data-line-group]");
   groups.forEach((group) => {
-    const words = group.querySelectorAll<HTMLElement>('.animate-line-word');
+    const words = group.querySelectorAll<HTMLElement>(".animate-line-word");
     let currentTop: number | null = null;
     let lineIndex = -1;
     words.forEach((word) => {
       const top = word.getBoundingClientRect().top;
-      if (currentTop === null || Math.abs(top - currentTop) > TOP_TOLERANCE_PX) {
+      if (
+        currentTop === null ||
+        Math.abs(top - currentTop) > TOP_TOLERANCE_PX
+      ) {
         currentTop = top;
         lineIndex += 1;
       }
-      word.style.setProperty('--line-index', String(lineIndex));
-      word.classList.add('is-ready');
+      word.style.setProperty("--line-index", String(lineIndex));
+      word.classList.add("is-ready");
     });
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(initLineAnimation);
   });
 } else {

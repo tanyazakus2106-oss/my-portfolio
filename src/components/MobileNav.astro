@@ -1,9 +1,13 @@
 ---
 const links = [
-  { href: '/', label: 'Work', external: false },
-  { href: '/about', label: 'About', external: false },
-  { href: '/tanya-zakus-designer-resume.pdf', label: 'Resume', external: true },
-  { href: 'https://www.linkedin.com/in/tanya-zakus/', label: 'LinkedIn', external: true },
+  { href: "/", label: "Work", external: false },
+  { href: "/about", label: "About", external: false },
+  { href: "/tanya-zakus-designer-resume.pdf", label: "Resume", external: true },
+  {
+    href: "https://www.linkedin.com/in/tanya-zakus/",
+    label: "LinkedIn",
+    external: true,
+  },
 ];
 ---
 
@@ -63,29 +67,45 @@ const links = [
   </div>
 
   <!-- Nav links — centered, large type -->
-  <nav aria-label="Mobile navigation" class="flex h-full w-full items-center justify-center py-[var(--spacing-3xl)]">
-    <ul id="mobile-nav-links" class="flex flex-col items-center gap-[var(--spacing-xl)]">
-      {links.map((link, index) => (
-        <li>
-          <a
-            href={link.href}
-            {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-            class="text-[2rem] font-semibold leading-[1.2] text-[var(--color-text-primary)] min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
-            style={`--i:${index}`}
-            data-mobile-nav-link
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
+  <nav
+    aria-label="Mobile navigation"
+    class="flex h-full w-full items-center justify-center py-[var(--spacing-3xl)]"
+  >
+    <ul
+      id="mobile-nav-links"
+      class="flex flex-col items-center gap-[var(--spacing-xl)]"
+    >
+      {
+        links.map((link, index) => (
+          <li>
+            <a
+              href={link.href}
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              class="text-[2rem] font-semibold leading-[1.2] text-[var(--color-text-primary)] min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+              style={`--i:${index}`}
+              data-mobile-nav-link
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </div>
 
 <script>
-  const trigger = document.getElementById('mobile-nav-trigger') as HTMLButtonElement | null;
-  const overlay = document.getElementById('mobile-nav-overlay') as HTMLDivElement | null;
-  const closeBtn = document.getElementById('mobile-nav-close') as HTMLButtonElement | null;
+  const trigger = document.getElementById(
+    "mobile-nav-trigger",
+  ) as HTMLButtonElement | null;
+  const overlay = document.getElementById(
+    "mobile-nav-overlay",
+  ) as HTMLDivElement | null;
+  const closeBtn = document.getElementById(
+    "mobile-nav-close",
+  ) as HTMLButtonElement | null;
 
   if (trigger && overlay && closeBtn) {
     // Hoist the overlay to be a direct child of <body>. MobileNav is rendered
@@ -104,21 +124,23 @@ const links = [
     function getFocusable(): HTMLElement[] {
       if (!overlay) return [];
       return Array.from(
-        overlay.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+        overlay.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled])",
+        ),
       );
     }
 
     function open() {
       if (!overlay || !trigger) return;
       isOpen = true;
-      overlay.dataset.state = 'open';
-      overlay.classList.remove('opacity-0', 'pointer-events-none');
-      overlay.classList.add('opacity-100');
-      trigger.setAttribute('aria-expanded', 'true');
+      overlay.dataset.state = "open";
+      overlay.classList.remove("opacity-0", "pointer-events-none");
+      overlay.classList.add("opacity-100");
+      trigger.setAttribute("aria-expanded", "true");
       const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
+      document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      document.body.style.width = "100%";
       // Focus the close button on next tick so the transition has started
       requestAnimationFrame(() => {
         const focusables = getFocusable();
@@ -129,40 +151,42 @@ const links = [
     function close() {
       if (!overlay || !trigger) return;
       isOpen = false;
-      overlay.dataset.state = 'closed';
-      overlay.classList.add('opacity-0', 'pointer-events-none');
-      overlay.classList.remove('opacity-100');
-      trigger.setAttribute('aria-expanded', 'false');
-      const scrollY = parseInt(document.body.style.top || '0') * -1;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      overlay.dataset.state = "closed";
+      overlay.classList.add("opacity-0", "pointer-events-none");
+      overlay.classList.remove("opacity-100");
+      trigger.setAttribute("aria-expanded", "false");
+      const scrollY = parseInt(document.body.style.top || "0") * -1;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       window.scrollTo(0, scrollY);
       trigger.focus();
     }
 
-    trigger.addEventListener('click', open);
-    closeBtn.addEventListener('click', close);
+    trigger.addEventListener("click", open);
+    closeBtn.addEventListener("click", close);
 
     // Backdrop click: close if click target is the overlay itself (not a child)
-    overlay.addEventListener('click', (e) => {
+    overlay.addEventListener("click", (e) => {
       if (e.target === overlay) close();
     });
 
     // Link click closes overlay so SPA-ish feel works (and resets for next page)
-    overlay.querySelectorAll<HTMLAnchorElement>('[data-mobile-nav-link]').forEach((a) => {
-      a.addEventListener('click', close);
-    });
+    overlay
+      .querySelectorAll<HTMLAnchorElement>("[data-mobile-nav-link]")
+      .forEach((a) => {
+        a.addEventListener("click", close);
+      });
 
     // Esc + focus trap
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e) => {
       if (!isOpen) return;
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         e.preventDefault();
         close();
         return;
       }
-      if (e.key === 'Tab') {
+      if (e.key === "Tab") {
         const focusables = getFocusable();
         if (focusables.length === 0) return;
         const first = focusables[0];
@@ -225,13 +249,13 @@ const links = [
      hamburger (not inside the overlay) stays a hamburger and is hidden behind
      the opaque overlay. The two icons are pixel-aligned, so the fade-in reads
      as a single continuous morph. */
-  #mobile-nav-overlay[data-state='open'] .bar-top {
+  #mobile-nav-overlay[data-state="open"] .bar-top {
     transform: translateY(5px) rotate(45deg);
   }
-  #mobile-nav-overlay[data-state='open'] .bar-mid {
+  #mobile-nav-overlay[data-state="open"] .bar-mid {
     opacity: 0;
   }
-  #mobile-nav-overlay[data-state='open'] .bar-bot {
+  #mobile-nav-overlay[data-state="open"] .bar-bot {
     transform: translateY(-5px) rotate(-45deg);
   }
 
@@ -257,7 +281,7 @@ const links = [
   }
 
   /* Open: rise into place + fade in, staggered 60ms per item (project rhythm). */
-  #mobile-nav-overlay[data-state='open'] [data-mobile-nav-link] {
+  #mobile-nav-overlay[data-state="open"] [data-mobile-nav-link] {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--i, 0) * 60ms);
@@ -267,7 +291,7 @@ const links = [
     [data-mobile-nav-link] {
       transition: none;
     }
-    #mobile-nav-overlay[data-state='open'] [data-mobile-nav-link] {
+    #mobile-nav-overlay[data-state="open"] [data-mobile-nav-link] {
       transition-delay: 0ms;
     }
   }

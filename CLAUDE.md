@@ -3,6 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 <!-- GSD:project-start source:PROJECT.md -->
+
 ## Project
 
 **Tanya's UX/UI Design Portfolio** — live at https://tanyazakus.com
@@ -22,18 +23,19 @@ A personal portfolio site for a UX/UI designer targeting both full-time roles an
 
 Requires **Node >= 22.12.0** (see `engines.node` in `package.json`).
 
-| Command | What it does |
-|---|---|
-| `npm run dev` | Start the dev server at http://localhost:4321 with HMR |
-| `npm run build` | Build the production site to `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run typecheck` | `astro check` — TypeScript / `.astro` prop diagnostics |
-| `npm run format` | Prettier with `prettier-plugin-astro` |
+| Command                                 | What it does                                                                             |
+| --------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `npm run dev`                           | Start the dev server at http://localhost:4321 with HMR                                   |
+| `npm run build`                         | Build the production site to `dist/`                                                     |
+| `npm run preview`                       | Preview the production build locally                                                     |
+| `npm run typecheck`                     | `astro check` — TypeScript / `.astro` prop diagnostics                                   |
+| `npm run format`                        | Prettier with `prettier-plugin-astro`                                                    |
 | `node scripts/generate-favicon-ico.mjs` | Regenerate `public/favicon.ico` from `public/favicon.svg` (run whenever the SVG changes) |
 
 Run `npm run typecheck` and `npm run format` before pushing — there is no CI lint step gating deploys, so local discipline matters.
 
 <!-- GSD:stack-start source:research/STACK.md -->
+
 ## Technology Stack
 
 Locked-in choices (see `.planning/research/STACK.md` for the full rationale, alternatives considered, and version-compatibility notes):
@@ -50,9 +52,11 @@ Locked-in choices (see `.planning/research/STACK.md` for the full rationale, alt
 `package.json` pins `vite` to `^7` via `overrides`. If a future task hits a Vite version mismatch, that override is why.
 
 **Do not introduce:** WordPress / headless CMS, Next.js, Gatsby, jQuery, Bootstrap/Material UI, or React as the primary component model. For an interactive piece, use a small vanilla TS script in `src/scripts/` or an Astro Island with `client:visible` — not a framework runtime.
+
 <!-- GSD:stack-end -->
 
 <!-- GSD:conventions-start source:CONVENTIONS.md -->
+
 ## Conventions
 
 - **Components**: Prefer `.astro` components over framework islands. Reach for `client:*` directives only when interactivity genuinely requires JS (e.g., `ThemeToggle`, `MobileNav`).
@@ -68,6 +72,7 @@ Locked-in choices (see `.planning/research/STACK.md` for the full rationale, alt
 <!-- GSD:conventions-end -->
 
 <!-- GSD:architecture-start source:ARCHITECTURE.md -->
+
 ## Architecture
 
 **Site type:** Fully static (`output: 'static'` in `astro.config.mjs`). The build emits HTML to `dist/`; Cloudflare Pages serves it. No server runtime, no API routes.
@@ -145,29 +150,34 @@ These guide all visual decisions in this repo. Future sessions should align new 
 - **Local agent state**: `.claude/` is git-ignored — anything stored there is per-machine, not shared across collaborators or future deploys.
 
 <!-- GSD:skills-start source:skills/ -->
+
 ## Project Skills
 
 No project skills found. Add skills to any of: `.claude/skills/`, `.agents/skills/`, `.cursor/skills/`, or `.github/skills/` with a `SKILL.md` index file.
+
 <!-- GSD:skills-end -->
 
 <!-- GSD:workflow-start source:GSD defaults -->
+
 ## GSD Workflow Enforcement
 
 Before using Edit, Write, or other file-changing tools, start work through a GSD command so planning artifacts and execution context stay in sync.
 
 Use these entry points:
+
 - `/gsd-quick` for small fixes, doc updates, and ad-hoc tasks
 - `/gsd-debug` for investigation and bug fixing
 - `/gsd-execute-phase` for planned phase work
 
 Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
+
 <!-- GSD:workflow-end -->
 
-
-
 <!-- GSD:profile-start -->
+
 ## Developer Profile
 
 > Profile not yet configured. Run `/gsd-profile-user` to generate your developer profile.
 > This section is managed by `generate-claude-profile` -- do not edit manually.
+
 <!-- GSD:profile-end -->

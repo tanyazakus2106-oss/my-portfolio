@@ -4,8 +4,8 @@
 ></canvas>
 
 <script>
-  const canvas = document.getElementById('sparks') as HTMLCanvasElement;
-  const ctx = canvas.getContext('2d')!;
+  const canvas = document.getElementById("sparks") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d")!;
 
   const OPT = {
     amount: 5000,
@@ -14,7 +14,7 @@
     direction: { x: -0.5, y: 1 },
     size: [2, 2] as [number, number],
     maxopacity: 1,
-    color: window.innerWidth < 520 ? '150,150,150' : '150,150,150',
+    color: window.innerWidth < 520 ? "150,150,150" : "150,150,150",
     randColor: true,
     acceleration: [5, 40] as [number, number],
   };
@@ -45,11 +45,15 @@
       : OPT.color;
     let age = 0;
     const spark: Spark = {
-      x, y, age, acceleration: acc, color,
+      x,
+      y,
+      age,
+      acceleration: acc,
+      color,
       opacity: OPT.maxopacity,
       go() {
-        this.x += OPT.speed * OPT.direction.x * this.acceleration / 2;
-        this.y += OPT.speed * OPT.direction.y * this.acceleration / 2;
+        this.x += (OPT.speed * OPT.direction.x * this.acceleration) / 2;
+        this.y += (OPT.speed * OPT.direction.y * this.acceleration) / 2;
         this.opacity = OPT.maxopacity - ++this.age / OPT.lifetime;
       },
     };
@@ -82,7 +86,7 @@
     requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', setCanvasSize);
+  window.addEventListener("resize", setCanvasSize);
   setCanvasSize();
   setInterval(() => {
     if (sparks.length < OPT.amount) addSpark();

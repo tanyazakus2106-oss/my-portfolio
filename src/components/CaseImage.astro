@@ -1,8 +1,13 @@
 ---
-import { Image } from 'astro:assets';
-interface Props { src: ImageMetadata; alt: string; caption?: string; }
+import { Image } from "astro:assets";
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+}
 const { src, alt, caption } = Astro.props;
 ---
+
 <figure class="my-[var(--spacing-2xl)]">
   <Image
     src={src}
@@ -11,5 +16,11 @@ const { src, alt, caption } = Astro.props;
     sizes="(min-width: 768px) 720px, calc(100vw - 3rem)"
     class="w-full h-auto rounded-lg"
   />
-  {caption && <figcaption class="mt-[var(--spacing-sm)] text-sm text-[var(--color-text-secondary)]">{caption}</figcaption>}
+  {
+    caption && (
+      <figcaption class="mt-[var(--spacing-sm)] text-sm text-[var(--color-text-secondary)]">
+        {caption}
+      </figcaption>
+    )
+  }
 </figure>

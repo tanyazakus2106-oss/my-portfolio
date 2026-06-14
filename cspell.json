@@ -35,10 +35,5 @@
     "destroypJS",
     "maxopacity"
   ],
-  "ignorePaths": [
-    "node_modules",
-    "dist",
-    ".astro",
-    ".planning"
-  ]
+  "ignorePaths": ["node_modules", "dist", ".astro", ".planning"]
 }

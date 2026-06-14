@@ -5,12 +5,12 @@
  * Identical layout to ProjectCard: alternating 60/40, text left-aligned,
  * card row vertically centered. Includes skills list. No hover shadow.
  */
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import ArrowLink from './ui/ArrowLink.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import ArrowLink from "./ui/ArrowLink.astro";
 
 interface Props {
-  entry: CollectionEntry<'projects'>;
+  entry: CollectionEntry<"projects">;
   index: number;
 }
 
@@ -20,17 +20,17 @@ const isReversed = index % 2 === 1;
 
 <article
   class:list={[
-    'group animate-on-scroll',
-    'has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--color-accent)]',
+    "group animate-on-scroll",
+    "has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--color-accent)]",
   ]}
 >
   <a
     href={`/projects/${entry.id}`}
     aria-label={`${entry.data.title} — View project`}
     class:list={[
-      'flex flex-col md:flex-row gap-[var(--spacing-xl)] md:gap-[56px] items-center',
-      isReversed ? 'md:flex-row-reverse' : '',
-      'no-underline',
+      "flex flex-col md:flex-row gap-[var(--spacing-xl)] md:gap-[56px] items-center",
+      isReversed ? "md:flex-row-reverse" : "",
+      "no-underline",
     ]}
   >
     {/* 60% image column */}
@@ -46,8 +46,12 @@ const isReversed = index % 2 === 1;
     </div>
 
     {/* 40% text column — left-aligned */}
-    <div class="md:basis-[40%] flex flex-col items-start text-left gap-[var(--spacing-md)] py-[var(--spacing-md)]">
-      <p class="text-xs uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
+    <div
+      class="md:basis-[40%] flex flex-col items-start text-left gap-[var(--spacing-md)] py-[var(--spacing-md)]"
+    >
+      <p
+        class="text-xs uppercase tracking-[0.08em] text-[var(--color-text-secondary)]"
+      >
         {entry.data.role}
       </p>
       <h3 class="text-[36px] leading-[40px] text-[var(--color-text-primary)]">

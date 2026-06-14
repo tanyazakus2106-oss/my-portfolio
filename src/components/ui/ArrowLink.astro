@@ -12,7 +12,7 @@
  */
 interface Props {
   href?: string;
-  direction?: 'left' | 'right';
+  direction?: "left" | "right";
   decorative?: boolean;
   class?: string;
   [key: string]: unknown;
@@ -20,31 +20,37 @@ interface Props {
 
 const {
   href,
-  direction = 'right',
+  direction = "right",
   decorative = false,
-  class: className = '',
+  class: className = "",
   ...rest
 } = Astro.props as Props;
 
-const arrow = direction === 'left' ? '←' : '→';
-const Tag = decorative ? 'span' : 'a';
+const arrow = direction === "left" ? "←" : "→";
+const Tag = decorative ? "span" : "a";
 
 const baseClass =
-  'inline-block text-base text-[var(--color-text-secondary)] transition-colors';
+  "inline-block text-base text-[var(--color-text-secondary)] transition-colors";
 
 const interactionClass = decorative
-  ? 'group-hover:text-[var(--color-accent)]'
-  : 'group hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]';
+  ? "group-hover:text-[var(--color-accent)]"
+  : "group hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
 
 const underlineClass =
-  'relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300';
+  "relative after:absolute after:bg-current after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300";
 
 const tagAttrs: Record<string, unknown> = decorative
   ? rest
-  : { href: href ?? '#', ...rest };
+  : { href: href ?? "#", ...rest };
 ---
 
-<Tag class:list={[baseClass, interactionClass, className, 'arrow-link']} {...tagAttrs}>{direction === 'left' ? `${arrow} ` : ''}<span class={underlineClass}><slot /></span>{direction === 'right' ? ` ${arrow}` : ''}</Tag>
+<Tag
+  class:list={[baseClass, interactionClass, className, "arrow-link"]}
+  {...tagAttrs}
+  >{direction === "left" ? `${arrow} ` : ""}<span class={underlineClass}
+    ><slot /></span
+  >{direction === "right" ? ` ${arrow}` : ""}</Tag
+>
 
 <style>
   /* Touch-device default: render the accent-color part of the hover state as the

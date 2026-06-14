@@ -28,13 +28,13 @@ The dev server runs at http://localhost:4321 by default. Hot module reload works
 
 ## Available scripts
 
-| Command | What it does |
-|---|---|
-| `npm run dev` | Start the dev server with HMR |
-| `npm run build` | Build the production site to `dist/` |
-| `npm run preview` | Preview the production build locally |
+| Command             | What it does                                   |
+| ------------------- | ---------------------------------------------- |
+| `npm run dev`       | Start the dev server with HMR                  |
+| `npm run build`     | Build the production site to `dist/`           |
+| `npm run preview`   | Preview the production build locally           |
 | `npm run typecheck` | Run `astro check` for TypeScript / prop errors |
-| `npm run format` | Format all files with Prettier |
+| `npm run format`    | Format all files with Prettier                 |
 
 ## Project structure
 

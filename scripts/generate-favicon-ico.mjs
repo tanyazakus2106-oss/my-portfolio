@@ -73,16 +73,12 @@ function packIco(images) {
         size: img.size,
         dataSize: img.png.length,
         dataOffset: cursor,
-      })
+      }),
     );
     cursor += img.png.length;
   }
 
-  return Buffer.concat([
-    header,
-    ...entries,
-    ...images.map((img) => img.png),
-  ]);
+  return Buffer.concat([header, ...entries, ...images.map((img) => img.png)]);
 }
 
 async function main() {
@@ -105,7 +101,7 @@ async function main() {
   console.log(
     `Wrote ${outPath} (${icoBuffer.length} bytes; ${sizes
       .map((s) => `${s}x${s}`)
-      .join(" + ")})`
+      .join(" + ")})`,
   );
 }
 
