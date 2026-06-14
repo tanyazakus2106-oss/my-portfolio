@@ -1,0 +1,10 @@
+# Build output
+dist/
+.astro/
+
+# GSD planning artifacts — bookkeeping, not source; prettier churns these en masse
+.planning/
+
+# Generated / vendored assets
+public/js/particles.min.js
+public/favicon.ico
