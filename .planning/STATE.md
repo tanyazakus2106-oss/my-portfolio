@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-14 - Completed quick task 260615-0gm: Footer: replace bottom-bar nav with copyright + 'Designed & built with care'
+Last activity: 2026-06-14 - Completed quick task 260615-0nc: Project cards reveal one-by-one on scroll
 
 Progress: [██░░░░░░░░] 33%
 
@@ -146,6 +146,7 @@ None yet.
 | 260614-yii | feat(mobile-nav): staggered rise-up entrance for overlay links | 2026-06-14 | 7da8176 | — (fast task) |
 | 260614-yjj | style(home): shrink Projects heading to 46px on mobile (48px md+) | 2026-06-14 | 4302fa0 | — (fast task) |
 | 260615-0gm | Footer: replace bottom-bar nav with copyright + 'Designed & built with care' | 2026-06-14 | 271a008 | [260615-0gm-footer-remove-bottom-bar-navigation-repl](./quick/260615-0gm-footer-remove-bottom-bar-navigation-repl/) |
+| 260615-0nc | Project cards: reveal one-by-one on scroll (stagger only initial-viewport cluster) | 2026-06-14 | dad9493 | [260615-0nc-project-cards-reveal-one-by-one-on-scrol](./quick/260615-0nc-project-cards-reveal-one-by-one-on-scrol/) |
 | 260615-ykk | fix(mobile-nav): keep menu toggle in sticky header so it tracks logo/theme on overscroll | 2026-06-15 | 1bf40bf | — (fast task) |
 
 ## Deferred Items
