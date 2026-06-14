@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-14 - Completed fast task 260614-yii: feat(mobile-nav): staggered rise-up entrance for overlay links
+Last activity: 2026-06-14 - Completed fast task 260614-yjj: style(home): shrink Projects heading to 46px on mobile (48px md+)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -144,6 +144,7 @@ None yet.
 | 260614-yhh | style(header): move mobile menu trigger right of theme toggle | 2026-06-14 | a8844e7 | — (fast task) |
 | 260614-woi | Morph mobile menu toggle into single hamburger⇄X button | 2026-06-14 | ff17bcd | [260614-woi-morph-mobile-menu-toggle-into-single-but](./quick/260614-woi-morph-mobile-menu-toggle-into-single-but/) |
 | 260614-yii | feat(mobile-nav): staggered rise-up entrance for overlay links | 2026-06-14 | 7da8176 | — (fast task) |
+| 260614-yjj | style(home): shrink Projects heading to 46px on mobile (48px md+) | 2026-06-14 | 4302fa0 | — (fast task) |
 
 ## Deferred Items
 
