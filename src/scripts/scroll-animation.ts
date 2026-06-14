@@ -59,11 +59,18 @@ function initScrollAnimation(): void {
 
   targets.forEach((el) => observer.observe(el));
 
-  // Fallback: if any element is still hidden after 2.5s (e.g. at zoom levels
-  // where IntersectionObserver never fires), reveal it.
+  // Fallback for the zoom edge case where IntersectionObserver never fires:
+  // after 2.5s, reveal only targets that are ACTUALLY in the viewport. Below-fold
+  // targets must stay hidden so they still animate one-by-one when scrolled to —
+  // otherwise a visitor who lingers on the hero would have every card silently
+  // revealed before they ever scroll down.
   setTimeout(() => {
+    const vh = window.innerHeight;
     targets.forEach((el) => {
-      if (!el.classList.contains("is-visible")) {
+      if (el.classList.contains("is-visible")) return;
+      const rect = el.getBoundingClientRect();
+      const inView = rect.top < vh && rect.bottom > 0;
+      if (inView) {
         el.classList.add("is-visible");
         observer.unobserve(el);
       }
