@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-14 - Completed quick task 260615-10c: Fix scroll reveal defeated by 2.5s fallback
+Last activity: 2026-06-14 - Completed quick task 260615-12x: Scroll reveal trigger at 24% into viewport
 
 Progress: [██░░░░░░░░] 33%
 
@@ -148,6 +148,7 @@ None yet.
 | 260615-0gm | Footer: replace bottom-bar nav with copyright + 'Designed & built with care' | 2026-06-14 | 271a008 | [260615-0gm-footer-remove-bottom-bar-navigation-repl](./quick/260615-0gm-footer-remove-bottom-bar-navigation-repl/) |
 | 260615-0nc | Project cards: reveal one-by-one on scroll (stagger only initial-viewport cluster) | 2026-06-14 | dad9493 | [260615-0nc-project-cards-reveal-one-by-one-on-scrol](./quick/260615-0nc-project-cards-reveal-one-by-one-on-scrol/) |
 | 260615-10c | Fix scroll reveal: scope 2.5s fallback to in-viewport cards (lingering on hero revealed all) | 2026-06-14 | 3a1b9b2 | [260615-10c-fix-scroll-reveal-2-5s-fallback-force-re](./quick/260615-10c-fix-scroll-reveal-2-5s-fallback-force-re/) |
+| 260615-12x | Scroll reveal: trigger card animation at 24% into viewport (was 12%) | 2026-06-14 | 5682043 | [260615-12x-scroll-reveal-change-card-trigger-from-1](./quick/260615-12x-scroll-reveal-change-card-trigger-from-1/) |
 | 260615-ykk | fix(mobile-nav): keep menu toggle in sticky header so it tracks logo/theme on overscroll | 2026-06-15 | 1bf40bf | — (fast task) |
 
 ## Deferred Items
