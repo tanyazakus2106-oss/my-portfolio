@@ -51,9 +51,9 @@ function initScrollAnimation(): void {
     },
     {
       threshold: 0,
-      // Trigger once the target has risen ~12% above the viewport's bottom edge,
-      // so each card reveals as it comfortably enters rather than at a sliver.
-      rootMargin: "0px 0px -12% 0px",
+      // Trigger once the target has risen ~24% above the viewport's bottom edge,
+      // so each card reveals once it is comfortably into view.
+      rootMargin: "0px 0px -24% 0px",
     },
   );
 
