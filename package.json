@@ -24,5 +24,8 @@
     "@astrojs/check": "^0.9.8",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
