@@ -76,8 +76,12 @@ function isActive(href: string): boolean {
         aria-hidden="true"></span>
       <div class="ml-[16px]"><ThemeToggle /></div>
 
-      <!-- Hamburger button slot (mobile only) — sits to the right of the theme toggle. -->
-      <div id="header-mobile-slot" class="md:hidden ml-6">
+      <!--
+        Mobile menu slot. MobileNav renders a fixed, body-hoisted toggle bar +
+        overlay (both out of flow), so this 44px spacer reserves the toggle's
+        footprint and keeps the theme toggle from shifting right.
+      -->
+      <div id="header-mobile-slot" class="md:hidden ml-6 w-11 h-11">
         <MobileNav />
       </div>
     </div>

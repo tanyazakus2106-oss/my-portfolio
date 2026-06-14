@@ -7,44 +7,46 @@ const links = [
 ];
 ---
 
-<!-- Hamburger trigger (visible only <768px; parent slot is already md:hidden) -->
-<button
-  id="mobile-nav-trigger"
-  type="button"
-  class="mobile-nav-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
-  aria-label="Open navigation"
-  aria-expanded="false"
-  aria-controls="mobile-nav-overlay"
+<!--
+  Single morphing toggle (hamburger ⇄ X). Lives in a fixed bar that mirrors the
+  header's .container (24px side padding) + 80px height + vertical centering, so
+  the icon sits exactly where the in-header slot reserves space — and the open/X
+  state occupies the identical position. The bar is hoisted to <body> in JS so it
+  escapes the header's stacking context (the scrolled header's backdrop-filter
+  otherwise traps fixed descendants below the overlay). pointer-events-none on the
+  bar lets taps fall through to the logo/theme toggle; only the button re-enables.
+-->
+<div
+  id="mobile-nav-bar"
+  class="md:hidden fixed top-0 inset-x-0 h-20 z-[70] pointer-events-none"
 >
-  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <line x1="3" y1="6" x2="21" y2="6"/>
-    <line x1="3" y1="12" x2="21" y2="12"/>
-    <line x1="3" y1="18" x2="21" y2="18"/>
-  </svg>
-</button>
+  <div class="container h-full flex items-center justify-end">
+    <button
+      id="mobile-nav-trigger"
+      type="button"
+      class="mobile-nav-btn pointer-events-auto min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="mobile-nav-overlay"
+    >
+      <span class="menu-icon" aria-hidden="true">
+        <span class="bar bar-top"></span>
+        <span class="bar bar-mid"></span>
+        <span class="bar bar-bot"></span>
+      </span>
+    </button>
+  </div>
+</div>
 
-<!-- Full-screen overlay dialog -->
+<!-- Full-screen overlay dialog (links only — the toggle above handles close) -->
 <div
   id="mobile-nav-overlay"
   role="dialog"
   aria-modal="true"
   aria-label="Navigation"
-  class="fixed inset-0 z-[60] bg-[var(--color-background)] opacity-0 pointer-events-none transition-opacity duration-200 ease-out motion-reduce:transition-none"
+  class="md:hidden fixed inset-0 z-[60] bg-[var(--color-background)] opacity-0 pointer-events-none transition-opacity duration-200 ease-out motion-reduce:transition-none"
   data-state="closed"
 >
-  <!-- Close (X) button top-right -->
-  <button
-    id="mobile-nav-close"
-    type="button"
-    class="mobile-nav-btn absolute top-[var(--spacing-md)] right-[var(--spacing-md)] min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-md p-[var(--spacing-sm)] text-[var(--color-text-primary)] hover:bg-[var(--color-secondary)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
-    aria-label="Close navigation"
-  >
-    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="18" y1="6" x2="6" y2="18"/>
-      <line x1="6" y1="6" x2="18" y2="18"/>
-    </svg>
-  </button>
-
   <!-- Nav links — centered, large type -->
   <nav aria-label="Mobile navigation" class="flex h-full w-full items-center justify-center py-[var(--spacing-3xl)]">
     <ul id="mobile-nav-links" class="flex flex-col items-center gap-[var(--spacing-xl)]">
@@ -65,29 +67,27 @@ const links = [
 </div>
 
 <script>
+  const bar = document.getElementById('mobile-nav-bar') as HTMLDivElement | null;
   const trigger = document.getElementById('mobile-nav-trigger') as HTMLButtonElement | null;
   const overlay = document.getElementById('mobile-nav-overlay') as HTMLDivElement | null;
-  const closeBtn = document.getElementById('mobile-nav-close') as HTMLButtonElement | null;
 
-  if (trigger && overlay && closeBtn) {
-    // Relocate the overlay to be a direct child of <body>. MobileNav is rendered
-    // inside <Header>, which gets `backdrop-filter: blur()` when scrolled. Per the
-    // CSS Filter Effects spec, backdrop-filter establishes a containing block for
-    // fixed-positioned descendants — so without this hoist, the overlay's
-    // `fixed inset-0` anchors to the 80px-tall header instead of the viewport.
-    if (overlay.parentElement !== document.body) {
-      document.body.appendChild(overlay);
-    }
+  if (bar && trigger && overlay) {
+    // Hoist the bar AND the overlay to be direct children of <body>. Both are
+    // rendered inside <Header>, which gets `backdrop-filter: blur()` when scrolled.
+    // Per the CSS Filter Effects spec, backdrop-filter establishes a containing
+    // block for fixed descendants — so without this hoist, `fixed` positioning
+    // anchors to the 80px header instead of the viewport, and the header's
+    // z-index would trap the toggle below the overlay.
+    if (bar.parentElement !== document.body) document.body.appendChild(bar);
+    if (overlay.parentElement !== document.body) document.body.appendChild(overlay);
 
     let isOpen = false;
 
     function getFocusable(): HTMLElement[] {
-      if (!overlay) return [];
-      return Array.from(
-        overlay.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled])'
-        )
-      );
+      const links = overlay
+        ? Array.from(overlay.querySelectorAll<HTMLElement>('a[href]'))
+        : [];
+      return trigger ? [trigger, ...links] : links;
     }
 
     function open() {
@@ -96,16 +96,17 @@ const links = [
       overlay.dataset.state = 'open';
       overlay.classList.remove('opacity-0', 'pointer-events-none');
       overlay.classList.add('opacity-100');
+      trigger.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
       trigger.setAttribute('aria-label', 'Close navigation');
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
-      // Focus first focusable (close button) on next tick so transition has started
+      // Focus first nav link on next tick so the transition has started
       requestAnimationFrame(() => {
-        const focusables = getFocusable();
-        focusables[0]?.focus();
+        const link = overlay?.querySelector<HTMLElement>('[data-mobile-nav-link]');
+        link?.focus();
       });
     }
 
@@ -115,6 +116,7 @@ const links = [
       overlay.dataset.state = 'closed';
       overlay.classList.add('opacity-0', 'pointer-events-none');
       overlay.classList.remove('opacity-100');
+      trigger.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
       trigger.setAttribute('aria-label', 'Open navigation');
       const scrollY = parseInt(document.body.style.top || '0') * -1;
@@ -125,8 +127,7 @@ const links = [
       trigger.focus();
     }
 
-    trigger.addEventListener('click', open);
-    closeBtn.addEventListener('click', close);
+    trigger.addEventListener('click', () => (isOpen ? close() : open()));
 
     // Backdrop click: close if click target is the overlay itself (not a child)
     overlay.addEventListener('click', (e) => {
@@ -138,7 +139,7 @@ const links = [
       a.addEventListener('click', close);
     });
 
-    // Esc + focus trap
+    // Esc + focus trap (trap spans the toggle button + overlay links)
     document.addEventListener('keydown', (e) => {
       if (!isOpen) return;
       if (e.key === 'Escape') {
@@ -170,6 +171,55 @@ const links = [
   @media (hover: none) {
     .mobile-nav-btn:hover {
       background-color: transparent;
+    }
+  }
+
+  /* ─── Morphing hamburger ⇄ X icon ─── */
+  .menu-icon {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .bar {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transform-origin: center;
+    transition:
+      transform 250ms ease-out,
+      opacity 200ms ease-out;
+  }
+
+  /* Hamburger rest state: three evenly-spaced bars (centers at 7 / 12 / 17). */
+  .bar-top {
+    top: 6px;
+  }
+  .bar-mid {
+    top: 11px;
+  }
+  .bar-bot {
+    top: 16px;
+  }
+
+  /* Open state: collapse outer bars to center, rotate into an X, fade the middle. */
+  #mobile-nav-trigger.is-open .bar-top {
+    transform: translateY(5px) rotate(45deg);
+  }
+  #mobile-nav-trigger.is-open .bar-mid {
+    opacity: 0;
+  }
+  #mobile-nav-trigger.is-open .bar-bot {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bar {
+      transition: none;
     }
   }
 
