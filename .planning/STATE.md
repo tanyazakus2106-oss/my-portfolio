@@ -5,7 +5,7 @@ milestone_name: milestone
 status: completed
 stopped_at: Phase 6 context gathered
 last_updated: "2026-05-12T20:38:30.000Z"
-last_activity: "2026-06-15 - Completed quick task 260615-1js: Fluid .container side padding (clamp 24px→80px)"
+last_activity: "2026-06-15 - Completed quick task 260615-278: Fluid vertical rhythm for featured-work section (clamp 64px→132px)"
 progress:
   total_phases: 6
   completed_phases: 6
@@ -153,6 +153,7 @@ None yet.
 | 260615-19s | Scroll reveal: trigger card animation at 14% into viewport (was 16%) | 2026-06-14 | bc0a3d6 | [260615-19s-scroll-reveal-change-card-trigger-from-1](./quick/260615-19s-scroll-reveal-change-card-trigger-from-1/) |
 | 260615-ykk | fix(mobile-nav): keep menu toggle in sticky header so it tracks logo/theme on overscroll | 2026-06-15 | 1bf40bf | — (fast task) |
 | 260615-1js | Fluid .container side padding: clamp() scaling 24px (mobile) → 80px @1440px | 2026-06-15 | 6e1a61e | [260615-1js-make-the-container-side-padding-fluid-80](./quick/260615-1js-make-the-container-side-padding-fluid-80/) |
+| 260615-278 | Fluid vertical rhythm for featured-work section: clamp() 64px (mobile) → 132px @1440px (section pt/pb + card gap) | 2026-06-15 | de3a5ab | [260615-278-make-featured-work-section-vertical-rhyt](./quick/260615-278-make-featured-work-section-vertical-rhyt/) |
 
 ## Deferred Items
 
