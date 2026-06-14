@@ -71,15 +71,15 @@ function isActive(href: string): boolean {
         </ul>
       </nav>
 
-      <!-- Hamburger button slot — filled in Plan 02 (Wave 2). -->
-      <div id="header-mobile-slot" class="md:hidden mr-2">
-        <MobileNav />
-      </div>
-
       <span
         class="hidden md:block w-px h-4 bg-[var(--color-border)] ml-[24px]"
         aria-hidden="true"></span>
       <div class="ml-[16px]"><ThemeToggle /></div>
+
+      <!-- Hamburger button slot (mobile only) — sits to the right of the theme toggle. -->
+      <div id="header-mobile-slot" class="md:hidden ml-6">
+        <MobileNav />
+      </div>
     </div>
   </div>
 </header>
