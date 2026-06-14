@@ -1,8 +1,14 @@
 # Architecture Research
 
+> **STATUS: Frozen pre-implementation research (2026-04-11). Superseded by actual implementation.**
+>
+> This document explores a **Next.js + `src/data/projects.ts`** architecture. The shipped v1.0 took a different path: **Astro 6 + MDX Content Collections** (see `.planning/PROJECT.md` and the **Architecture** section of `/CLAUDE.md` for current reality).
+>
+> Kept on disk for historical context — it captures the road not taken and the reasoning that led to choosing Astro. Do **not** treat its component names, file paths, or data-flow diagrams as current. Do not use this file as a source for regenerating CLAUDE.md's Architecture section; that section is now maintained manually against the actual codebase.
+
 **Domain:** Personal UX/UI designer portfolio site (static, no CMS)
 **Researched:** 2026-04-11
-**Confidence:** HIGH
+**Confidence:** HIGH (at time of writing — see status callout above)
 
 ## Standard Architecture
 
