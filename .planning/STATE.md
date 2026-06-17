@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-15 - Completed quick task 260615-2dz: Remove sticky positioning from About page hero header
+Last activity: 2026-06-17 - Completed quick task 260618-10d: Change hero section subtext copy
 
 Progress: [██░░░░░░░░] 33%
 
@@ -155,6 +155,7 @@ None yet.
 | 260615-1js | Fluid .container side padding: clamp() scaling 24px (mobile) → 80px @1440px | 2026-06-15 | 6e1a61e | [260615-1js-make-the-container-side-padding-fluid-80](./quick/260615-1js-make-the-container-side-padding-fluid-80/) |
 | 260615-278 | Fluid vertical rhythm for featured-work section: clamp() 64px (mobile) → 132px @1440px (section pt/pb + card gap) | 2026-06-15 | de3a5ab | [260615-278-make-featured-work-section-vertical-rhyt](./quick/260615-278-make-featured-work-section-vertical-rhyt/) |
 | 260615-2dz | Remove sticky positioning from About page hero header | 2026-06-15 | 2d52403 | [260615-2dz-remove-sticky-positioning-from-about-pag](./quick/260615-2dz-remove-sticky-positioning-from-about-pag/) |
+| 260618-10d | Change hero section subtext copy | 2026-06-17 | 12ec58e | [260618-10d-change-hero-section-subtext-copy](./quick/260618-10d-change-hero-section-subtext-copy/) |
 
 ## Deferred Items
 
