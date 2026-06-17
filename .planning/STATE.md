@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-17 - Completed quick task 260618-1is: Change hero headline copy
+Last activity: 2026-06-17 - Completed quick task 260618-1jh: Set hero headline max-width to 580px
 
 Progress: [██░░░░░░░░] 33%
 
@@ -158,6 +158,7 @@ None yet.
 | 260618-10d | Change hero section subtext copy | 2026-06-17 | 12ec58e | [260618-10d-change-hero-section-subtext-copy](./quick/260618-10d-change-hero-section-subtext-copy/) |
 | 260618-15c | Set hero subtext max-width to 580px | 2026-06-17 | b2a6114 | [260618-15c-set-hero-subtext-max-width-to-580px](./quick/260618-15c-set-hero-subtext-max-width-to-580px/) |
 | 260618-1is | Change hero headline copy | 2026-06-17 | 5f3c5f1 | [260618-1is-change-hero-headline-copy](./quick/260618-1is-change-hero-headline-copy/) |
+| 260618-1jh | Set hero headline max-width to 580px | 2026-06-17 | 1d8c4f6 | [260618-1jh-set-hero-headline-max-width-to-580px](./quick/260618-1jh-set-hero-headline-max-width-to-580px/) |
 
 ## Deferred Items
 
