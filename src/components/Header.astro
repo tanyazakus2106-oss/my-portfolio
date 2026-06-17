@@ -56,10 +56,10 @@ function isActive(href: string): boolean {
                   <span
                     class:list={[
                       "relative",
-                      'after:content-[""] after:absolute after:left-0 after:right-0 after:-bottom-[4px] after:h-[2px] after:bg-[var(--color-accent)] after:transition-opacity after:duration-150',
+                      'after:content-[""] after:absolute after:left-0 after:-bottom-[4px] after:h-[2px] after:w-full after:bg-[var(--color-accent)] after:transition-transform after:ease-in-out after:duration-300',
                       isActive(link.href)
-                        ? "after:opacity-100"
-                        : "after:opacity-0",
+                        ? "after:scale-x-100 after:origin-bottom-left"
+                        : "after:scale-x-0 after:origin-bottom-right group-hover:after:scale-x-100 group-hover:after:origin-bottom-left",
                     ]}
                   >
                     {link.label}
