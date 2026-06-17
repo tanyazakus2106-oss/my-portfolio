@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-17 - Completed quick task 260618-15c: Set hero subtext max-width to 580px
+Last activity: 2026-06-17 - Completed quick task 260618-1is: Change hero headline copy
 
 Progress: [██░░░░░░░░] 33%
 
@@ -157,6 +157,7 @@ None yet.
 | 260615-2dz | Remove sticky positioning from About page hero header | 2026-06-15 | 2d52403 | [260615-2dz-remove-sticky-positioning-from-about-pag](./quick/260615-2dz-remove-sticky-positioning-from-about-pag/) |
 | 260618-10d | Change hero section subtext copy | 2026-06-17 | 12ec58e | [260618-10d-change-hero-section-subtext-copy](./quick/260618-10d-change-hero-section-subtext-copy/) |
 | 260618-15c | Set hero subtext max-width to 580px | 2026-06-17 | b2a6114 | [260618-15c-set-hero-subtext-max-width-to-580px](./quick/260618-15c-set-hero-subtext-max-width-to-580px/) |
+| 260618-1is | Change hero headline copy | 2026-06-17 | 5f3c5f1 | [260618-1is-change-hero-headline-copy](./quick/260618-1is-change-hero-headline-copy/) |
 
 ## Deferred Items
 
