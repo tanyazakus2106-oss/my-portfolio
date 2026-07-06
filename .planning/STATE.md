@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Fast tasks: Apollo process placeholder, 16:9 hero crop, unified rounded-2xl image radius
+Last activity: 2026-07-06 - Fast task 260706-t4d: tokenized display heading sizes (zero visual change)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -176,6 +176,7 @@ None yet.
 | 260706-t4a | Add CaseImage process placeholder (1440×960 neutral webp) to Apollo case study | 2026-07-06 | 43cfe8f | — (fast task) |
 | 260706-t4b | Crop case-study hero to 16:9 aspect ratio (aspect-[16/9] object-cover) | 2026-07-06 | 2fb8866 | — (fast task) |
 | 260706-t4c | Unify image border radius to rounded-2xl (CaseImage was rounded-lg) | 2026-07-06 | 11b1fe3 | — (fast task) |
+| 260706-t4d | Tokenize display heading sizes — px-locked --text-display/-sm replace text-[32px]/[28px] literals | 2026-07-06 | 33ed644 | — (fast task) |
 
 ## Deferred Items
 
