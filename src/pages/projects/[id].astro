@@ -65,7 +65,7 @@ const timeline = entry.data.publishDate.toLocaleDateString("en-US", {
     <p
       class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)] mb-[var(--spacing-md)]"
     >
-      {[entry.data.role, ...entry.data.skills].join(", ")}
+      {entry.data.role}
     </p>
 
     <h1
@@ -90,11 +90,13 @@ const timeline = entry.data.publishDate.toLocaleDateString("en-US", {
       <dd class="m-0 text-sm text-[var(--color-text-secondary)]">
         {entry.data.timelineRange ?? timeline}
       </dd>
-      <dd
-        class="m-0 mt-[var(--spacing-xs)] text-sm text-[var(--color-text-secondary)]"
-      >
-        {entry.data.team ?? "Placeholder team — update in MDX"}
-      </dd>
+      {
+        entry.data.team && (
+          <dd class="m-0 mt-[var(--spacing-xs)] text-sm text-[var(--color-text-secondary)]">
+            {entry.data.team}
+          </dd>
+        )
+      }
     </dl>
   </header>
 
