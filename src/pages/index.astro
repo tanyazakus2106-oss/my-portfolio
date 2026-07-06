@@ -86,7 +86,7 @@ const descriptionWordsList = descriptionText.split(" ");
   {/* Projects section */}
   <section
     id="projects"
-    class="pt-[var(--spacing-section)] pb-[var(--spacing-section)] scroll-mt-20"
+    class="pt-[var(--spacing-rhythm)] pb-[var(--spacing-section)] scroll-mt-20"
   >
     <div class="container">
       <h2
@@ -94,7 +94,7 @@ const descriptionWordsList = descriptionText.split(" ");
       >
         Projects
       </h2>
-      <div class="flex flex-col gap-[clamp(64px,40px+6.39vw,112px)]">
+      <div class="flex flex-col gap-[var(--spacing-rhythm)]">
         {projects.map((entry, i) => <ProjectCard entry={entry} index={i} />)}
       </div>
     </div>

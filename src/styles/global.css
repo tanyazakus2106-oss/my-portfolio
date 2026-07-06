@@ -21,6 +21,9 @@
   --spacing-4xl: 6rem; /* 96px */
   /* Fluid section rhythm: 64px (3xl) on mobile → 132px @1440px viewport, scales with width */
   --spacing-section: clamp(64px, 40px + 6.39vw, 132px);
+  /* Work-section vertical rhythm — inter-card gap + section top padding.
+     Slightly tighter ceiling than --spacing-section (112px vs 132px). */
+  --spacing-rhythm: clamp(64px, 40px + 6.39vw, 112px);
 
   /* Layout shell — shared content cap for .container (site chrome + all pages).
      Named --layout-* (not --container-*) to avoid Tailwind v4's reserved
