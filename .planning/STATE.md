@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Fast task 260706-us3: removed "About" eyebrow from about-page hero header
+Last activity: 2026-07-06 - Fast task 260706-us5: about-page desktop top padding 64→72px
 
 Progress: [██░░░░░░░░] 33%
 
@@ -179,6 +179,8 @@ None yet.
 | 260706-t4d | Tokenize display heading sizes — px-locked --text-display/-sm replace text-[32px]/[28px] literals | 2026-07-06 | 33ed644 | — (fast task) |
 | 260706-us2 | Detail-page header meta line shows role only (was role + skills); size unchanged (text-xs) | 2026-07-06 | 4b6c3a1 | [260706-us2-align-project-detail-page-meta-text-line](./quick/260706-us2-align-project-detail-page-meta-text-line/) |
 | 260706-us3 | Remove "About" eyebrow from about-page hero header (h1 top margin dropped with it) | 2026-07-06 | 6cc3502 | — (fast task) |
+| 260706-us4 | About-page h1 → "Designing with Purpose: Crafting Experiences, Shaping Futures" | 2026-07-06 | f075152 | — (fast task) |
+| 260706-us5 | About-page desktop top padding 64→72px (mobile unchanged at 48px) | 2026-07-06 | f075152 | — (fast task) |
 
 ## Deferred Items
 
