@@ -181,6 +181,7 @@ None yet.
 | 260706-us3 | Remove "About" eyebrow from about-page hero header (h1 top margin dropped with it) | 2026-07-06 | 6cc3502 | — (fast task) |
 | 260706-us4 | About-page h1 → "Designing with Purpose: Crafting Experiences, Shaping Futures" | 2026-07-06 | f075152 | — (fast task) |
 | 260706-us5 | About-page desktop top padding 64→72px (mobile unchanged at 48px) | 2026-07-06 | f075152 | — (fast task) |
+| 260707-rc1 | Apollo case study: real "My Role" copy replaces placeholder (senior UX/UI designer, system ownership) | 2026-07-07 | 2130951 | — (fast task) |
 
 ## Deferred Items
 
