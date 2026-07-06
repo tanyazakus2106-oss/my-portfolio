@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-06-18 - Completed quick task 260618-rd4: Reduce nav tab underline height to 1px
+Last activity: 2026-07-06 - Completed quick task 260706-glv: Unify horizontal layout onto token-driven .container (1200/24px)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -162,6 +162,7 @@ None yet.
 | 260618-3ri | Revert hero headline copy to original baseline | 2026-06-17 | 00572ab | [260618-3ri-revert-hero-headline-copy-to-original-ba](./quick/260618-3ri-revert-hero-headline-copy-to-original-ba/) |
 | 260618-3yl | Add sweep-underline hover animation to nav tabs | 2026-06-17 | 1ad9316 | [260618-3yl-add-sweep-underline-hover-animation-to-n](./quick/260618-3yl-add-sweep-underline-hover-animation-to-n/) |
 | 260618-rd4 | Reduce nav tab underline height to 1px | 2026-06-18 | 1510145 | [260618-rd4-reduce-nav-tab-underline-height-to-1px](./quick/260618-rd4-reduce-nav-tab-underline-height-to-1px/) |
+| 260706-glv | Unify horizontal layout onto token-driven .container (1200/24px) | 2026-07-06 | d23a0ed | [260706-glv-unify-horizontal-layout-onto-token-drive](./quick/260706-glv-unify-horizontal-layout-onto-token-drive/) |
 
 ## Deferred Items
 
