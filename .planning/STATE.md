@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Completed quick task 260706-ilu: Rename About hero eyebrow text to "About"
+Last activity: 2026-07-06 - Completed quick task 260706-j1c: Slightly decrease project card gaps on Work page (132->112px ceiling)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -167,6 +167,7 @@ None yet.
 | 260706-hm5 | Match About body typography to tushar.work reference (text-lg leading-relaxed) | 2026-07-06 | 38383fb | [260706-hm5-match-about-body-typography-to-tushar-wo](./quick/260706-hm5-match-about-body-typography-to-tushar-wo/) |
 | 260706-ic7 | Match About H1 headline size ceiling to tushar reference (clamp max 4.5->3.75rem) | 2026-07-06 | 99db1b9 | [260706-ic7-match-about-h1-headline-size-ceiling-to-](./quick/260706-ic7-match-about-h1-headline-size-ceiling-to-/) |
 | 260706-ilu | Rename About hero eyebrow text to "About" | 2026-07-06 | 8e07fe9 | [260706-ilu-rename-about-hero-eyebrow-text-to-about](./quick/260706-ilu-rename-about-hero-eyebrow-text-to-about/) |
+| 260706-j1c | Slightly decrease project card gaps on Work page (132->112px ceiling) | 2026-07-06 | 74c3c91 | [260706-j1c-slightly-decrease-project-card-gaps-on-w](./quick/260706-j1c-slightly-decrease-project-card-gaps-on-w/) |
 
 ## Deferred Items
 
