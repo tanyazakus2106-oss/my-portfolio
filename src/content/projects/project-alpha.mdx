@@ -10,6 +10,9 @@ publishDate: "2024-06-15"
 featured: true
 ---
 
+import CaseImage from "../../components/CaseImage.astro";
+import processPlaceholder from "./apollo-process-placeholder.webp";
+
 {/* Template sections shown below — replace with real content. Placeholder content per D-17. */}
 {/* <FullBleedImage> is injected by src/pages/projects/[id].astro via <Content components={{ FullBleedImage }} />. */}
 {/* Usage: <FullBleedImage src="/images/filename.jpg" alt="Description" /> — src is a public/ path string. */}
@@ -37,6 +40,12 @@ Placeholder process walkthrough. The real version tells the design story chronol
 - Wireframes: low-fi sketches, iteration rounds
 - Prototype: Figma interactive prototype
 - Testing: moderated and unmoderated sessions
+
+<CaseImage
+  src={processPlaceholder}
+  alt="Process placeholder"
+  caption="Placeholder — swap for real process imagery"
+/>
 
 ## Outcome
 
