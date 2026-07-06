@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Completed quick task 260706-ryn: Use slug frontmatter for project URLs with descriptive case-study slugs
+Last activity: 2026-07-06 - Completed quick task 260706-siq: Remove placeholder FullBleedImage blocks and 1×1 placeholder images
 
 Progress: [██░░░░░░░░] 33%
 
@@ -172,6 +172,7 @@ None yet.
 | 260706-jsf | Update Team Time Tracker card summary (drop "for the team") | 2026-07-06 | 030eec1 | [260706-jsf-update-team-time-tracker-card-summary-dr](./quick/260706-jsf-update-team-time-tracker-card-summary-dr/) |
 | 260706-k07 | Change light-mode background to #f7f6f7 (soft neutral grey) | 2026-07-06 | 2035c19 | [260706-k07-change-light-mode-background-to-f7f6f7](./quick/260706-k07-change-light-mode-background-to-f7f6f7/) |
 | 260706-ryn | Use slug frontmatter for project URLs (apollo-design-system, team-time-tracker) | 2026-07-06 | 86ebd40 | [260706-ryn-use-slug-frontmatter-for-project-urls-in](./quick/260706-ryn-use-slug-frontmatter-for-project-urls-in/) |
+| 260706-siq | Remove placeholder FullBleedImage blocks and 1×1 placeholder images | 2026-07-06 | 00c7829 | [260706-siq-remove-placeholder-fullbleedimage-blocks](./quick/260706-siq-remove-placeholder-fullbleedimage-blocks/) |
 
 ## Deferred Items
 
