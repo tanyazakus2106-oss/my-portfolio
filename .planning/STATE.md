@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Completed quick task 260706-gvb: Align About page content container with unified .container (1200/24px)
+Last activity: 2026-07-06 - Completed quick task 260706-hm5: Match About body typography to tushar.work reference (text-lg leading-relaxed)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -164,6 +164,7 @@ None yet.
 | 260618-rd4 | Reduce nav tab underline height to 1px | 2026-06-18 | 1510145 | [260618-rd4-reduce-nav-tab-underline-height-to-1px](./quick/260618-rd4-reduce-nav-tab-underline-height-to-1px/) |
 | 260706-glv | Unify horizontal layout onto token-driven .container (1200/24px) | 2026-07-06 | d23a0ed | [260706-glv-unify-horizontal-layout-onto-token-drive](./quick/260706-glv-unify-horizontal-layout-onto-token-drive/) |
 | 260706-gvb | Align About page content container with unified .container (1200/24px) | 2026-07-06 | b38309f | [260706-gvb-align-about-page-content-container-with-](./quick/260706-gvb-align-about-page-content-container-with-/) |
+| 260706-hm5 | Match About body typography to tushar.work reference (text-lg leading-relaxed) | 2026-07-06 | 38383fb | [260706-hm5-match-about-body-typography-to-tushar-wo](./quick/260706-hm5-match-about-body-typography-to-tushar-wo/) |
 
 ## Deferred Items
 
