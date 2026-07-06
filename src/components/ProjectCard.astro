@@ -26,7 +26,7 @@ const isReversed = index % 2 === 1;
   ]}
 >
   <a
-    href={`/projects/${entry.id}`}
+    href={`/projects/${entry.data.slug}`}
     aria-label={`${entry.data.title} — View project`}
     class:list={[
       "flex flex-col md:flex-row gap-[var(--spacing-xl)] md:gap-[56px] items-center",

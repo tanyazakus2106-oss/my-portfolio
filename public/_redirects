@@ -9,3 +9,7 @@
 # Map any external links pointing at /work back to the home #projects section.
 /work    /#projects    301
 /work/   /#projects    301
+
+# Project slug rename (quick task 260706-ryn): keep old case-study URLs alive.
+/projects/project-alpha   /projects/apollo-design-system   301
+/projects/project-beta    /projects/team-time-tracker      301

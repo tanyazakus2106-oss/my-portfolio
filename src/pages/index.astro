@@ -5,7 +5,11 @@ import ParticlesBg from "../components/ParticlesBg.astro";
 import { getCollection } from "astro:content";
 
 const projects = (await getCollection("projects")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+  // Tie-break on id: publishDate collisions otherwise fall back to the
+  // collection's internal order, which reshuffles on dev-server reloads.
+  (a, b) =>
+    b.data.publishDate.valueOf() - a.data.publishDate.valueOf() ||
+    a.id.localeCompare(b.id),
 );
 
 const eyebrowText = "Open to full-time & freelance";

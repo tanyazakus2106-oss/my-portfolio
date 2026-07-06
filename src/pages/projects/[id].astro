@@ -9,11 +9,15 @@ import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const all = (await getCollection("projects")).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+    // Same ordering as index.astro — tie-break on id so prev/next matches
+    // the homepage card order even when publishDates collide.
+    (a, b) =>
+      b.data.publishDate.valueOf() - a.data.publishDate.valueOf() ||
+      a.id.localeCompare(b.id),
   );
 
   return all.map((entry, i) => ({
-    params: { id: entry.id },
+    params: { id: entry.data.slug },
     props: {
       entry,
       // Wrap-around: "Next project →" is NEWER (lower index, wraps to oldest).
@@ -123,7 +127,7 @@ const timeline = entry.data.publishDate.toLocaleDateString("en-US", {
       aria-label="Case study navigation"
     >
       <a
-        href={`/projects/${prevEntry.id}`}
+        href={`/projects/${prevEntry.data.slug}`}
         class="group flex-1 flex flex-col min-h-[44px] py-[var(--spacing-sm)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
         <ArrowLink decorative direction="left">Previous project</ArrowLink>
@@ -133,7 +137,7 @@ const timeline = entry.data.publishDate.toLocaleDateString("en-US", {
         >
       </a>
       <a
-        href={`/projects/${nextEntry.id}`}
+        href={`/projects/${nextEntry.data.slug}`}
         class="group flex-1 flex flex-col items-end min-h-[44px] py-[var(--spacing-sm)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
       >
         <ArrowLink decorative direction="right">Next project</ArrowLink>
