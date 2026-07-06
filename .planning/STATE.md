@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Completed quick task 260706-jsf: Update Team Time Tracker card summary (drop "for the team")
+Last activity: 2026-07-06 - Completed quick task 260706-k07: Change light-mode background to #f7f6f7 (soft neutral grey)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -170,6 +170,7 @@ None yet.
 | 260706-j1c | Slightly decrease project card gaps on Work page (132->112px ceiling) | 2026-07-06 | 74c3c91 | [260706-j1c-slightly-decrease-project-card-gaps-on-w](./quick/260706-j1c-slightly-decrease-project-card-gaps-on-w/) |
 | 260706-jga | Align Projects section top padding with card gap via --spacing-rhythm token | 2026-07-06 | 6a53521 | [260706-jga-align-projects-section-top-padding-with-](./quick/260706-jga-align-projects-section-top-padding-with-/) |
 | 260706-jsf | Update Team Time Tracker card summary (drop "for the team") | 2026-07-06 | 030eec1 | [260706-jsf-update-team-time-tracker-card-summary-dr](./quick/260706-jsf-update-team-time-tracker-card-summary-dr/) |
+| 260706-k07 | Change light-mode background to #f7f6f7 (soft neutral grey) | 2026-07-06 | 2035c19 | [260706-k07-change-light-mode-background-to-f7f6f7](./quick/260706-k07-change-light-mode-background-to-f7f6f7/) |
 
 ## Deferred Items
 
