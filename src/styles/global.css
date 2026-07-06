@@ -9,6 +9,11 @@
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
+  /* Display headings (footer CTA, about sections) — deliberately px-locked so
+     they render identically to the former text-[32px]/text-[28px] literals and
+     do NOT scale with the 17px desktop root font-size. */
+  --text-display: 32px;
+  --text-display-sm: 28px;
 
   /* Spacing scale (4px base, all multiples of 4) — per D-07 */
   --spacing-xs: 0.25rem; /* 4px */
