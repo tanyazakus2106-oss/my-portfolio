@@ -22,6 +22,11 @@
   /* Fluid section rhythm: 64px (3xl) on mobile → 132px @1440px viewport, scales with width */
   --spacing-section: clamp(64px, 40px + 6.39vw, 132px);
 
+  /* Layout shell — shared content cap for .container (site chrome + all pages).
+     Named --layout-* (not --container-*) to avoid Tailwind v4's reserved
+     --container-* namespace, which would emit stray max-w-* utilities. */
+  --layout-max: 1200px;
+
   /* Light mode colors (default) — per D-08 */
   --color-background: #fcfcfc;
   --color-secondary: #f5f5f4;
@@ -217,15 +222,15 @@ hr {
   opacity: 0.667;
 }
 
-/* ─── Layout container — shared max-width + responsive padding ─── */
+/* ─── Layout container — shared max-width + fixed gutter ─── */
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--layout-max);
   margin-left: auto;
   margin-right: auto;
-  /* fluid gutter: 24px @375px viewport -> 80px @1440px */
-  padding-left: clamp(24px, 4.28px + 5.26vw, 80px);
-  padding-right: clamp(24px, 4.28px + 5.26vw, 80px);
+  /* fixed 24px gutter, matching the case-study inset */
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
 }
 
 /* Touch-primary devices (phones/tablets, no hover, coarse pointer) —
