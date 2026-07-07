@@ -61,10 +61,12 @@ import heroPhoto from "../assets/about_img.jpg";
     </div>
 
     {
-      /* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body). */
+      /* Block 3 — How I Work (D-07: title-case + medium-weight + body color; D-05 warm body).
+         mt is 0.5rem more than pt: the h2's line-height adds ~8px of leading below the divider,
+         while the photo above has a hard edge — the extra margin makes the two gaps optically equal. */
     }
     <section
-      class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[var(--spacing-3xl)] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]"
+      class="animate-on-scroll border-t border-[var(--color-border)] pt-[var(--spacing-3xl)] mt-[4.5rem] grid grid-cols-1 lg:grid-cols-4 lg:gap-[var(--spacing-2xl)]"
     >
       <h2
         class="text-display-sm md:text-display font-medium text-[var(--color-text-primary)] mb-[var(--spacing-lg)] lg:mb-0"
