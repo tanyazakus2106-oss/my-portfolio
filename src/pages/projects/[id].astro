@@ -106,7 +106,7 @@ const metadata = [
 
   {/* Hero image */}
   <div
-    class="container mb-[var(--spacing-2xl)] animate-page-entry"
+    class="container mb-[var(--spacing-3xl)] animate-page-entry"
     style="--entry-index: 2"
   >
     <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
@@ -187,6 +187,17 @@ const metadata = [
     width: 100%;
     height: 1px;
     background: var(--color-border);
+  }
+  /* No divider above the first section — the hero image already separates
+     it from the page header. Its section offsets are zeroed too, so the
+     hero's 64px bottom margin equals the section→divider rhythm. */
+  .case-prose > h2:first-child::before {
+    display: none;
+  }
+  .case-prose > h2:first-child,
+  .case-prose > h2:first-child + * {
+    margin-top: 0;
+    padding-top: 0;
   }
   .case-prose h3 {
     font-family: var(--font-serif);
