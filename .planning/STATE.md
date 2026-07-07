@@ -185,6 +185,7 @@ None yet.
 | 260707-eb1 | Restore About eyebrow (reverts us3), restyled to match project-page role label (text-xs tracking-widest) | 2026-07-07 | 1f0cb8f | — (fast task) |
 | 260707-eb2 | About eyebrow size back to original text-sm tracking-[0.08em] (undoes eb1 restyle, keeps eyebrow) | 2026-07-07 | ca6e7f8 | — (fast task) |
 | 260707-mg1 | Case-study header 4-col metadata grid (Role/Team/Timeline/Tools), drop role eyebrow | 2026-07-07 | 778ee15 | — (fast task) |
+| 260707-cb1 | Case-study body: About-style h2 rail layout + tushar.work prose rhythm/serif h3 subheaders | 2026-07-07 | c4293fc | — (fast task) |
 
 ## Deferred Items
 
