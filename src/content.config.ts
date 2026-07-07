@@ -15,6 +15,7 @@ const projects = defineCollection({
       publishDate: z.coerce.date(),
       timelineRange: z.string().optional(),
       team: z.string().optional(),
+      tools: z.string().optional(),
       featured: z.boolean().default(false),
     }),
 });
