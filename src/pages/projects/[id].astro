@@ -68,7 +68,7 @@ const metadata = [
 
   {/* Header — title, summary, metadata */}
   <header
-    class="container pt-[var(--spacing-xl)] pb-[var(--spacing-xl)] animate-page-entry"
+    class="container pt-[var(--spacing-xl)] pb-10 animate-page-entry"
     style="--entry-index: 1"
   >
     <h1
@@ -87,7 +87,7 @@ const metadata = [
       /* Metadata — 4-column grid (Company / Role / Team / Timeline), 2×2 on mobile */
     }
     <dl
-      class="mt-[var(--spacing-lg)] grid grid-cols-2 md:grid-cols-4 gap-[var(--spacing-lg)]"
+      class="mt-[var(--spacing-xl)] grid grid-cols-2 md:grid-cols-4 gap-[var(--spacing-lg)]"
     >
       {
         metadata.map(({ label, value }) => (
@@ -123,10 +123,12 @@ const metadata = [
 
   {/* Body article — MDX prose + prev/next */}
   <article
-    class="max-w-[720px] mx-auto px-[var(--spacing-lg)] pb-[var(--spacing-4xl)] case-prose animate-page-entry"
+    class="container pb-[var(--spacing-4xl)] animate-page-entry"
     style="--entry-index: 3"
   >
-    <Content components={{ FullBleedImage, CaseImage }} />
+    <div class="case-prose">
+      <Content components={{ FullBleedImage, CaseImage }} />
+    </div>
 
     <nav
       class="mt-[var(--spacing-3xl)] pt-[var(--spacing-xl)] border-t border-[var(--color-border)] flex justify-between gap-[var(--spacing-md)]"
@@ -157,30 +159,69 @@ const metadata = [
 </BaseLayout>
 
 <style is:global>
-  /* MDX prose styling — adapted to reference layout (tushar.work).
-     Body H2/H3 are serif at larger sizes (replacing the prior small-uppercase
-     label style). Animate-on-scroll behavior preserved. */
-  .case-prose h2 {
-    font-family: var(--font-serif);
-    font-size: 1.875rem; /* 30px */
+  /* MDX prose — reuses the About-page section layout: full-width divider,
+     display-serif heading in a 1fr left rail, body copy in the remaining 3fr.
+     MDX output is flat (h2/p/figure siblings), so grid auto-placement does
+     the sectioning: h2 → column 1, everything else → column 2. */
+  .case-prose {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-md);
+  }
+  .case-prose > h2 {
+    position: relative;
+    font-size: var(--text-display-sm);
+    font-weight: 500;
     line-height: 1.2;
     color: var(--color-text-primary);
-    margin-top: var(--spacing-3xl); /* 64px */
-    margin-bottom: var(--spacing-lg); /* 24px */
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-3xl);
+  }
+  /* Section divider — absolutely positioned so it can span both grid
+     columns on desktop (h2 occupies only the 1fr rail). */
+  .case-prose > h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
   }
   .case-prose h3 {
     font-family: var(--font-serif);
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem; /* 24px — reference text-2xl */
     line-height: 1.3;
     color: var(--color-text-primary);
     margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
   }
   .case-prose p {
-    font-size: 1.125rem;
+    font-size: 1.125rem; /* 18px — site-wide body standard */
     line-height: 1.625;
     color: var(--color-text-secondary);
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    margin: 0;
+  }
+  @media (min-width: 64rem) {
+    .case-prose {
+      grid-template-columns: 1fr 3fr;
+      column-gap: var(--spacing-2xl);
+    }
+    .case-prose > h2 {
+      grid-column: 1;
+      font-size: var(--text-display);
+    }
+    .case-prose > :not(h2) {
+      grid-column: 2;
+    }
+    /* First block of a section shares the h2's row — match its top offsets
+       so heading and copy stay top-aligned below the divider. */
+    .case-prose > h2 + * {
+      margin-top: var(--spacing-2xl);
+      padding-top: var(--spacing-3xl);
+    }
+    /* Rail is 1fr of a 1fr+3fr grid: full row width = 4×rail + gap. */
+    .case-prose > h2::before {
+      width: calc(400% + var(--spacing-2xl));
+    }
   }
 </style>
