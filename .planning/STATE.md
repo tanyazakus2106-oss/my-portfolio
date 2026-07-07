@@ -182,6 +182,7 @@ None yet.
 | 260706-us4 | About-page h1 → "Designing with Purpose: Crafting Experiences, Shaping Futures" | 2026-07-06 | f075152 | — (fast task) |
 | 260706-us5 | About-page desktop top padding 64→72px (mobile unchanged at 48px) | 2026-07-06 | f075152 | — (fast task) |
 | 260707-rc1 | Apollo case study: real "My Role" copy replaces placeholder (senior UX/UI designer, system ownership) | 2026-07-07 | 2130951 | — (fast task) |
+| 260707-eb1 | Restore About eyebrow (reverts us3), restyled to match project-page role label (text-xs tracking-widest) | 2026-07-07 | 1f0cb8f | — (fast task) |
 
 ## Deferred Items
 
