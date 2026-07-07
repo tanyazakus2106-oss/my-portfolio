@@ -191,6 +191,7 @@ None yet.
 | 260707-cb3 | Case-body h2 stays text-display (32px) on mobile to preserve h2/h3 hierarchy | 2026-07-07 | d204649 | — (fast task) |
 | 260707-cb4 | Case-body section dividers desktop-only (mobile keeps nav border-t), 64px mobile section rhythm | 2026-07-07 | db5be4d | — (fast task) |
 | 260707-cb5 | Rename case-study "Problem" section heading to "Context" (all 5 MDX files) | 2026-07-07 | 881e157 | — (fast task) |
+| 260707-cb6 | Apollo Context section: add Background/The Challenge/Goals placeholder subsections (h3 pattern) | 2026-07-07 | 020ea3d | — (fast task) |
 
 ## Deferred Items
 
