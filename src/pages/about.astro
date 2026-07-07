@@ -34,11 +34,17 @@ import heroPhoto from "../assets/about_img.jpg";
       </div>
 
       {
-        /* Block 2 — Hero headline + intro. Visual order 1 below lg (lede first on mobile), order 2 at lg+ (sits right of image). */
+        /* Block 2 — Eyebrow + hero headline + intro. Visual order 1 below lg (lede first on mobile), order 2 at lg+ (sits right of image). */
       }
       <header class="order-1 lg:order-2">
+        <p
+          class="text-xs tracking-widest uppercase text-[var(--color-text-secondary)]"
+        >
+          About
+        </p>
+
         <h1
-          class="text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.1] text-[var(--color-text-primary)]"
+          class="mt-[var(--spacing-md)] text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.1] text-[var(--color-text-primary)]"
         >
           Designing with Purpose: Crafting Experiences, Shaping Futures
         </h1>
