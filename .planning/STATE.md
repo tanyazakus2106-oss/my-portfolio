@@ -189,6 +189,7 @@ None yet.
 | 260707-cb1 | Case-study body: About-style h2 rail layout + tushar.work prose rhythm/serif h3 subheaders | 2026-07-07 | c4293fc | — (fast task) |
 | 260707-cb2 | Case-body rhythm: no first-section divider, hero gap = 64px section rhythm, tighter CaseImage margins, drop placeholder caption | 2026-07-07 | 1398d66 | — (fast task) |
 | 260707-cb3 | Case-body h2 stays text-display (32px) on mobile to preserve h2/h3 hierarchy | 2026-07-07 | d204649 | — (fast task) |
+| 260707-cb4 | Case-body section dividers desktop-only (mobile keeps nav border-t), 64px mobile section rhythm | 2026-07-07 | db5be4d | — (fast task) |
 
 ## Deferred Items
 
