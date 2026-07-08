@@ -178,8 +178,7 @@ const metadata = [
   }
   /* First section needs no top offset — the hero image directly above
      already separates it from the page header. */
-  .case-prose > h2:first-child,
-  .case-prose > h2:first-child + * {
+  .case-prose > h2:first-child {
     margin-top: 0;
     padding-top: 0;
   }
@@ -228,6 +227,13 @@ const metadata = [
     .case-prose > h2 + * {
       margin-top: var(--spacing-2xl);
       padding-top: var(--spacing-3xl);
+    }
+    /* ...except the first section's block: no divider above it, so no
+       offsets to mirror. Desktop-scoped — on mobile the block must keep
+       its own margin (e.g. an h3's margin-top). */
+    .case-prose > h2:first-child + * {
+      margin-top: 0;
+      padding-top: 0;
     }
   }
 </style>
