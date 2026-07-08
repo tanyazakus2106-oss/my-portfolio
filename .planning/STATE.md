@@ -196,6 +196,7 @@ None yet.
 | 260708-cb8 | Apollo Context real copy (Overview/My Role/Goals), Problem subsection dropped (Apollo only), standalone My Role section deleted site-wide | 2026-07-08 | d69af83 | — (fast task) |
 | 260708-cb9 | Process → UX Research section (all 5): rename, drop intro placeholder, Research & Audit → User Interviews; real Apollo interviews copy | 2026-07-08 | 0757059 | — (fast task) |
 | 260708-cba | Fix mobile first-section h2→h3 gap: scope h2:first-child + * offset reset to desktop media query | 2026-07-08 | e04f88c | — (fast task) |
+| 260708-cbb | Apollo UX Research real copy (Feedback Collection, Competitive Analysis), C&PL block → Outcome; Testing & Documentation → Competitive Analysis site-wide | 2026-07-08 | 6dfd49b | — (fast task) |
 
 ## Deferred Items
 
