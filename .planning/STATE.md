@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed of5–of9: Apollo Discovery section content (98615ff)
+Last activity: 2026-07-08 - Committed ofa: Apollo Discovery scaffold duplicate (7129872)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -206,6 +206,7 @@ None yet.
 | 260708-of7 | Apollo Discovery: "Components & Patterns Library" h3 → "Main Pain Points" (title-cased to match sibling h3s) | 2026-07-08 | 98615ff | — (fast task) |
 | 260708-of8 | Apollo Discovery: intro paragraph moved under Main Pain Points h3 (Discovery opens straight into subsection, like Context) | 2026-07-08 | 98615ff | — (fast task) |
 | 260708-of9 | Apollo Discovery: drop placeholder paragraph under Main Pain Points (placeholder process image kept) | 2026-07-08 | 98615ff | — (fast task) |
+| 260708-ofa | Apollo: duplicate Discovery section below itself as scaffold for next section | 2026-07-08 | 7129872 | — (fast task) |
 
 ## Deferred Items
 
