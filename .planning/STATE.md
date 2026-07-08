@@ -194,6 +194,7 @@ None yet.
 | 260707-cb6 | Apollo Context section: add Background/The Challenge/Goals placeholder subsections (h3 pattern) | 2026-07-07 | 020ea3d | — (fast task) |
 | 260707-cb7 | Align all 5 case studies on shared template: Context subsections (Overview/My Role/Problem/Goals), Process structure + image, header metadata frontmatter | 2026-07-07 | 6085943 | — (fast task) |
 | 260708-cb8 | Apollo Context real copy (Overview/My Role/Goals), Problem subsection dropped (Apollo only), standalone My Role section deleted site-wide | 2026-07-08 | d69af83 | — (fast task) |
+| 260708-cb9 | Process → UX Research section (all 5): rename, drop intro placeholder, Research & Audit → User Interviews; real Apollo interviews copy | 2026-07-08 | 0757059 | — (fast task) |
 
 ## Deferred Items
 
