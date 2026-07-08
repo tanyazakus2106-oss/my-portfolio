@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed of2–of4: mobile gutter 20px + hamburger optical alignment (0fa7fca, 5388c25)
+Last activity: 2026-07-08 - Committed of5–of9: Apollo Discovery section content (98615ff)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -201,6 +201,11 @@ None yet.
 | 260708-of2 | Responsive .container gutter: 16px mobile, 24px at md+ (was fixed 24px) | 2026-07-08 | 0fa7fca | [260708-of2-change-mobile-horizontal-padding-to-16px](./quick/260708-of2-change-mobile-horizontal-padding-to-16px/) |
 | 260708-of3 | Mobile .container gutter 16→20px via new --spacing-gutter-mobile token (amends of2; landed squashed with of2 in 0fa7fca) | 2026-07-08 | 0fa7fca | — (fast task) |
 | 260708-of4 | Optically align hamburger/X ink to gutter: -12px right margin on .mobile-nav-btn (tap target unchanged) | 2026-07-08 | 5388c25 | — (fast task) |
+| 260708-of5 | Apollo case study: rename "Outcome" section to "Discovery" (other case studies unchanged) | 2026-07-08 | 98615ff | — (fast task) |
+| 260708-of6 | Apollo Discovery: real intro copy (system below market standards → custom local components, duplicates) replaces placeholder | 2026-07-08 | 98615ff | — (fast task) |
+| 260708-of7 | Apollo Discovery: "Components & Patterns Library" h3 → "Main Pain Points" (title-cased to match sibling h3s) | 2026-07-08 | 98615ff | — (fast task) |
+| 260708-of8 | Apollo Discovery: intro paragraph moved under Main Pain Points h3 (Discovery opens straight into subsection, like Context) | 2026-07-08 | 98615ff | — (fast task) |
+| 260708-of9 | Apollo Discovery: drop placeholder paragraph under Main Pain Points (placeholder process image kept) | 2026-07-08 | 98615ff | — (fast task) |
 
 ## Deferred Items
 
