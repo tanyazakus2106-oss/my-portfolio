@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed ofb–ofd: CaseCard components + Apollo pain-point cards (92d31e9)
+Last activity: 2026-07-08 - Committed ofe, ofg, ofh: Apollo card copy 1-2 + serif-title note (634ef2a)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -210,6 +210,9 @@ None yet.
 | 260708-ofb | New CaseCard + CaseCardGrid components (static title+desc surface cards, tushar-style); Apollo Main Pain Points: 3 cards replace placeholder image | 2026-07-08 | 92d31e9 | — (fast task) |
 | 260708-ofc | CaseCardGrid gap 24→16→20px (settled on gap-5) | 2026-07-08 | 92d31e9 | — (fast task) |
 | 260708-ofd | CaseCardGrid vertical rhythm: settled at 24px effective gap (8px own margin + 16px prose row-gap) after 32→16→24 iteration | 2026-07-08 | 92d31e9 | — (fast task) |
+| 260708-ofe | CaseCard title: serif kept per owner (font-sans fix reverted; comment documents the inherited h1–h4 serif base rule as intentional) | 2026-07-08 | 634ef2a | — (fast task) |
+| 260708-ofg | Apollo pain-point card 1 real copy: UI Library (limited/inconsistent components, no customization) | 2026-07-08 | 634ef2a | — (fast task) |
+| 260708-ofh | Apollo pain-point card 2 real copy: Missing guidelines (no guidelines, modern workflows, up-to-date features) | 2026-07-08 | 634ef2a | — (fast task) |
 
 ## Deferred Items
 
