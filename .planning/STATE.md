@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed ofj, ofk: Apollo cards final copy + --color-card token (26ee2e5, 5b55e3e)
+Last activity: 2026-07-09 - Committed og1: Apollo Ideation section, first two subsections real copy (a6af936)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -215,6 +215,7 @@ None yet.
 | 260708-ofh | Apollo pain-point card 2 real copy: Missing guidelines (no guidelines, modern workflows, up-to-date features) | 2026-07-08 | 634ef2a | — (fast task) |
 | 260708-ofj | Apollo pain-point cards final copy pass: card 3 Accessibility gaps (WCAG, iterated wording), card 1 title → Outdated library; WCAG added to cspell | 2026-07-08 | 26ee2e5 | — (fast task) |
 | 260708-ofk | New --color-card token (#f5f4f5 light / #1a1a1a dark); CaseCard bg switched from --color-secondary | 2026-07-08 | 5b55e3e | — (fast task) |
+| 260709-og1 | Apollo: Discovery scaffold duplicate → "Ideation" section with UX Research layout; real copy for UI Direction Workshops + Component inventory, 2 placeholder subsections; placeholder image dropped | 2026-07-09 | a6af936 | — (fast task) |
 
 ## Deferred Items
 
