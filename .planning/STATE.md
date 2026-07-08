@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-06 - Fast task 260706-us5: about-page desktop top padding 64→72px
+Last activity: 2026-07-08 - Committed of2–of4: mobile gutter 20px + hamburger optical alignment (0fa7fca, 5388c25)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -198,6 +198,9 @@ None yet.
 | 260708-cba | Fix mobile first-section h2→h3 gap: scope h2:first-child + * offset reset to desktop media query | 2026-07-08 | e04f88c | — (fast task) |
 | 260708-cbb | Apollo UX Research real copy (Feedback Collection, Competitive Analysis), C&PL block → Outcome; Testing & Documentation → Competitive Analysis site-wide | 2026-07-08 | 6dfd49b | — (fast task) |
 | 260708-cbc | Apollo: add UX Design Audit subsection, tighten Competitive Analysis copy | 2026-07-08 | 0b3bbf7 | — (fast task) |
+| 260708-of2 | Responsive .container gutter: 16px mobile, 24px at md+ (was fixed 24px) | 2026-07-08 | 0fa7fca | [260708-of2-change-mobile-horizontal-padding-to-16px](./quick/260708-of2-change-mobile-horizontal-padding-to-16px/) |
+| 260708-of3 | Mobile .container gutter 16→20px via new --spacing-gutter-mobile token (amends of2; landed squashed with of2 in 0fa7fca) | 2026-07-08 | 0fa7fca | — (fast task) |
+| 260708-of4 | Optically align hamburger/X ink to gutter: -12px right margin on .mobile-nav-btn (tap target unchanged) | 2026-07-08 | 5388c25 | — (fast task) |
 
 ## Deferred Items
 
