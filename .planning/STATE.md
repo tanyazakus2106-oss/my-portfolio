@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed ofe, ofg, ofh: Apollo card copy 1-2 + serif-title note (634ef2a)
+Last activity: 2026-07-08 - Committed ofj, ofk: Apollo cards final copy + --color-card token (26ee2e5, 5b55e3e)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -213,6 +213,8 @@ None yet.
 | 260708-ofe | CaseCard title: serif kept per owner (font-sans fix reverted; comment documents the inherited h1–h4 serif base rule as intentional) | 2026-07-08 | 634ef2a | — (fast task) |
 | 260708-ofg | Apollo pain-point card 1 real copy: UI Library (limited/inconsistent components, no customization) | 2026-07-08 | 634ef2a | — (fast task) |
 | 260708-ofh | Apollo pain-point card 2 real copy: Missing guidelines (no guidelines, modern workflows, up-to-date features) | 2026-07-08 | 634ef2a | — (fast task) |
+| 260708-ofj | Apollo pain-point cards final copy pass: card 3 Accessibility gaps (WCAG, iterated wording), card 1 title → Outdated library; WCAG added to cspell | 2026-07-08 | 26ee2e5 | — (fast task) |
+| 260708-ofk | New --color-card token (#f5f4f5 light / #1a1a1a dark); CaseCard bg switched from --color-secondary | 2026-07-08 | 5b55e3e | — (fast task) |
 
 ## Deferred Items
 
