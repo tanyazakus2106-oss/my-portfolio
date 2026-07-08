@@ -44,7 +44,7 @@ const links = [
   data-state="closed"
 >
   <!--
-    Top bar mirrors the header's .container (24px padding) + 80px height +
+    Top bar mirrors the header's .container (20px padding on mobile, 24px at md+) + 80px height +
     vertical centering, so the close X lands exactly where the hamburger sits.
     The two identical 3-bar icons overlap as the overlay fades in, so the X
     morph reads as continuous.
@@ -211,6 +211,15 @@ const links = [
     .mobile-nav-btn:hover {
       background-color: transparent;
     }
+  }
+
+  /* Optical alignment: the drawn bars end 12px inside the button box —
+     (44px button − 24px icon)/2 centering + 2px bar inset. Pull the button
+     right by that amount so the ink (not the invisible 44×44 hit area)
+     aligns to the container gutter. Applies to both the header trigger and
+     the overlay X, which must stay pixel-aligned for the morph illusion. */
+  .mobile-nav-btn {
+    margin-right: -12px;
   }
 
   /* ─── Hamburger ⇄ X icon ─── */
