@@ -11,7 +11,9 @@ const { title, description } = Astro.props;
   Static surface card for case-study body content (title + description only —
   deliberately non-interactive: no link, no hover state). The title is an h4
   because .case-prose globally styles h3 (serif display) and p (body copy);
-  h4 stays clear of those rules so the utilities below win.
+  h4 stays clear of those rules so the utilities below win. The title
+  inherits the serif family from the global h1–h4 base rule — intentional,
+  per owner (matches the section headings above the cards).
 */
 }
 <div
