@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-09 - Completed quick task 260709-1wq: site-wide Lenis smooth scrolling (60213b0)
+Last activity: 2026-07-09 - Fast task 2jf: title-case "Component Inventory" heading (961c75f)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -217,6 +217,7 @@ None yet.
 | 260708-ofk | New --color-card token (#f5f4f5 light / #1a1a1a dark); CaseCard bg switched from --color-secondary | 2026-07-08 | 5b55e3e | — (fast task) |
 | 260709-og1 | Apollo: Discovery scaffold duplicate → "Ideation" section with UX Research layout; real copy for UI Direction Workshops + Component inventory, 2 placeholder subsections; placeholder image dropped | 2026-07-09 | a6af936 | — (fast task) |
 | 260709-1wq | Site-wide Lenis smooth scrolling (duration 1.0, prefers-reduced-motion guarded), yrmn.me-style feel | 2026-07-09 | 60213b0 | [260709-1wq-add-lenis-smooth-scrolling-prototype-pre](./quick/260709-1wq-add-lenis-smooth-scrolling-prototype-pre/) |
+| 260709-2jf | Apollo Ideation: title-case "Component Inventory" heading | 2026-07-09 | 961c75f | — (fast task) |
 
 ## Deferred Items
 
