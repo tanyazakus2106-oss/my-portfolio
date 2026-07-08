@@ -1,0 +1,10 @@
+{
+  /*
+  Layout wrapper for CaseCard rows in case-study MDX: stacked on mobile,
+  3-up from md. Own 8px margin stacks on the .case-prose row-gap (16px)
+  for a 24px effective gap to neighboring blocks.
+*/
+}
+<div class="my-[var(--spacing-sm)] grid grid-cols-1 gap-5 md:grid-cols-3">
+  <slot />
+</div>
