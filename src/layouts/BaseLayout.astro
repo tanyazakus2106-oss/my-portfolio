@@ -122,5 +122,8 @@ const absoluteOgImage = new URL(ogImage, Astro.site ?? "https://tanyazakus.com")
       <slot />
     </main>
     <Footer />
+    <script>
+      import "../scripts/smooth-scroll.ts";
+    </script>
   </body>
 </html>
