@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-08 - Committed ofa: Apollo Discovery scaffold duplicate (7129872)
+Last activity: 2026-07-08 - Committed ofb–ofd: CaseCard components + Apollo pain-point cards (92d31e9)
 
 Progress: [██░░░░░░░░] 33%
 
@@ -207,6 +207,9 @@ None yet.
 | 260708-of8 | Apollo Discovery: intro paragraph moved under Main Pain Points h3 (Discovery opens straight into subsection, like Context) | 2026-07-08 | 98615ff | — (fast task) |
 | 260708-of9 | Apollo Discovery: drop placeholder paragraph under Main Pain Points (placeholder process image kept) | 2026-07-08 | 98615ff | — (fast task) |
 | 260708-ofa | Apollo: duplicate Discovery section below itself as scaffold for next section | 2026-07-08 | 7129872 | — (fast task) |
+| 260708-ofb | New CaseCard + CaseCardGrid components (static title+desc surface cards, tushar-style); Apollo Main Pain Points: 3 cards replace placeholder image | 2026-07-08 | 92d31e9 | — (fast task) |
+| 260708-ofc | CaseCardGrid gap 24→16→20px (settled on gap-5) | 2026-07-08 | 92d31e9 | — (fast task) |
+| 260708-ofd | CaseCardGrid vertical rhythm: settled at 24px effective gap (8px own margin + 16px prose row-gap) after 32→16→24 iteration | 2026-07-08 | 92d31e9 | — (fast task) |
 
 ## Deferred Items
 
