@@ -219,6 +219,7 @@ None yet.
 | 260709-1wq | Site-wide Lenis smooth scrolling (duration 1.0, prefers-reduced-motion guarded), yrmn.me-style feel | 2026-07-09 | 60213b0 | [260709-1wq-add-lenis-smooth-scrolling-prototype-pre](./quick/260709-1wq-add-lenis-smooth-scrolling-prototype-pre/) |
 | 260709-2jf | Apollo Ideation: title-case "Component Inventory" heading | 2026-07-09 | 961c75f | — (fast task) |
 | 260709-3kg | --spacing-rhythm mobile floor 64px → 48px (clamp(48px, 16px + 8.51vw, 112px)); desktop 112px anchor unchanged | 2026-07-09 | 68ed2e0 | — (fast task) |
+| 260709-4lh | ProjectCard mobile image-to-text gap 32px → 24px (spacing-xl → spacing-lg); desktop md:gap-[56px] unchanged | 2026-07-09 | 880f343 | — (fast task) |
 
 ## Deferred Items
 
