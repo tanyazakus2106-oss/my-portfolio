@@ -228,6 +228,7 @@ None yet.
 | 260709-arn | Case-study section dividers extended to mobile (48/48 rhythm, ::before moved to base styles) + new hero-to-Context divider (56/48, mobile only); desktop unchanged | 2026-07-09 | 392f422 | — (fast task) |
 | 260709-bso | Prev/next nav divider mobile top margin 64 → 48px (spacing-2xl below md); pt 32 and desktop unchanged | 2026-07-09 | a433c4f | — (fast task) |
 | 260709-ctp | Prev/next nav: mobile divider pt 32 → 24px (spacing-lg below md) + text-right on next-project title so wrapped lines right-align | 2026-07-09 | 45d37a1 | — (fast task) |
+| 260709-duq | Apollo Ideation subsections 3–4 real copy: Accessibility Baseline (WCAG 2.2 AA) + Responsive Approach (breakpoints, bottom sheets) | 2026-07-09 | 1821103 | — (fast task) |
 
 ## Deferred Items
 
