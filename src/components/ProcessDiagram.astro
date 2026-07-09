@@ -64,15 +64,30 @@
         <circle cx="810" cy="220" r="4.5"></circle>
       </g>
     </svg>
+    {
+      /* Labels wrap inside their own column — hyphenated at the mobile size
+        so long words (Documentation) break instead of invading neighbors;
+        from md up they fit on one line untouched. */
+    }
     <div
-      class="mt-[var(--spacing-sm)] grid grid-cols-5 text-xs md:text-sm leading-tight text-[var(--color-text-secondary)]"
+      class="mt-[var(--spacing-sm)] grid grid-cols-5 gap-x-[var(--spacing-xs)] text-[11px] md:text-sm leading-tight text-[var(--color-text-secondary)]"
       aria-hidden="true"
     >
-      <span class="flex justify-center text-center">UXR</span>
-      <span class="flex justify-center text-center">Design</span>
-      <span class="flex justify-center text-center">Prototype</span>
-      <span class="flex justify-center text-center">Design Critique</span>
-      <span class="flex justify-center text-center">Documentation</span>
+      <span class="text-center break-words hyphens-auto md:hyphens-none"
+        >UXR</span
+      >
+      <span class="text-center break-words hyphens-auto md:hyphens-none"
+        >Design</span
+      >
+      <span class="text-center break-words hyphens-auto md:hyphens-none"
+        >Prototype</span
+      >
+      <span class="text-center break-words hyphens-auto md:hyphens-none"
+        >Design Critique</span
+      >
+      <span class="text-center break-words hyphens-auto md:hyphens-none"
+        >Documentation</span
+      >
     </div>
   </div>
 </figure>
