@@ -231,6 +231,7 @@ None yet.
 | 260709-duq | Apollo Ideation subsections 3–4 real copy: Accessibility Baseline (WCAG 2.2 AA) + Responsive Approach (breakpoints, bottom sheets) | 2026-07-09 | 1821103 | — (fast task) |
 | 260709-evr | Apollo Ideation: CaseImage process placeholder added after UI Direction Workshops copy | 2026-07-09 | 903ff3a | — (fast task) |
 | 260709-fws | CaseImage figure margins → spacing-sm (8px): 24px above / 40px below image in case-prose rhythm, all breakpoints | 2026-07-09 | 3cbbce2 | — (fast task) |
+| 260709-gxt | Apollo Design section: h2 + intro paragraph (no subheader) + Subsections Two–Four placeholders below Ideation | 2026-07-09 | f9720c0 | — (fast task) |
 
 ## Deferred Items
 
