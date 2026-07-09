@@ -209,6 +209,12 @@ const metadata = [
     color: var(--color-text-secondary);
     margin: 0;
   }
+  /* Emphasis in body copy is color-only: primary against the secondary
+     body text, at body weight — browser-default 700 bold reads too heavy. */
+  .case-prose strong {
+    font-weight: 400;
+    color: var(--color-text-primary);
+  }
   @media (min-width: 64rem) {
     .case-prose {
       grid-template-columns: 1fr 3fr;
