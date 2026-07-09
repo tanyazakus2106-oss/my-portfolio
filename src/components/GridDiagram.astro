@@ -1,0 +1,101 @@
+---
+/*
+  Animated responsive-grid foundation diagram (Apollo case study).
+  Companion piece to ProcessDiagram — same card treatment.
+  A screen artboard morphs between three breakpoint widths — desktop,
+  tablet, mobile — holding at each; a constant-width column grid inside is
+  clipped at the artboard edge, so the visible column count adapts:
+  12 → 8 → 4 → 12. Only the artboard width animates; overflow does the
+  column math. CSS only, static (desktop state) under reduced motion.
+*/
+---
+
+<figure
+  class="grid-diagram my-[var(--spacing-sm)]"
+  role="img"
+  aria-label="Structural foundations: a responsive layout grid morphing across breakpoints — twelve columns on desktop, eight on tablet, four on mobile."
+>
+  <div
+    class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] p-[var(--spacing-md)] md:p-[var(--spacing-xl)]"
+  >
+    <div
+      class="gd-artboard rounded-md border border-[var(--color-border)] bg-[var(--color-background)]"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</figure>
+
+<style>
+  /* Column width (--c) and gutter (--g) are constant; side padding equals
+     the gutter so each breakpoint width W(n) = n·c + (n+1)·g lands exactly
+     on a column boundary — the clipped edge is always clean at rest. */
+  .gd-artboard {
+    --c: 30px;
+    --g: 12px;
+    --w12: calc(12 * var(--c) + 13 * var(--g));
+    --w8: calc(8 * var(--c) + 9 * var(--g));
+    --w4: calc(4 * var(--c) + 5 * var(--g));
+
+    display: flex;
+    gap: var(--g);
+    padding: var(--g);
+    width: var(--w12);
+    height: 18rem;
+    margin-inline: auto;
+    overflow: hidden;
+    animation: gd-morph 12s ease-in-out infinite;
+  }
+
+  @media (max-width: 47.9375rem) {
+    .gd-artboard {
+      --c: 17px;
+      --g: 7px;
+      height: 13rem;
+    }
+  }
+
+  /* Layout-grid columns — accent-tinted like a design-tool grid overlay */
+  .gd-artboard span {
+    flex: 0 0 var(--c);
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+  }
+
+  /* Desktop (12 cols) → tablet (8) → mobile (4) → back, holding at each */
+  @keyframes gd-morph {
+    0%,
+    22% {
+      width: var(--w12);
+    }
+    30%,
+    52% {
+      width: var(--w8);
+    }
+    60%,
+    82% {
+      width: var(--w4);
+    }
+    90%,
+    100% {
+      width: var(--w12);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gd-artboard {
+      animation: none;
+      width: var(--w12);
+    }
+  }
+</style>
