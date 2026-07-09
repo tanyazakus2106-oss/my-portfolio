@@ -27,8 +27,9 @@
   /* Fluid section rhythm: 64px (3xl) on mobile → 132px @1440px viewport, scales with width */
   --spacing-section: clamp(64px, 40px + 6.39vw, 132px);
   /* Work-section vertical rhythm — inter-card gap + section top padding.
-     Slightly tighter ceiling than --spacing-section (112px vs 132px). */
-  --spacing-rhythm: clamp(64px, 40px + 6.39vw, 112px);
+     Slightly tighter ceiling than --spacing-section (112px vs 132px),
+     tighter mobile floor (48px vs 64px); both hit their max near 1127px. */
+  --spacing-rhythm: clamp(48px, 16px + 8.51vw, 112px);
   /* Mobile .container gutter — sits between md (16px) and lg (24px) */
   --spacing-gutter-mobile: 1.25rem; /* 20px */
 
