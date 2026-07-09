@@ -203,6 +203,18 @@ const metadata = [
     color: var(--color-text-primary);
     margin-top: var(--spacing-md);
   }
+  /* Inline subheader within a subsection — mirrors the CaseCard title
+     (serif via the global h1–h4 rule, 20px, medium, primary). The negative
+     bottom margin nets the 16px row-gap down to a 12px title→body gap.
+     Direct-child only: CaseCard renders its own (nested) h4 title. */
+  .case-prose > h4 {
+    font-size: 1.25rem; /* 20px — reference text-xl */
+    font-weight: 500;
+    line-height: 1.375;
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-sm);
+    margin-bottom: calc(-1 * var(--spacing-xs));
+  }
   .case-prose p {
     font-size: 1.125rem; /* 18px — site-wide body standard */
     line-height: 1.625;
