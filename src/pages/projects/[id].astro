@@ -106,7 +106,7 @@ const metadata = [
 
   {/* Hero image */}
   <div
-    class="container mb-[var(--spacing-3xl)] animate-page-entry"
+    class="container mb-[3.5rem] md:mb-[var(--spacing-3xl)] animate-page-entry"
     style="--entry-index: 2"
   >
     <div class="rounded-2xl overflow-hidden bg-[var(--color-secondary)]">
@@ -174,13 +174,27 @@ const metadata = [
     font-weight: 500;
     line-height: 1.2;
     color: var(--color-text-primary);
-    margin-top: var(--spacing-2xl);
+    /* 32px margin + the grid's 16px row-gap = 48px above the divider;
+       48px padding below it — matches the About-page mobile dividers. */
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-2xl);
   }
-  /* First section needs no top offset — the hero image directly above
-     already separates it from the page header. */
+  /* Section divider above each h2 — full row width on mobile, widened to
+     span both grid columns on desktop. None above the first section. */
+  .case-prose > h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+  }
+  /* First section (mobile): keeps its divider; the hero image's bottom
+     margin (56px — +8px optical, hard image edge above) supplies the gap
+     above the line, so no margin of its own. */
   .case-prose > h2:first-child {
     margin-top: 0;
-    padding-top: 0;
   }
   .case-prose h3 {
     font-family: var(--font-serif);
@@ -202,22 +216,22 @@ const metadata = [
     }
     .case-prose > h2 {
       grid-column: 1;
+      margin-top: var(--spacing-2xl);
       padding-top: var(--spacing-3xl);
     }
     .case-prose > :not(h2) {
       grid-column: 2;
     }
-    /* Section dividers are desktop-only. Absolutely positioned so the line
-       can span both grid columns (rail is 1fr of a 1fr+3fr grid: full row
-       width = 4×rail + gap). None above the first section. */
+    /* Desktop divider spans both grid columns (rail is 1fr of a 1fr+3fr
+       grid: full row width = 4×rail + gap). */
     .case-prose > h2::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
       width: calc(400% + var(--spacing-2xl));
-      height: 1px;
-      background: var(--color-border);
+    }
+    /* Desktop keeps the first section divider-free — the hero image alone
+       separates it from the page header. */
+    .case-prose > h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
     }
     .case-prose > h2:first-child::before {
       display: none;
