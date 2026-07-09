@@ -238,6 +238,8 @@ None yet.
 | 260709-kbx | ProcessDiagram mobile label wording: Design Critique → Critique, Documentation → Handoff below md (md:hidden span pairs); desktop + aria-label unchanged | 2026-07-09 | 4f1f52a | — (fast task) |
 | 260709-lcy | Apollo Design "Setting Up the Foundations" real copy (atomic foundations + style guide) replaces Subsection Three placeholder | 2026-07-09 | 289b6b9 | — (fast task) |
 | 260709-mdz | Apollo Goals real copy: comprehensive yet accessible system — consistent branding, scales with product, simplifies eng handoff | 2026-07-09 | a52ec35 | — (fast task) |
+| 260709-nea | GridDiagram component: CSS-only responsive-grid morph — artboard width keyframes 12→8→4→12 cols, constant col/gutter, overflow clipping, reduced-motion static | 2026-07-09 | 4a735c4 | — (fast task) |
+| 260709-ofb | Apollo Foundations: GridDiagram embed after body copy (import + usage) | 2026-07-09 | 155abbb | — (fast task) |
 
 ## Deferred Items
 
