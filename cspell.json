@@ -38,7 +38,8 @@
     "Reinit",
     "onhover",
     "destroypJS",
-    "maxopacity"
+    "maxopacity",
+    "UXR"
   ],
   "ignorePaths": ["node_modules", "dist", ".astro", ".planning"]
 }

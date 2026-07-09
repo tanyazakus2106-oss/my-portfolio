@@ -1,0 +1,172 @@
+---
+/*
+  Animated iterative-design-process diagram (Apollo case study).
+  Recreation of the timeline-with-iteration-arcs concept as a native inline
+  SVG — no video, no JS. The three accent arcs draw themselves in a slow
+  loop: Design → Prototype, Prototype → Design Critique, then the long
+  loop back from Design Critique to Design. Labels are HTML (not SVG text)
+  so they keep a real pixel size on mobile. Static under reduced motion.
+*/
+---
+
+<figure
+  class="process-diagram my-[var(--spacing-sm)]"
+  role="img"
+  aria-label="Iterative design workflow: UXR, Design, Prototype, Design Critique, Documentation — with iteration loops between Design, Prototype, and Design Critique."
+>
+  <div
+    class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] p-[var(--spacing-md)] md:p-[var(--spacing-xl)]"
+  >
+    {
+      /* Dots at x = 90/270/450/630/810 — centers of five equal columns of the
+        900-unit viewBox, so the HTML label grid below lines up exactly. */
+    }
+    <svg
+      viewBox="0 0 900 250"
+      fill="none"
+      aria-hidden="true"
+      class="w-full h-auto"
+    >
+      {/* Timeline */}
+      <g class="pd-line" stroke="var(--color-text-secondary)" stroke-width="1">
+        <line x1="30" y1="220" x2="864" y2="220"></line>
+        <polyline points="856,214 866,220 856,226"></polyline>
+      </g>
+      {
+        /* Iteration arcs — pathLength=100 normalizes the dash animation.
+          Painted before the dots so arc endpoints tuck behind them. */
+      }
+      <g stroke="var(--color-accent)" stroke-width="1.25">
+        <path
+          class="pd-arc pd-arc-1"
+          pathLength="100"
+          d="M270,220 A90,90 0 0 1 450,220"></path>
+        <path
+          class="pd-arc pd-arc-2"
+          pathLength="100"
+          d="M450,220 A90,90 0 0 1 630,220"></path>
+        {
+          /* Long arc drawn right-to-left: the loop back from Critique to Design */
+        }
+        <path
+          class="pd-arc pd-arc-3"
+          pathLength="100"
+          d="M630,220 A180,180 0 0 0 270,220"></path>
+      </g>
+      {
+        /* Stage dots — opaque, tone-matched to the 55%-faded line via color-mix */
+      }
+      <g class="pd-dots">
+        <circle cx="90" cy="220" r="4.5"></circle>
+        <circle cx="270" cy="220" r="4.5"></circle>
+        <circle cx="450" cy="220" r="4.5"></circle>
+        <circle cx="630" cy="220" r="4.5"></circle>
+        <circle cx="810" cy="220" r="4.5"></circle>
+      </g>
+    </svg>
+    <div
+      class="mt-[var(--spacing-sm)] grid grid-cols-5 text-xs md:text-sm leading-tight text-[var(--color-text-secondary)]"
+      aria-hidden="true"
+    >
+      <span class="flex justify-center text-center">UXR</span>
+      <span class="flex justify-center text-center">Design</span>
+      <span class="flex justify-center text-center">Prototype</span>
+      <span class="flex justify-center text-center">Design Critique</span>
+      <span class="flex justify-center text-center">Documentation</span>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .pd-line {
+    opacity: 0.55;
+  }
+  /* Opaque, one step stronger than the 55%-faded line — darker than the
+     line in light mode, lighter in dark mode, since text-secondary flips.
+     Nothing shows through the dots either way. */
+  .pd-dots {
+    fill: color-mix(
+      in srgb,
+      var(--color-text-secondary) 85%,
+      var(--color-card)
+    );
+  }
+
+  /* 8s shared cycle: arc 1 draws, arc 2 draws, the loop-back arc draws,
+     everything holds, then fades together and restarts. */
+  .pd-arc {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  .pd-arc-1 {
+    animation-name: pd-draw-1;
+  }
+  .pd-arc-2 {
+    animation-name: pd-draw-2;
+  }
+  .pd-arc-3 {
+    animation-name: pd-draw-3;
+  }
+
+  @keyframes pd-draw-1 {
+    0%,
+    4% {
+      stroke-dashoffset: 100;
+      opacity: 1;
+    }
+    18%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    90%,
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes pd-draw-2 {
+    0%,
+    18% {
+      stroke-dashoffset: 100;
+      opacity: 1;
+    }
+    32%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    90%,
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes pd-draw-3 {
+    0%,
+    36% {
+      stroke-dashoffset: 100;
+      opacity: 1;
+    }
+    58%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    90%,
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pd-arc {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
