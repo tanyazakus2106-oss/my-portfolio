@@ -241,6 +241,7 @@ None yet.
 | 260709-nea | GridDiagram component: CSS-only responsive-grid morph — artboard width keyframes 12→8→4→12 cols, constant col/gutter, overflow clipping, reduced-motion static | 2026-07-09 | 4a735c4 | — (fast task) |
 | 260709-ofb | Apollo Foundations: GridDiagram embed after body copy (import + usage) | 2026-07-09 | 155abbb | — (fast task) |
 | 260709-pgc | Apollo Foundations copy: 12-column system paragraph (graceful column reduction on smaller screens) before GridDiagram embed | 2026-07-09 | 63eaac5 | — (fast task) |
+| 260709-qhd | Apollo Foundations: 4px/8px grid sentence + case-prose strong emphasis convention (color-only — primary color at body weight) | 2026-07-09 | 26341db | — (fast task) |
 
 ## Deferred Items
 
