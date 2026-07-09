@@ -224,6 +224,7 @@ None yet.
 | 260709-6nj | Last-card/footer seam matched to card gap on mobile: section pb → spacing-rhythm below md, footer pt-16 → pt-12; desktop unchanged | 2026-07-09 | 03211f6 | — (fast task) |
 | 260709-7ok | About mobile spacing → 48px: Beyond-work divider mt/pt 64 → 48, page pb 96 → 48 (spacing-2xl below md); desktop unchanged | 2026-07-09 | 14604e4 | — (fast task) |
 | 260709-8pl | Project detail page mobile bottom padding 96 → 48px (spacing-2xl below md); desktop unchanged | 2026-07-09 | 91b2c2c | — (fast task) |
+| 260709-9qm | How-I-work divider matched to Beyond-work on mobile: pt 64 → 48, mt 72 → 56 (optical +8 offset kept); desktop unchanged | 2026-07-09 | d82ecb2 | — (fast task) |
 
 ## Deferred Items
 
