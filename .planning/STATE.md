@@ -218,6 +218,7 @@ None yet.
 | 260709-og1 | Apollo: Discovery scaffold duplicate → "Ideation" section with UX Research layout; real copy for UI Direction Workshops + Component inventory, 2 placeholder subsections; placeholder image dropped | 2026-07-09 | a6af936 | — (fast task) |
 | 260709-1wq | Site-wide Lenis smooth scrolling (duration 1.0, prefers-reduced-motion guarded), yrmn.me-style feel | 2026-07-09 | 60213b0 | [260709-1wq-add-lenis-smooth-scrolling-prototype-pre](./quick/260709-1wq-add-lenis-smooth-scrolling-prototype-pre/) |
 | 260709-2jf | Apollo Ideation: title-case "Component Inventory" heading | 2026-07-09 | 961c75f | — (fast task) |
+| 260709-3kg | --spacing-rhythm mobile floor 64px → 48px (clamp(48px, 16px + 8.51vw, 112px)); desktop 112px anchor unchanged | 2026-07-09 | 68ed2e0 | — (fast task) |
 
 ## Deferred Items
 
