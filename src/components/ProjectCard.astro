@@ -29,7 +29,7 @@ const isReversed = index % 2 === 1;
     href={`/projects/${entry.data.slug}`}
     aria-label={`${entry.data.title} — View project`}
     class:list={[
-      "flex flex-col md:flex-row gap-[var(--spacing-xl)] md:gap-[56px] items-center",
+      "flex flex-col md:flex-row gap-[var(--spacing-lg)] md:gap-[56px] items-center",
       isReversed ? "md:flex-row-reverse" : "",
       "no-underline",
     ]}
