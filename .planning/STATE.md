@@ -222,6 +222,7 @@ None yet.
 | 260709-4lh | ProjectCard mobile image-to-text gap 32px → 24px (spacing-xl → spacing-lg); desktop md:gap-[56px] unchanged | 2026-07-09 | 880f343 | — (fast task) |
 | 260709-5mi | Projects heading mobile margin-bottom 48px → 40px (mb-[40px] md:mb-[var(--spacing-2xl)]); desktop unchanged | 2026-07-09 | bb7ed35 | — (fast task) |
 | 260709-6nj | Last-card/footer seam matched to card gap on mobile: section pb → spacing-rhythm below md, footer pt-16 → pt-12; desktop unchanged | 2026-07-09 | 03211f6 | — (fast task) |
+| 260709-7ok | About mobile spacing → 48px: Beyond-work divider mt/pt 64 → 48, page pb 96 → 48 (spacing-2xl below md); desktop unchanged | 2026-07-09 | 14604e4 | — (fast task) |
 
 ## Deferred Items
 
