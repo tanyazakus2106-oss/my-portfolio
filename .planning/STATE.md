@@ -235,6 +235,7 @@ None yet.
 | 260709-hyu | ProcessDiagram component: CSS-only animated SVG timeline (UXR→Documentation, accent iteration arcs, color-mix dots, reduced-motion static) | 2026-07-09 | baee946 | — (fast task) |
 | 260709-izv | Apollo Iterative Design subsection: heading + copy + ProcessDiagram embed replacing image placeholder | 2026-07-09 | 38fee09 | — (fast task) |
 | 260709-jaw | ProcessDiagram mobile labels: in-column wrap + hyphens-auto at 11px below md (fixes Documentation overflowing into Design Critique); desktop unchanged | 2026-07-09 | 4b404b0 | — (fast task) |
+| 260709-kbx | ProcessDiagram mobile label wording: Design Critique → Critique, Documentation → Handoff below md (md:hidden span pairs); desktop + aria-label unchanged | 2026-07-09 | 4f1f52a | — (fast task) |
 
 ## Deferred Items
 
