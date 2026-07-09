@@ -243,6 +243,7 @@ None yet.
 | 260709-pgc | Apollo Foundations copy: 12-column system paragraph (graceful column reduction on smaller screens) before GridDiagram embed | 2026-07-09 | 63eaac5 | — (fast task) |
 | 260709-qhd | Apollo Foundations: 4px/8px grid sentence + case-prose strong emphasis convention (color-only — primary color at body weight) | 2026-07-09 | 26341db | — (fast task) |
 | 260710-rie | Apollo Foundations: "Layout and grid" h4 subheader — case-prose > h4 card-title style (12px gap below, direct-child scoped to spare CaseCard), emphasis marks dropped from paragraph | 2026-07-10 | 37faeea | — (fast task) |
+| 260710-sjf | Apollo Foundations: Typography h4 block below GridDiagram — three labeled paragraphs (Type scale / Type defaults / Readability) with color-only strong lead-ins | 2026-07-10 | 5a7f19d | — (fast task) |
 
 ## Deferred Items
 
