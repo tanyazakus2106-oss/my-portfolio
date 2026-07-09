@@ -236,6 +236,8 @@ None yet.
 | 260709-izv | Apollo Iterative Design subsection: heading + copy + ProcessDiagram embed replacing image placeholder | 2026-07-09 | 38fee09 | — (fast task) |
 | 260709-jaw | ProcessDiagram mobile labels: in-column wrap + hyphens-auto at 11px below md (fixes Documentation overflowing into Design Critique); desktop unchanged | 2026-07-09 | 4b404b0 | — (fast task) |
 | 260709-kbx | ProcessDiagram mobile label wording: Design Critique → Critique, Documentation → Handoff below md (md:hidden span pairs); desktop + aria-label unchanged | 2026-07-09 | 4f1f52a | — (fast task) |
+| 260709-lcy | Apollo Design "Setting Up the Foundations" real copy (atomic foundations + style guide) replaces Subsection Three placeholder | 2026-07-09 | 289b6b9 | — (fast task) |
+| 260709-mdz | Apollo Goals real copy: comprehensive yet accessible system — consistent branding, scales with product, simplifies eng handoff | 2026-07-09 | a52ec35 | — (fast task) |
 
 ## Deferred Items
 
