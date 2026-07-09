@@ -8,7 +8,10 @@ interface Props {
 const { src, alt, caption } = Astro.props;
 ---
 
-<figure class="my-[var(--spacing-md)]">
+{/* +8px own margin on top of the .case-prose rhythm (all breakpoints):
+   row-gap 16 + 8 = 24px above; row-gap 16 + h3 margin-top 16 + 8 = 40px
+   below the image. */}
+<figure class="my-[var(--spacing-sm)]">
   <Image
     src={src}
     alt={alt}
