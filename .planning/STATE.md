@@ -255,6 +255,7 @@ None yet.
 | 260710-bso | Accordion list rhythm: item row-gap 16px (--spacing-md) to match paragraph spacing | 2026-07-10 | 54cfccc | — (fast task) |
 | 260710-ctp | Apollo Color palette: CaseImage placeholder (processPlaceholder) after bullets inside accordion | 2026-07-10 | 376a731 | — (fast task) |
 | 260710-duq | Apollo Components section: rename from Subsection Four + real copy (54 components); frontmatter summary 54 + role Senior UX/UI Designer | 2026-07-10 | 79c621b | — (fast task) |
+| 260710-evr | Apollo Components: CaseImage placeholder after body copy | 2026-07-10 | 8d73918 | — (fast task) |
 
 ## Deferred Items
 
