@@ -39,7 +39,8 @@
     "onhover",
     "destroypJS",
     "maxopacity",
-    "UXR"
+    "UXR",
+    "neumorphic"
   ],
   "ignorePaths": ["node_modules", "dist", ".astro", ".planning"]
 }
