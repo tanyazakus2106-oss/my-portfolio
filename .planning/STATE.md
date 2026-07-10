@@ -257,6 +257,7 @@ None yet.
 | 260710-duq | Apollo Components section: rename from Subsection Four + real copy (54 components); frontmatter summary 54 + role Senior UX/UI Designer | 2026-07-10 | 79c621b | — (fast task) |
 | 260710-evr | Apollo Components: CaseImage placeholder after body copy | 2026-07-10 | 8d73918 | — (fast task) |
 | 260710-fws | Apollo: Design critiques + Documentation & Guidelines h4 scaffolds below Components (subheader + placeholder body, no accordion) | 2026-07-10 | e768841 | — (fast task) |
+| 260710-gxt | Apollo Design critiques: real copy — every 2-3 components, one-hour moderated session, 3-7 designers, feedback → iteration | 2026-07-10 | 5dd68d1 | — (fast task) |
 
 ## Deferred Items
 
