@@ -258,6 +258,7 @@ None yet.
 | 260710-evr | Apollo Components: CaseImage placeholder after body copy | 2026-07-10 | 8d73918 | — (fast task) |
 | 260710-fws | Apollo: Design critiques + Documentation & Guidelines h4 scaffolds below Components (subheader + placeholder body, no accordion) | 2026-07-10 | e768841 | — (fast task) |
 | 260710-gxt | Apollo Design critiques: real copy — every 2-3 components, one-hour moderated session, 3-7 designers, feedback → iteration | 2026-07-10 | 5dd68d1 | — (fast task) |
+| 260710-hyu | Apollo Documentation & Guidelines: real copy — Zeroheight single source of truth, per-component docs, best practices + critique insights | 2026-07-10 | a871bcb | — (fast task) |
 
 ## Deferred Items
 
