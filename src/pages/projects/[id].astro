@@ -239,6 +239,10 @@ const metadata = [
     display: grid;
     row-gap: var(--spacing-lg);
   }
+  /* Inside accordions, items space like body paragraphs (16px prose rhythm). */
+  .case-prose > details ul {
+    row-gap: var(--spacing-md);
+  }
   .case-prose > ul li,
   .case-prose > details ul li {
     position: relative;
