@@ -35,6 +35,23 @@ const { title, open = false } = Astro.props;
 <style>
   details {
     border-bottom: 1px solid var(--color-border);
+    interpolate-size: allow-keywords;
+  }
+  /* Smooth slide open/close — native ::details-content transition
+     (Chromium + newer Safari; others degrade to an instant toggle).
+     Inside the reduced-motion guard so it never animates for users who
+     opt out. */
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 400ms allow-discrete,
+        block-size 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    details[open]::details-content {
+      block-size: auto;
+    }
   }
   summary {
     display: flex;
@@ -69,7 +86,7 @@ const { title, open = false } = Astro.props;
   }
   @media (prefers-reduced-motion: no-preference) {
     summary svg {
-      transition: transform 200ms ease-out;
+      transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
   .body {
