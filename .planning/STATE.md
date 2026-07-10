@@ -246,6 +246,7 @@ None yet.
 | 260710-sjf | Apollo Foundations: Typography h4 block below GridDiagram — three labeled paragraphs (Type scale / Type defaults / Readability) with color-only strong lead-ins | 2026-07-10 | 5a7f19d | — (fast task) |
 | 260710-tkg | Apollo Typography block reformat: markerless flush list (case-prose > ul, 8px grouping) with color-only strong labels restored | 2026-07-10 | 42c18b8 | — (fast task) |
 | 260710-ulh | Apollo Foundations: Color palette h4 block below Typography — labeled list (Palette / Accessibility / Applications) | 2026-07-10 | a6329fe | — (fast task) |
+| 260710-vmi | Apollo Foundations: Elevation h4 block below Color palette — labeled list (Elevation scale / Directional & dark mode / Guidelines); neumorphic → cspell | 2026-07-10 | 450c13c | — (fast task) |
 
 ## Deferred Items
 
