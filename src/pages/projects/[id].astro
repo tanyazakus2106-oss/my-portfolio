@@ -227,20 +227,32 @@ const metadata = [
     font-weight: 400;
     color: var(--color-text-primary);
   }
-  /* List body copy — same voice as p, markerless and flush by design:
-     items group tighter (8px) than the prose rhythm to read as one set.
-     Direct-child scoped so embedded components' own lists stay untouched. */
+  /* List body copy — same voice as p, with a round dot marker hung in
+     the gutter. Direct-child scoped so embedded components' own lists
+     stay untouched. */
   .case-prose > ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    row-gap: var(--spacing-sm);
+    row-gap: var(--spacing-lg);
   }
   .case-prose > ul li {
+    position: relative;
+    padding-left: var(--spacing-xl);
     font-size: 1.125rem; /* 18px — matches .case-prose p */
     line-height: 1.625;
     color: var(--color-text-secondary);
+  }
+  .case-prose > ul li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.6em; /* optically centers on the first text line */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-text-secondary);
   }
   @media (min-width: 64rem) {
     .case-prose {
