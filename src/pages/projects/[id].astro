@@ -239,7 +239,8 @@ const metadata = [
   }
   .case-prose > ul li {
     position: relative;
-    padding-left: var(--spacing-xl);
+    /* 24px indent − 8px dot = 16px gap between marker and text */
+    padding-left: var(--spacing-lg);
     font-size: 1.125rem; /* 18px — matches .case-prose p */
     line-height: 1.625;
     color: var(--color-text-secondary);
@@ -247,7 +248,7 @@ const metadata = [
   .case-prose > ul li::before {
     content: "";
     position: absolute;
-    left: 2px;
+    left: 0;
     top: 0.6em; /* optically centers on the first text line */
     width: 8px;
     height: 8px;
