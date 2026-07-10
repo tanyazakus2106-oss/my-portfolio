@@ -247,6 +247,7 @@ None yet.
 | 260710-tkg | Apollo Typography block reformat: markerless flush list (case-prose > ul, 8px grouping) with color-only strong labels restored | 2026-07-10 | 42c18b8 | — (fast task) |
 | 260710-ulh | Apollo Foundations: Color palette h4 block below Typography — labeled list (Palette / Accessibility / Applications) | 2026-07-10 | a6329fe | — (fast task) |
 | 260710-vmi | Apollo Foundations: Elevation h4 block below Color palette — labeled list (Elevation scale / Directional & dark mode / Guidelines); neumorphic → cspell | 2026-07-10 | 450c13c | — (fast task) |
+| 260710-wnj | Apollo Foundations lists: dot markers (8px circle ::before, 32px hanging indent, 24px rhythm), label lead-ins dropped, palette item rephrased | 2026-07-10 | b27f15b | — (fast task) |
 
 ## Deferred Items
 
