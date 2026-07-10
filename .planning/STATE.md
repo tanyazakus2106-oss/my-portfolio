@@ -248,6 +248,7 @@ None yet.
 | 260710-ulh | Apollo Foundations: Color palette h4 block below Typography — labeled list (Palette / Accessibility / Applications) | 2026-07-10 | a6329fe | — (fast task) |
 | 260710-vmi | Apollo Foundations: Elevation h4 block below Color palette — labeled list (Elevation scale / Directional & dark mode / Guidelines); neumorphic → cspell | 2026-07-10 | 450c13c | — (fast task) |
 | 260710-wnj | Apollo Foundations lists: dot markers (8px circle ::before, 32px hanging indent, 24px rhythm), label lead-ins dropped, palette item rephrased | 2026-07-10 | b27f15b | — (fast task) |
+| 260710-xok | Case-prose list gap: 16px dot-to-text (flush dot at left 0, indent xl→lg 24px) | 2026-07-10 | 7556395 | — (fast task) |
 
 ## Deferred Items
 
