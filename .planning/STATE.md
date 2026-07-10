@@ -256,6 +256,7 @@ None yet.
 | 260710-ctp | Apollo Color palette: CaseImage placeholder (processPlaceholder) after bullets inside accordion | 2026-07-10 | 376a731 | — (fast task) |
 | 260710-duq | Apollo Components section: rename from Subsection Four + real copy (54 components); frontmatter summary 54 + role Senior UX/UI Designer | 2026-07-10 | 79c621b | — (fast task) |
 | 260710-evr | Apollo Components: CaseImage placeholder after body copy | 2026-07-10 | 8d73918 | — (fast task) |
+| 260710-fws | Apollo: Design critiques + Documentation & Guidelines h4 scaffolds below Components (subheader + placeholder body, no accordion) | 2026-07-10 | e768841 | — (fast task) |
 
 ## Deferred Items
 
