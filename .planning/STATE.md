@@ -252,6 +252,7 @@ None yet.
 | 260710-ypl | CaseAccordion component (zero-JS details/summary, chevron, h4 summary title) — Apollo Foundations as 4-row accordion, Layout and grid open by default | 2026-07-10 | 1254169 | — (fast task) |
 | 260710-zqm | CaseAccordion smooth slide: ::details-content block-size transition + interpolate-size (400ms, synced chevron, reduced-motion guarded, graceful degrade) | 2026-07-10 | 4e46764 | — (fast task) |
 | 260710-arn | Apollo Layout and grid: body split into two bullets (12-column system / 4px grid) above GridDiagram | 2026-07-10 | b70f42d | — (fast task) |
+| 260710-bso | Accordion list rhythm: item row-gap 16px (--spacing-md) to match paragraph spacing | 2026-07-10 | 54cfccc | — (fast task) |
 
 ## Deferred Items
 
