@@ -260,6 +260,7 @@ None yet.
 | 260710-gxt | Apollo Design critiques: real copy — every 2-3 components, one-hour moderated session, 3-7 designers, feedback → iteration | 2026-07-10 | 5dd68d1 | — (fast task) |
 | 260710-hyu | Apollo Documentation & Guidelines: real copy — Zeroheight single source of truth, per-component docs, best practices + critique insights | 2026-07-10 | a871bcb | — (fast task) |
 | 260711-izv | Apollo Next Steps section below Design: 3 cards (Components QA, requests & contributions, feedback surveys) | 2026-07-11 | e0f4e5f | — (fast task) |
+| 260711-jaw | Apollo Takeaways section below Next Steps: intro + 3 bold-lead bullets (design system at scale, ambiguity, feedback & iteration) | 2026-07-11 | 3ea9f49 | — (fast task) |
 
 ## Deferred Items
 
