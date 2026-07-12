@@ -20,6 +20,7 @@ import ProcessDiagram from "../../components/ProcessDiagram.astro";
 import GridDiagram from "../../components/GridDiagram.astro";
 import CaseAccordion from "../../components/CaseAccordion.astro";
 import processPlaceholder from "./apollo-process-placeholder.webp";
+import palette from "./palette.webp";
 
 {/* Template sections shown below — replace with real content. Placeholder content per D-17. */}
 {/* <FullBleedImage> is injected by src/pages/projects/[id].astro via <Content components={{ FullBleedImage }} />. */}
@@ -142,7 +143,10 @@ Following an atomic approach, we defined the structural and stylistic foundation
 - A base shade defined for every color to ensure WCAG compliance, verified for both small text and graphics.
 - A range of hues and shades covering every use — text, surfaces, borders, states, illustrations, and data visualization.
 
-<CaseImage src={processPlaceholder} alt="Color palette placeholder" />
+<CaseImage
+  src={palette}
+  alt="Apollo design system color palette — base colors with their shade scales"
+/>
 
 </CaseAccordion>
 
