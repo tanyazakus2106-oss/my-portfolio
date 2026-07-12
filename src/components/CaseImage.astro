@@ -20,6 +20,7 @@ const { src, alt, caption } = Astro.props;
     widths={[400, 720, 1440]}
     sizes="(min-width: 768px) 720px, calc(100vw - 3rem)"
     class="w-full h-auto rounded-2xl"
+    data-zoomable
   />
   {
     caption && (
@@ -29,3 +30,7 @@ const { src, alt, caption } = Astro.props;
     )
   }
 </figure>
+
+<script>
+  import "../scripts/image-zoom.ts";
+</script>
