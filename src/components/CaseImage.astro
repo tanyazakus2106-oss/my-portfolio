@@ -6,6 +6,16 @@ interface Props {
   caption?: string;
 }
 const { src, alt, caption } = Astro.props;
+
+// Inline the image at up to 1440px (720px prose column × 2 for retina), but
+// also emit high-res candidates so click-to-zoom (which sets sizes="100vw")
+// can render a sharp full-screen image instead of upscaling the 1440 file.
+// Only include candidates the source can actually back — capping at the
+// intrinsic width avoids upscaling and Astro's "width exceeds original" warning.
+const widths = [
+  ...[400, 720, 1440, 2160, 2880].filter((w) => w < src.width),
+  src.width,
+];
 ---
 
 {
@@ -17,7 +27,7 @@ const { src, alt, caption } = Astro.props;
   <Image
     src={src}
     alt={alt}
-    widths={[400, 720, 1440]}
+    widths={widths}
     sizes="(min-width: 768px) 720px, calc(100vw - 3rem)"
     class="w-full h-auto rounded-2xl"
     data-zoomable
