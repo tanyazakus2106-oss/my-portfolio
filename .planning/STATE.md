@@ -263,6 +263,7 @@ None yet.
 | 260711-jaw | Apollo Takeaways section below Next Steps: intro + 3 bold-lead bullets (design system at scale, ambiguity, feedback & iteration) | 2026-07-11 | 3ea9f49 | — (fast task) |
 | 260712-kbx | Apollo Color palette accordion: real palette.webp replacing process placeholder | 2026-07-12 | 159fa15 | — (fast task) |
 | 260712-lcy | Click-to-zoom on CaseImage (medium-zoom style clone lightbox, vanilla TS in src/scripts/image-zoom.ts, reduced-motion aware) | 2026-07-12 | efd2430 | — (fast task) |
+| 260713-mdz | Apollo UI Direction Workshops: real concepts.webp replacing process placeholder (file renamed from "concepts image.webp" to kebab-case) | 2026-07-13 | 80f3f6b | — (fast task) |
 
 ## Deferred Items
 
