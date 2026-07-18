@@ -1,0 +1,37 @@
+---
+// FullBleedPlaceholder — reserves a full-viewport-width slot for an image not yet added.
+// Mirrors FullBleedImage's 100vw break-out (negative-margin technique + scoped overflow-x
+// guard) so the layout matches, then swap this for <FullBleedImage> once the asset exists.
+// Renders a labelled surface band at the eventual image's aspect ratio, so replacing it
+// later causes no layout shift.
+// Usage in MDX: <FullBleedPlaceholder label="Final components — coming soon" ratio={2.64} />
+interface Props {
+  label?: string;
+  ratio?: number;
+}
+const { label = "Image coming soon", ratio = 2.64 } = Astro.props;
+---
+
+<figure class="full-bleed my-[var(--spacing-2xl)]">
+  <div
+    class="flex items-center justify-center bg-[var(--color-secondary)] border-y border-[var(--color-border)]"
+    style={`aspect-ratio: ${ratio};`}
+  >
+    <span
+      class="text-sm uppercase tracking-[0.15em] text-[var(--color-text-secondary)]"
+    >
+      {label}
+    </span>
+  </div>
+</figure>
+
+<style>
+  /* Same break-out as FullBleedImage: span 100vw out of the prose column, with a
+     scoped overflow-x guard so the 100vw child never triggers horizontal page scroll. */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow-x: hidden;
+  }
+</style>
