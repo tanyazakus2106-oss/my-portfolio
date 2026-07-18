@@ -51,6 +51,15 @@ const metadata = [
   { label: "Timeline", value: entry.data.timelineRange ?? timeline },
   { label: "Tools", value: entry.data.tools },
 ].filter((item) => item.value);
+
+// Hero srcset widths: normal display needs ~1152px, but click-to-zoom sets
+// sizes="100vw" and can render near the full viewport, so emit high-res
+// candidates too. Cap at the source width (filter out anything larger) to
+// avoid upscaling and Astro's "width exceeds original" warning.
+const heroWidths = [
+  ...[400, 800, 1200, 1800, 2400].filter((w) => w < entry.data.thumbnail.width),
+  entry.data.thumbnail.width,
+];
 ---
 
 <BaseLayout
@@ -115,9 +124,10 @@ const metadata = [
         src={entry.data.thumbnail}
         alt={`Cover image for ${entry.data.title}`}
         format="webp"
-        widths={[400, 800, 1200, 1800]}
+        widths={heroWidths}
         sizes="(min-width: 1200px) 1152px, calc(100vw - 3rem)"
-        class="w-full aspect-[16/9] object-cover"
+        class="w-full aspect-[16/9] object-cover rounded-2xl"
+        data-zoomable
       />
     </div>
   </div>
@@ -158,6 +168,13 @@ const metadata = [
     </nav>
   </article>
 </BaseLayout>
+
+<script>
+  // Click-to-zoom for the hero cover image (img[data-zoomable]). Loaded here so
+  // it works on every case study, not only ones whose MDX includes a CaseImage
+  // (which imports the same module). Astro dedupes the shared import.
+  import "../../scripts/image-zoom.ts";
+</script>
 
 <style is:global>
   /* MDX prose — reuses the About-page section layout: full-width divider,
