@@ -265,6 +265,7 @@ None yet.
 | 260712-lcy | Click-to-zoom on CaseImage (medium-zoom style clone lightbox, vanilla TS in src/scripts/image-zoom.ts, reduced-motion aware) | 2026-07-12 | efd2430 | — (fast task) |
 | 260713-mdz | Apollo UI Direction Workshops: real concepts.webp replacing process placeholder (file renamed from "concepts image.webp" to kebab-case) | 2026-07-13 | 80f3f6b | — (fast task) |
 | 260713-nea | CaseImage high-res srcset (widths up to source native) so click-to-zoom renders sharp instead of upscaling the 1440 candidate | 2026-07-13 | 7a749c0 | — (fast task) |
+| 260719-pq3 | Apollo Components: real components2.webp (3582px) replacing process placeholder; dropped now-unused processPlaceholder import | 2026-07-19 | 7831737 | — (fast task) |
 
 ## Deferred Items
 
