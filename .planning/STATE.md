@@ -268,6 +268,7 @@ None yet.
 | 260719-pq3 | Apollo Components: real components2.webp (3582px) replacing process placeholder; dropped now-unused processPlaceholder import | 2026-07-19 | 7831737 | — (fast task) |
 | 260719-rk8 | Apollo Takeaways: swap closing full-bleed to bottom_image_2.webp (5577px); new filename avoids stale edge cache on unhashed public/ assets | 2026-07-19 | 2efa986 | — (fast task) |
 | 260720-sv2 | Apollo Components: swap components2.webp for components_3.webp (content revision, same 3582px dims) | 2026-07-20 | a184597 | — (fast task) |
+| 260720-tw6 | Apollo Takeaways: revise full-bleed to bottom_image_3.webp (higher-quality export, 753KB) | 2026-07-20 | 01cdae5 | — (fast task) |
 
 ## Deferred Items
 
