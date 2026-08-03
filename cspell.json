@@ -40,7 +40,8 @@
     "destroypJS",
     "maxopacity",
     "UXR",
-    "neumorphic"
+    "neumorphic",
+    "Cieden"
   ],
   "ignorePaths": ["node_modules", "dist", ".astro", ".planning"]
 }
