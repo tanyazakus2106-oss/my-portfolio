@@ -36,11 +36,15 @@ Day-to-day, that meant benchmarking, heuristic audits, mockups, and a written sp
 
 ### Problem
 
-Placeholder — the user pain point or business challenge the project set out to solve.
+The product had no shared component layer. Every screen invented its own patterns — the same table rendered three ways, the same filter control in four positions. AI-generated code produces plausible, working screens fast, and has no opinion about whether screen four matches screen one, or what happens when a request fails. Those are product decisions, and they hadn't been made yet.
 
 ### Goals
 
-Placeholder — the outcomes the work needed to deliver and what success looked like.
+Make the app dependable enough that the team can rely on it.
+
+Four things, in order: benchmark it against the six competitors so findings can be scheduled rather than argued; systematise the patterns, because screens that each invent their own can't be made accessible or responsive one at a time; rebuild every core screen for a phone, at WCAG 2.1 AA; test the flows end to end.
+
+In an app that produces invoices, any bug is a billing bug.
 
 ## UX Research
 
