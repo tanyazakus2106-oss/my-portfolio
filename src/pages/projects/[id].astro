@@ -132,13 +132,19 @@ const heroWidths = [
     </div>
   </div>
 
-  {/* Body article — MDX prose + prev/next */}
-  <article
-    class="container pb-[var(--spacing-2xl)] md:pb-[var(--spacing-4xl)] animate-page-entry"
-    style="--entry-index: 3"
-  >
-    <div class="case-prose">
-      <Content components={{ FullBleedImage, FullBleedPlaceholder, CaseImage }} />
+  {
+    /* Body article — MDX prose + prev/next.
+      No animate-page-entry here: that faded the whole body in at load, and its
+      transform created a containing block that stopped children from revealing
+      individually. Indexes 0-2 above keep the quick above-the-fold entrance;
+      below the fold, data-reveal-group hands each MDX element its own trigger.
+      The prev/next nav is a sibling of .case-prose, so it stays unanimated. */
+  }
+  <article class="container pb-[var(--spacing-2xl)] md:pb-[var(--spacing-4xl)]">
+    <div class="case-prose" data-reveal-group>
+      <Content
+        components={{ FullBleedImage, FullBleedPlaceholder, CaseImage }}
+      />
     </div>
 
     <nav
@@ -174,6 +180,8 @@ const heroWidths = [
   // it works on every case study, not only ones whose MDX includes a CaseImage
   // (which imports the same module). Astro dedupes the shared import.
   import "../../scripts/image-zoom.ts";
+  // Scroll reveals for the MDX body ([data-reveal-group] on .case-prose).
+  import "../../scripts/scroll-animation.ts";
 </script>
 
 <style is:global>

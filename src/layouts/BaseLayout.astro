@@ -50,6 +50,18 @@ const absoluteOgImage = new URL(ogImage, Astro.site ?? "https://tanyazakus.com")
         }
       })();
     </script>
+    <script is:inline>
+      // Scroll-reveal FOUC guard. Adding .js-reveal synchronously means reveal
+      // targets are hidden before first paint rather than flashing in. The 1s
+      // failsafe removes it unless scroll-animation.ts set data-reveal-ready,
+      // so a module that fails to load shows the page instead of a blank one.
+      document.documentElement.classList.add("js-reveal");
+      setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) {
+          document.documentElement.classList.remove("js-reveal");
+        }
+      }, 1000);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>

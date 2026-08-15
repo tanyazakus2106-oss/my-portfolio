@@ -150,25 +150,43 @@ body {
   }
 }
 
-/* ─── Scroll entrance animation — Phase 3 D-18..D-23, WORK-06, POL-01 ─── */
-.animate-on-scroll {
+/* ─── Scroll entrance animation — Phase 3 D-18..D-23, WORK-06, POL-01 ───
+   Three opt-in forms, one behaviour: the .animate-on-scroll class (home cards,
+   about sections), the [data-reveal] attribute, and [data-reveal-group] > *
+   which promotes every direct child of a container. The group form lets the
+   flat MDX body in .case-prose reveal per element without wrapper markup that
+   would break its grid auto-placement.
+
+   The hidden state is scoped to .js-reveal, added synchronously by the inline
+   head script in BaseLayout: nothing flashes visible before JS runs, and
+   nothing stays invisible if the module fails to load (that script's 1s
+   failsafe drops the class). Opacity and transform only — no layout shift. */
+.js-reveal .animate-on-scroll,
+.js-reveal [data-reveal],
+.js-reveal [data-reveal-group] > * {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 500ms ease-out,
-    transform 500ms ease-out;
-  transition-delay: calc(var(--stagger-index, 0) * 70ms);
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-index, 0) * 80ms);
   will-change: opacity, transform;
 }
 
-.animate-on-scroll.is-visible {
+.js-reveal .animate-on-scroll.is-visible,
+.js-reveal [data-reveal].is-visible,
+.js-reveal [data-reveal-group] > .is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll,
-  .animate-on-scroll.is-visible {
+  .js-reveal .animate-on-scroll,
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal-group] > *,
+  .js-reveal .animate-on-scroll.is-visible,
+  .js-reveal [data-reveal].is-visible,
+  .js-reveal [data-reveal-group] > .is-visible {
     opacity: 1;
     transform: none;
     transition: none;
