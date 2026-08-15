@@ -271,6 +271,7 @@ None yet.
 | 260720-tw6 | Apollo Takeaways: revise full-bleed to bottom_image_3.webp (higher-quality export, 753KB) | 2026-07-20 | 01cdae5 | — (fast task) |
 | 260804-ub4 | Time Tracker: set team/timeline/tools frontmatter, fill Overview + My Role placeholders, add Cieden to cspell | 2026-08-04 | 4770df5 | — (fast task) |
 | 260815-pg7 | Time Tracker: fill Problem + Goals placeholders with real copy | 2026-08-15 | 3e39e2a | — (fast task) |
+| 260815-rv3 | Section-by-section scroll reveals on case study pages: data-reveal-group section chunking, batch-scoped stagger, upgrade .animate-on-scroll to 600ms/80ms | 2026-08-15 | 7e16807 | [260815-rv3-scroll-reveal-batch-stagger-data-reveal](./quick/260815-rv3-scroll-reveal-batch-stagger-data-reveal/) |
 
 ## Deferred Items
 
