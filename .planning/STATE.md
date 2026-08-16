@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-07-09 - Fast task 2jf: title-case "Component Inventory" heading (961c75f)
+Last activity: 2026-08-15 - Completed quick task 260815-nb5: Add falling-star animation to hero background
 
 Progress: [██░░░░░░░░] 33%
 
@@ -272,6 +272,7 @@ None yet.
 | 260804-ub4 | Time Tracker: set team/timeline/tools frontmatter, fill Overview + My Role placeholders, add Cieden to cspell | 2026-08-04 | 4770df5 | — (fast task) |
 | 260815-pg7 | Time Tracker: fill Problem + Goals placeholders with real copy | 2026-08-15 | 3e39e2a | — (fast task) |
 | 260815-rv3 | Section-by-section scroll reveals on case study pages: data-reveal-group section chunking, batch-scoped stagger, upgrade .animate-on-scroll to 600ms/80ms | 2026-08-15 | 7e16807 | [260815-rv3-scroll-reveal-batch-stagger-data-reveal](./quick/260815-rv3-scroll-reveal-batch-stagger-data-reveal/) |
+| 260815-nb5 | Add falling-star animation to hero background (CSS-only ShootingStars layer over ParticlesBg) | 2026-08-15 | b4cd47f | [260815-nb5-add-falling-star-animation-to-hero-backg](./quick/260815-nb5-add-falling-star-animation-to-hero-backg/) |
 
 ## Deferred Items
 
