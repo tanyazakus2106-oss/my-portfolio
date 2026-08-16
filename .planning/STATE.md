@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-11)
 Phase: 06
 Plan: Not started
 Status: Milestone complete
-Last activity: 2026-08-15 - Completed quick task 260815-nb5: Add falling-star animation to hero background
+Last activity: 2026-08-17 - Completed quick task 260817-1sb: Replace canvas particles with CSS starfield
 
 Progress: [██░░░░░░░░] 33%
 
@@ -273,6 +273,7 @@ None yet.
 | 260815-pg7 | Time Tracker: fill Problem + Goals placeholders with real copy | 2026-08-15 | 3e39e2a | — (fast task) |
 | 260815-rv3 | Section-by-section scroll reveals on case study pages: data-reveal-group section chunking, batch-scoped stagger, upgrade .animate-on-scroll to 600ms/80ms | 2026-08-15 | 7e16807 | [260815-rv3-scroll-reveal-batch-stagger-data-reveal](./quick/260815-rv3-scroll-reveal-batch-stagger-data-reveal/) |
 | 260815-nb5 | Add falling-star animation to hero background (CSS-only ShootingStars layer over ParticlesBg) | 2026-08-15 | b4cd47f | [260815-nb5-add-falling-star-animation-to-hero-backg](./quick/260815-nb5-add-falling-star-animation-to-hero-backg/) |
+| 260817-1sb | Replace canvas particles with CSS starfield: glow halos, 4-point sparkles, meganyap timings | 2026-08-17 | b88f12b | [260817-1sb-replace-canvas-particles-with-css-starfi](./quick/260817-1sb-replace-canvas-particles-with-css-starfi/) |
 
 ## Deferred Items
 
