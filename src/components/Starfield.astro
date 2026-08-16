@@ -8,9 +8,9 @@
 //   glow           box-shadow 0 0 3px @70%, 0 0 4px @80% on the 2px+ dots
 //   twinkle        star-twinkle 9s ease-in-out infinite, random delay
 //   drift          three layers rotating +/-360deg over 360s / 260s / 190s
-//   big stars      4-point sparkles carrying the reference's wide halo
-//                  (their text-shadow 0 0 8px + 0 0 20px @60%, rebuilt as a
-//                  radial gradient) and its 13s end-of-cycle flicker
+//   big stars      4-point sparkles carrying the reference's glyph halo
+//                  (text-shadow 0 0 8px + 0 0 20px @60%, as drop-shadows)
+//                  and its 13s end-of-cycle flicker
 //
 // Colour comes from --color-star (white in dark, accent in light — their
 // white-on-black dots would vanish on this site's near-white light hero).
@@ -40,7 +40,6 @@ const SIZES = [
   { px: 2.5, count: 8, sparkle: true },
 ];
 const SPARKLE_PX = 10; // sparkle box — the 4-point shape is illegible at 2.5px
-const SPARKLE_HALO_PX = 50; // wide soft halo behind each sparkle
 const OPACITY_RANGE = [0.25, 0.9] as const;
 
 type PoolEntry = { px: number; sparkle: boolean };
@@ -154,36 +153,18 @@ const layerDots = layers.map((layer) => {
     animation: star-twinkle 9s ease-in-out var(--twinkle-delay) infinite;
   }
 
-  /* The reference's big stars carry a wide two-layer glow (text-shadow
-     0 0 8px + 0 0 20px @60% on a glyph). box-shadow can't produce that soft
-     falloff — it blurs a copy of the shape, a tight ring rather than a bloom —
-     so the halo is a radial gradient on ::before, sitting under the shape. */
-  .dot--sparkle::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: var(--sparkle-halo);
-    height: var(--sparkle-halo);
-    margin-top: calc(var(--sparkle-halo) / -2);
-    margin-left: calc(var(--sparkle-halo) / -2);
-    border-radius: 9999px;
-    background: radial-gradient(
-      circle closest-side,
-      color-mix(in oklab, var(--color-star) 30%, transparent),
-      transparent 100%
-    );
-  }
-
-  /* 4-point sparkle. drop-shadow rather than box-shadow: box-shadow follows
-     the square border box and would halo a rectangle around the star. The
-     flicker keyframes are the reference's star-glyph cycle verbatim. */
+  /* 4-point sparkle. The halo is the reference's glyph glow verbatim —
+     text-shadow 0 0 8px solid + 0 0 20px @60% — carried here as two
+     drop-shadows, which follow the mask's alpha (box-shadow would halo the
+     square border box instead). The flicker keyframes are the reference's
+     star-glyph cycle verbatim. */
   .dot--sparkle::after {
     border-radius: 0;
     box-shadow: none;
-    filter: drop-shadow(
-      0 0 var(--glow) color-mix(in oklab, var(--color-star) 75%, transparent)
-    );
+    filter: drop-shadow(0 0 8px var(--color-star))
+      drop-shadow(
+        0 0 20px color-mix(in oklab, var(--color-star) 60%, transparent)
+      );
     mask-image: var(--sparkle-shape);
     mask-size: 100% 100%;
     mask-repeat: no-repeat;
@@ -210,7 +191,6 @@ const layerDots = layers.map((layer) => {
   }
 
   .starfield {
-    --sparkle-halo: 50px;
     --sparkle-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 0c1.1 7.7 3.2 10.9 12 12-8.8 1.1-10.9 4.3-12 12-1.1-7.7-3.2-10.9-12-12C8.8 10.9 10.9 7.7 12 0Z'/%3E%3C/svg%3E");
   }
 
