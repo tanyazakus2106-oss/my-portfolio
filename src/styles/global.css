@@ -48,6 +48,9 @@
   --color-accent: #553ee5;
   --color-destructive: #dc2626;
   --color-status-online: #31b76b;
+  /* Hero starfield dots. Accent in light (white would vanish on #f7f6f7);
+     plain white in dark, where the night-sky reading is literal. */
+  --color-star: #553ee5;
 }
 
 /* Dark mode — system preference (base layer) — per D-08 */
@@ -62,6 +65,7 @@
     --color-accent: #8776f9;
     --color-destructive: #ef4444;
     --color-status-online: #31b76b;
+    --color-star: #ffffff;
   }
 }
 
@@ -76,6 +80,7 @@
   --color-accent: #8776f9;
   --color-destructive: #ef4444;
   --color-status-online: #31b76b;
+  --color-star: #ffffff;
 }
 
 /* Light mode — manual override (overrides @media dark preference when .light is set) */
@@ -88,6 +93,7 @@
   --color-border: #e5e7eb;
   --color-accent: #553ee5;
   --color-destructive: #dc2626;
+  --color-star: #553ee5;
 }
 
 /* ─── Base typography ─── */

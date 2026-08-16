@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import ParticlesBg from "../components/ParticlesBg.astro";
+import Starfield from "../components/Starfield.astro";
 import ShootingStars from "../components/ShootingStars.astro";
 import { getCollection } from "astro:content";
 
@@ -32,7 +32,7 @@ const descriptionWordsList = descriptionText.split(" ");
   <section
     class="relative min-h-screen min-h-svh -mt-20 pt-20 flex items-center overflow-hidden"
   >
-    <ParticlesBg />
+    <Starfield />
     <ShootingStars />
     <div class="container w-full relative z-10">
       <div class="max-w-[760px]">

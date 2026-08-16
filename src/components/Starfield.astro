@@ -1,0 +1,268 @@
+---
+// Hero starfield — DOM + CSS, no JS at runtime. Replaces the particles.js
+// canvas, which could not carry a glow halo or a custom dot shape.
+//
+// Every per-element property mirrors meganyap.me, read from its live CSS:
+//   dots           white circles, 1 / 1.5 / 2 / 2.5px
+//   base opacity   randomised per dot, 0.25-0.90
+//   glow           box-shadow 0 0 3px @70%, 0 0 4px @80% on the 2px+ dots
+//   twinkle        star-twinkle 9s ease-in-out infinite, random delay
+//   drift          three layers rotating +/-360deg over 360s / 260s / 190s
+//   big stars      4-point sparkles carrying the reference's wide halo
+//                  (their text-shadow 0 0 8px + 0 0 20px @60%, rebuilt as a
+//                  radial gradient) and its 13s end-of-cycle flicker
+//
+// Colour comes from --color-star (white in dark, accent in light — their
+// white-on-black dots would vanish on this site's near-white light hero).
+// Total count is ~60% higher than the reference's 116 because only the slice
+// of the layer square inside the viewport is ever visible; on-screen density
+// matches their hero.
+
+// Seeded PRNG (mulberry32) so the field is identical on every build rather
+// than reshuffling each time the site is rebuilt.
+function makeRandom(seed: number) {
+  return function random() {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const random = makeRandom(20260817);
+
+// Reference size histogram (scaled 116 -> 186), sparkles carved from the
+// largest bucket at roughly the reference's on-screen share.
+const SIZES = [
+  { px: 1, count: 82 },
+  { px: 1.5, count: 67 },
+  { px: 2, count: 24 },
+  { px: 2.5, count: 5 },
+  { px: 2.5, count: 8, sparkle: true },
+];
+const SPARKLE_PX = 10; // sparkle box — the 4-point shape is illegible at 2.5px
+const SPARKLE_HALO_PX = 50; // wide soft halo behind each sparkle
+const OPACITY_RANGE = [0.25, 0.9] as const;
+
+type PoolEntry = { px: number; sparkle: boolean };
+const pool: PoolEntry[] = SIZES.flatMap((s) =>
+  Array.from({ length: s.count }, () => ({ px: s.px, sparkle: !!s.sparkle })),
+);
+
+// Deterministic Fisher-Yates, so sizes scatter across the three layers.
+for (let i = pool.length - 1; i > 0; i--) {
+  const j = Math.floor(random() * (i + 1));
+  [pool[i], pool[j]] = [pool[j], pool[i]];
+}
+
+// Split preserves the reference's 60/26/14 share across the three layers.
+const layers = [
+  { name: "far", count: 112, duration: "360s" },
+  { name: "mid", count: 50, duration: "260s" },
+  { name: "near", count: 24, duration: "190s" },
+];
+
+const round = (n: number) => Math.round(n * 100) / 100;
+let cursor = 0;
+
+const layerDots = layers.map((layer) => {
+  const dots = pool.slice(cursor, cursor + layer.count).map((entry) => ({
+    size: entry.sparkle ? SPARKLE_PX : entry.px,
+    sparkle: entry.sparkle,
+    left: round(random() * 100),
+    top: round(random() * 100),
+    opacity: round(
+      OPACITY_RANGE[0] + random() * (OPACITY_RANGE[1] - OPACITY_RANGE[0]),
+    ),
+    // Reference glow tiers: 0 0 4px @80% at 2px and up, 0 0 3px @70% below.
+    glow: entry.px >= 2 ? 4 : 3,
+    glowAlpha: entry.px >= 2 ? 80 : 70,
+    delay: round(random() * 9),
+  }));
+  cursor += layer.count;
+  return { ...layer, dots };
+});
+---
+
+<div class="starfield" aria-hidden="true">
+  {
+    layerDots.map((layer) => (
+      <div
+        class:list={["layer", `layer--${layer.name}`]}
+        style={`--spin-duration:${layer.duration};`}
+      >
+        {layer.dots.map((dot) => (
+          <span
+            class:list={["dot", dot.sparkle && "dot--sparkle"]}
+            style={`left:${dot.left}%;top:${dot.top}%;--size:${dot.size}px;--base-opacity:${dot.opacity};--glow:${dot.glow}px;--glow-alpha:${dot.glowAlpha}%;--twinkle-delay:${dot.delay}s;`}
+          />
+        ))}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .starfield {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Each layer is a fixed square pinned to the hero's centre and rotated as a
+     whole. One transform drifts every dot it contains, and dots near the centre
+     travel less than those at the edges — parallax for free. */
+  .layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1800px;
+    height: 1800px;
+    margin-top: -900px;
+    margin-left: -900px;
+  }
+
+  .layer--far {
+    animation: spin-ccw var(--spin-duration) linear infinite;
+  }
+
+  .layer--mid {
+    animation: spin-cw var(--spin-duration) linear infinite;
+  }
+
+  .layer--near {
+    animation: spin-ccw var(--spin-duration) linear infinite;
+  }
+
+  /* Two opacities multiply here: the dot's own randomised brightness lives on
+     the span, the shared twinkle cycle on its ::after. One node, both effects. */
+  .dot {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    opacity: var(--base-opacity);
+  }
+
+  .dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: var(--color-star);
+    box-shadow: 0 0 var(--glow)
+      color-mix(in oklab, var(--color-star) var(--glow-alpha), transparent);
+    animation: star-twinkle 9s ease-in-out var(--twinkle-delay) infinite;
+  }
+
+  /* The reference's big stars carry a wide two-layer glow (text-shadow
+     0 0 8px + 0 0 20px @60% on a glyph). box-shadow can't produce that soft
+     falloff — it blurs a copy of the shape, a tight ring rather than a bloom —
+     so the halo is a radial gradient on ::before, sitting under the shape. */
+  .dot--sparkle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--sparkle-halo);
+    height: var(--sparkle-halo);
+    margin-top: calc(var(--sparkle-halo) / -2);
+    margin-left: calc(var(--sparkle-halo) / -2);
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle closest-side,
+      color-mix(in oklab, var(--color-star) 30%, transparent),
+      transparent 100%
+    );
+  }
+
+  /* 4-point sparkle. drop-shadow rather than box-shadow: box-shadow follows
+     the square border box and would halo a rectangle around the star. The
+     flicker keyframes are the reference's star-glyph cycle verbatim. */
+  .dot--sparkle::after {
+    border-radius: 0;
+    box-shadow: none;
+    filter: drop-shadow(
+      0 0 var(--glow) color-mix(in oklab, var(--color-star) 75%, transparent)
+    );
+    mask-image: var(--sparkle-shape);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: var(--sparkle-shape);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    animation: star-glyph-twinkle 13s ease-in-out var(--twinkle-delay) infinite;
+  }
+
+  /* Circles don't care how the layer is rotated, but a 4-point star does — at
+     45deg it reads as an X. Each sparkle runs its layer's rotation in reverse,
+     at the same period, so it stays upright while still drifting. */
+  .layer--far .dot--sparkle::after,
+  .layer--near .dot--sparkle::after {
+    animation:
+      star-glyph-twinkle 13s ease-in-out var(--twinkle-delay) infinite,
+      spin-cw var(--spin-duration) linear infinite;
+  }
+
+  .layer--mid .dot--sparkle::after {
+    animation:
+      star-glyph-twinkle 13s ease-in-out var(--twinkle-delay) infinite,
+      spin-ccw var(--spin-duration) linear infinite;
+  }
+
+  .starfield {
+    --sparkle-halo: 50px;
+    --sparkle-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 0c1.1 7.7 3.2 10.9 12 12-8.8 1.1-10.9 4.3-12 12-1.1-7.7-3.2-10.9-12-12C8.8 10.9 10.9 7.7 12 0Z'/%3E%3C/svg%3E");
+  }
+
+  @keyframes spin-cw {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-ccw {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  /* Reference keyframes, verbatim. */
+  @keyframes star-twinkle {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* Reference star-glyph flicker: steady, then a quick stutter late in the
+     cycle — reads as a star catching the light rather than a metronome pulse. */
+  @keyframes star-glyph-twinkle {
+    0%,
+    84%,
+    96%,
+    100% {
+      opacity: 1;
+    }
+    88% {
+      opacity: 0.5;
+    }
+    92% {
+      opacity: 0.95;
+    }
+    94% {
+      opacity: 0.65;
+    }
+  }
+
+  /* Unlike the shooting stars, the field stays visible when motion is reduced —
+     a frozen streak reads as a stray line, frozen stars just read as stars. */
+  @media (prefers-reduced-motion: reduce) {
+    .layer,
+    .dot::after {
+      animation: none;
+    }
+  }
+</style>
