@@ -6,29 +6,32 @@
 // drawn gradient line.
 //   markup      "──────·" in --font-mono at 13px, letter-spacing 0.12em
 //   colour      85% star colour, text-shadow 0 0 12px @50% (the halo)
-//   easing      cubic-bezier(.16,.84,.44,1) — fast launch, decelerating glide
-//   fade        in by 8% of the streak, out after 90%
-//   geometry    ~570px/s average, 154deg down-left path, ~1.8s streaks,
-//               one star every ~5.8s
+//   easing      linear — deliberate deviation: the reference's
+//               cubic-bezier(.16,.84,.44,1) glide left the star visibly
+//               stalled at the end of its path; owner asked for constant speed
+//   fade        in by 8% of the streak, out over the last fifth — the star
+//               fades while still moving, so it never appears to stop
+//   geometry    ~570px/s average, 154deg down-left path, ~1.74s streaks
 // After rotate(154deg) the string's end maps furthest down-left, so the "·"
 // (last character) leads and the dashes trail behind it.
 //
 // Their site spawns each streak from JS with a one-shot animation and a
 // randomised timer. CSS can't randomise, so cadence comes from geometry
-// instead: five stars on ~30s cycles with delays a fifth of a cycle apart put
-// exactly one star on screen every ~5.8s. Cycle lengths are staggered 28-32s
-// so the spacing drifts instead of ticking like a metronome. The streak
-// occupies the first 6% of each cycle (~1.8s) and the star sits invisible for
-// the rest. Their in-streak fade points (8% / 90%) map to 0.5% / 5.4% here.
+// instead: five stars share one 29s cycle with uneven delays, so the gaps
+// read irregular (4-8s) while the pattern repeats. Equal durations keep the
+// phases locked, and every gap is wider than a streak lasts (~1.74s), which
+// guarantees at most one star on screen — the earlier 28-32s stagger let
+// phases drift until two streaks overlapped. The streak occupies the first
+// 6% of each cycle and the star sits invisible for the rest.
 //
 // Colour comes from --color-star, the same token the Starfield dots use, so a
 // streak always reads as one of the dots breaking loose.
 const stars = [
-  { top: "4%", left: "88%", travel: "958px", dur: "28s", delay: "0s" },
-  { top: "15%", left: "100%", travel: "992px", dur: "29s", delay: "5.8s" },
-  { top: "27%", left: "92%", travel: "1026px", dur: "30s", delay: "11.6s" },
-  { top: "8%", left: "76%", travel: "1060px", dur: "31s", delay: "17.4s" },
-  { top: "20%", left: "96%", travel: "1094px", dur: "32s", delay: "23.2s" },
+  { top: "4%", left: "88%", travel: "958px", dur: "29s", delay: "0s" },
+  { top: "15%", left: "100%", travel: "992px", dur: "29s", delay: "4.2s" },
+  { top: "27%", left: "92%", travel: "1026px", dur: "29s", delay: "11.3s" },
+  { top: "8%", left: "76%", travel: "1060px", dur: "29s", delay: "16.1s" },
+  { top: "20%", left: "96%", travel: "1094px", dur: "29s", delay: "23.9s" },
 ];
 ---
 
@@ -69,13 +72,14 @@ const stars = [
     transform-origin: 0 center;
     opacity: 0;
     will-change: transform, opacity;
-    animation: shoot var(--duration) cubic-bezier(0.16, 0.84, 0.44, 1)
-      var(--delay) infinite;
+    animation: shoot var(--duration) linear var(--delay) infinite;
   }
 
-  /* 0-6%: the streak (~1.8s of a ~30s cycle). 6-100%: parked and invisible,
-     which is what spaces the stars ~6s apart without a scheduler.
-     0.899/0.438 are cos/sin 154deg — the components of --travel. */
+  /* 0-6%: the streak (~1.74s of the 29s cycle). 6-100%: parked and invisible,
+     which is what spaces the stars without a scheduler. Motion is linear and
+     the fade-out (4.8-6%) happens at full speed, so the star vanishes
+     mid-flight instead of stalling. 0.899/0.438 are cos/sin 154deg — the
+     components of --travel. */
   @keyframes shoot {
     0% {
       transform: translate3d(0, 0, 0) rotate(154deg);
@@ -84,7 +88,7 @@ const stars = [
     0.5% {
       opacity: 1;
     }
-    5.4% {
+    4.8% {
       opacity: 1;
     }
     6%,
