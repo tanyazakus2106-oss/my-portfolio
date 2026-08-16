@@ -6,12 +6,13 @@
 // drawn gradient line.
 //   markup      "──────·" in --font-mono at 13px, letter-spacing 0.12em
 //   colour      85% star colour, text-shadow 0 0 12px @50% (the halo)
-//   easing      linear — deliberate deviation: the reference's
-//               cubic-bezier(.16,.84,.44,1) glide left the star visibly
-//               stalled at the end of its path; owner asked for constant speed
+//   easing      cubic-bezier(.2,.6,.7,.9) — darts at launch (~3x average
+//               speed), settles to ~1/3 average. Deliberate deviation: the
+//               reference's cubic-bezier(.16,.84,.44,1) ends at zero velocity
+//               and left the star visibly stalled; this one never stops
 //   fade        in by 8% of the streak, out over the last fifth — the star
 //               fades while still moving, so it never appears to stop
-//   geometry    ~570px/s average, 154deg down-left path, ~1.74s streaks
+//   geometry    ~840px/s average, 154deg down-left path, ~1.2s streaks
 // After rotate(154deg) the string's end maps furthest down-left, so the "·"
 // (last character) leads and the dashes trail behind it.
 //
@@ -19,10 +20,10 @@
 // randomised timer. CSS can't randomise, so cadence comes from geometry
 // instead: five stars share one 29s cycle with uneven delays, so the gaps
 // read irregular (4-8s) while the pattern repeats. Equal durations keep the
-// phases locked, and every gap is wider than a streak lasts (~1.74s), which
+// phases locked, and every gap is wider than a streak lasts (~1.2s), which
 // guarantees at most one star on screen — the earlier 28-32s stagger let
 // phases drift until two streaks overlapped. The streak occupies the first
-// 6% of each cycle and the star sits invisible for the rest.
+// 4.2% of each cycle and the star sits invisible for the rest.
 //
 // Colour comes from --color-star, the same token the Starfield dots use, so a
 // streak always reads as one of the dots breaking loose.
@@ -72,26 +73,28 @@ const stars = [
     transform-origin: 0 center;
     opacity: 0;
     will-change: transform, opacity;
-    animation: shoot var(--duration) linear var(--delay) infinite;
+    animation: shoot var(--duration) cubic-bezier(0.2, 0.6, 0.7, 0.9)
+      var(--delay) infinite;
   }
 
-  /* 0-6%: the streak (~1.74s of the 29s cycle). 6-100%: parked and invisible,
-     which is what spaces the stars without a scheduler. Motion is linear and
-     the fade-out (4.8-6%) happens at full speed, so the star vanishes
-     mid-flight instead of stalling. 0.899/0.438 are cos/sin 154deg — the
-     components of --travel. */
+  /* 0-4.2%: the streak (~1.2s of the 29s cycle). 4.2-100%: parked and
+     invisible, which is what spaces the stars without a scheduler. The bezier
+     front-loads the motion (fast dart, then glide) but its end slope is ~1/3
+     average speed, and the fade-out (3.4-4.2%) happens while still moving —
+     the star vanishes mid-flight instead of stalling. 0.899/0.438 are
+     cos/sin 154deg — the components of --travel. */
   @keyframes shoot {
     0% {
       transform: translate3d(0, 0, 0) rotate(154deg);
       opacity: 0;
     }
-    0.5% {
+    0.35% {
       opacity: 1;
     }
-    4.8% {
+    3.4% {
       opacity: 1;
     }
-    6%,
+    4.2%,
     100% {
       transform: translate3d(
           calc(var(--travel) * -0.899),
