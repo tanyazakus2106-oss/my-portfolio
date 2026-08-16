@@ -1,0 +1,156 @@
+---
+// Intermittent shooting stars for the hero — pure CSS, no JS.
+// Each star is a trail (the span) with a glowing head (::after) travelling
+// down-left. Intermittency is a property of the keyframes rather than a timer:
+// the streak completes inside the first 6% of its cycle and stays invisible
+// for the rest, so the layer costs nothing but a few composited transforms.
+//
+// Speed, cadence and geometry are matched to meganyap.me, measured live from
+// its running animations:
+//   streak duration  1.37–1.99s   (mean ~1.76s)
+//   travel distance  830–1150px   (mean ~1000px)
+//   speed            ~570px/s
+//   spawn interval   5.0–6.9s between stars, one at a time
+//   angle            153–161deg below +x, i.e. a shallow down-left path
+//   trail length     56–66px
+//
+// Reproducing that with 5 CSS-only stars: each cycle is ~30s with delays a
+// fifth of a cycle apart, so exactly one star runs every ~6s. Cycle lengths
+// are staggered 28–32s so the spacing drifts instead of ticking like a
+// metronome. Every travel/duration pair below works out to 570px/s.
+const stars = [
+  {
+    top: "4%",
+    left: "88%",
+    travel: "958px",
+    len: "58px",
+    dur: "28s",
+    delay: "0s",
+  },
+  {
+    top: "15%",
+    left: "100%",
+    travel: "992px",
+    len: "64px",
+    dur: "29s",
+    delay: "5.8s",
+  },
+  {
+    top: "27%",
+    left: "92%",
+    travel: "1026px",
+    len: "56px",
+    dur: "30s",
+    delay: "11.6s",
+  },
+  {
+    top: "8%",
+    left: "76%",
+    travel: "1060px",
+    len: "66px",
+    dur: "31s",
+    delay: "17.4s",
+  },
+  {
+    top: "20%",
+    left: "96%",
+    travel: "1094px",
+    len: "60px",
+    dur: "32s",
+    delay: "23.2s",
+  },
+];
+---
+
+<div class="shooting-stars" aria-hidden="true">
+  {
+    stars.map((star) => (
+      <span
+        class="star"
+        style={`--top:${star.top};--left:${star.left};--travel:${star.travel};--len:${star.len};--duration:${star.dur};--delay:${star.delay};`}
+      />
+    ))
+  }
+</div>
+
+<style>
+  .shooting-stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* The span is the trail: transparent at the tail, accent at the head.
+     rotate(154deg) points the element's local +x down-left at the reference
+     site's shallow angle, so the gradient and the head dot both align with the
+     direction of travel. */
+  .star {
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    width: var(--len);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-accent) 70%, transparent)
+    );
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: shoot var(--duration) linear var(--delay) infinite;
+  }
+
+  .star::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 6px var(--color-accent);
+  }
+
+  /* 0-6%: the streak (~1.8s of a ~30s cycle). 6-100%: parked and invisible,
+     which is what spaces the stars ~6s apart without a scheduler. The fade in
+     and out sit at 8% and 90% of the streak itself, matching the reference.
+     0.899/0.438 are cos/sin 154deg — the components of --travel. */
+  @keyframes shoot {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(154deg);
+      opacity: 0;
+    }
+    0.5% {
+      opacity: 0.55;
+    }
+    5.4% {
+      opacity: 0.55;
+    }
+    6% {
+      transform: translate3d(
+          calc(var(--travel) * -0.899),
+          calc(var(--travel) * 0.438),
+          0
+        )
+        rotate(154deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translate3d(
+          calc(var(--travel) * -0.899),
+          calc(var(--travel) * 0.438),
+          0
+        )
+        rotate(154deg);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shooting-stars {
+      display: none;
+    }
+  }
+</style>
