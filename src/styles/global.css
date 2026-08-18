@@ -48,10 +48,10 @@
   --color-accent: #553ee5;
   --color-destructive: #dc2626;
   --color-status-online: #31b76b;
-  /* Hero starfield dots. Grayscale in light (matches --color-text-secondary;
-     white would vanish on #f7f6f7); plain white in dark, where the night-sky
-     reading is literal. */
-  --color-star: #6b6b6b;
+  /* Hero starfield dots. White in both themes by design: the night-sky
+     reading is literal in dark, and in light the field disappears against
+     #f7f6f7 — the hero is meant to read as plain in light mode. */
+  --color-star: #ffffff;
 }
 
 /* Dark mode — system preference (base layer) — per D-08 */
@@ -94,7 +94,7 @@
   --color-border: #e5e7eb;
   --color-accent: #553ee5;
   --color-destructive: #dc2626;
-  --color-star: #6b6b6b;
+  --color-star: #ffffff;
 }
 
 /* ─── Base typography ─── */
