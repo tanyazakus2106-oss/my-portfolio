@@ -146,6 +146,8 @@ Following an atomic approach, we defined the structural and stylistic foundation
 - 11 base colors with up to 8 shades each, plus a dedicated 10-hue data-visualization palette, which is a significant expansion from the previous system.
 - A base shade defined for every color to ensure WCAG compliance, verified for both small text and graphics.
 - A range of hues and shades covering every use — text, surfaces, borders, states, illustrations, and data visualization.
+- Two token tiers: primitives define the raw palette; semantics assign each value a role, so nothing in the product references a hex value directly.
+- Every primitive holds a light and a dark value, so theming is a mode switch, not a second palette to maintain.
 
 <CaseImage
   src={palette}
